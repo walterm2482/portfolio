@@ -10,6 +10,7 @@ import {
   MorphingDialogClose,
   MorphingDialogContainer,
 } from '@/components/ui/morphing-dialog'
+
 type Props = {
   image?: string
   video?: string
@@ -19,80 +20,73 @@ type Props = {
 }
 
 export function ProjectMedia({ image, video, poster, index = 0, alt }: Props) {
-  const src = video ?? image ?? ''
-  if (!src) return null
-  const isVideo = Boolean(video)
-  const [reduced, setReduced] = useState(false)
-
+  const [reduced, setReduced] = useState(false)         // ← siempre llamado
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setReduced(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
     }
   }, [])
 
+  if (!image && !video) return null                     // ← después de los hooks
+
+  const isVideo = Boolean(video)
   const base = 'aspect-video w-full rounded-xl bg-zinc-100 dark:bg-zinc-900'
   const priority = index === 0
   const altText = alt || 'Media del proyecto'
 
   return (
-    <MorphingDialog transition={{ type: 'spring', bounce: 0, duration: 0.3 }}>
-      <MorphingDialogTrigger asChild>
-        <button type="button" aria-label={`Abrir media de ${altText}`} className="group w-full">
-          {isVideo ? (
-            <video
-              src={src}
-              poster={poster}
-              autoPlay={!reduced}
-              loop={!reduced}
-              muted
-              playsInline
-              preload="metadata"
-              className={`${base} object-contain`}
-            />
-          ) : (
-            <div className={`relative ${base}`}>
-              <Image
-                src={src}
-                alt={altText}
-                fill
-                sizes="(min-width: 640px) 50vw, 100vw"
-                className="rounded-xl object-contain"
-                priority={priority}
-              />
-            </div>
-          )}
-        </button>
+    <MorphingDialog transition={{ type: 'spring', bounce: 0, duration: 0.2 }}>
+      <MorphingDialogTrigger
+        type="button"
+        aria-label={`Abrir media de ${altText}`}
+        className="group w-full"
+      >
+        {isVideo ? (
+          <video
+            className={`${base} object-cover`}
+            src={video}
+            poster={poster}
+            muted
+            playsInline
+            {...(reduced ? {} : { autoPlay: true, loop: true })}
+          />
+        ) : (
+          <Image
+            src={image as string}
+            alt={altText}
+            width={1280}
+            height={720}
+            className={`${base} object-cover`}
+            priority={priority}
+          />
+        )}
       </MorphingDialogTrigger>
 
       <MorphingDialogContainer>
-        <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-inset ring-zinc-200/50 dark:bg-zinc-950 dark:ring-zinc-800/50">
-          {isVideo ? (
-            <video
-              src={src}
-              poster={poster}
-              controls
-              autoPlay={!reduced}
-              loop={!reduced}
-              muted
-              playsInline
-              preload="metadata"
-              className="aspect-video h-[50vh] w-full rounded-xl md:h-[70vh]"
-            />
-          ) : (
-            <div className="relative aspect-video h-[50vh] w-full md:h-[70vh]">
+        <MorphingDialogContent className="relative h-full w-full">
+          <div className="flex h-full w-full items-center justify-center">
+            {isVideo ? (
+              <video
+                className="rounded-xl"
+                src={video}
+                poster={poster}
+                controls
+                playsInline
+              />
+            ) : (
               <Image
-                src={src}
+                src={image as string}
                 alt={altText}
-                fill
-                sizes="100vw"
+                width={1920}
+                height={1080}
                 className="rounded-xl object-contain"
                 priority={priority}
               />
-            </div>
-          )}
+            )}
+          </div>
         </MorphingDialogContent>
 
-        <MorphingDialogClose className="fixed right-6 top-6 h-fit w-fit rounded-full bg-white p-1 ring-1 ring-zinc-200/60 dark:bg-zinc-900 dark:ring-zinc-800/60">
+        <MorphingDialogClose className="fixed top-6 right-6 h-9 w-9 rounded-full bg-white/70 ring-1 ring-inset ring-zinc-200/60 backdrop-blur-sm dark:bg-zinc-900 dark:ring-zinc-800/60">
           <XIcon className="h-5 w-5 text-zinc-500" />
         </MorphingDialogClose>
       </MorphingDialogContainer>
