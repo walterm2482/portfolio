@@ -2,14 +2,7 @@
 @plugin '@tailwindcss/typography';
 @custom-variant dark (&:is(.dark *));
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
+/* Compat Tailwind v4: borde por defecto */
 @layer base {
   *,
   ::after,
@@ -30,3 +23,37 @@
   --sh-property: #73daca;
   --sh-entity: #e0af68;
 }
+
+/* Sistema */
+html {
+  color-scheme: light dark;
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Desplazamiento correcto con header fijo */
+[id] { scroll-margin-top: 72px; }
+
+/* Foco visible consistente */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(161,161,170,.65); /* zinc-400 */
+  border-radius: .375rem;
+}
+.dark :focus-visible {
+  box-shadow: 0 0 0 2px rgba(82,82,91,.65); /* zinc-600 */
+}
+
+/* Selección de texto */
+::selection { background: #18181b; color: #fafafa; }
+.dark ::selection { background: #fafafa; color: #0a0a0a; }
+
+/* Medios */
+img, video { max-width: 100%; height: auto; }

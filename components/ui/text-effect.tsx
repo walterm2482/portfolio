@@ -63,10 +63,7 @@ const defaultItemVariants: Variants = {
   exit: { opacity: 0 },
 }
 
-const presetVariants: Record<
-  PresetType,
-  { container: Variants; item: Variants }
-> = {
+const presetVariants: Record<PresetType, { container: Variants; item: Variants }> = {
   blur: {
     container: defaultContainerVariants,
     item: {
@@ -166,9 +163,7 @@ const splitText = (text: string, per: 'line' | 'word' | 'char') => {
 const hasTransition = (
   variant: Variant,
 ): variant is TargetAndTransition & { transition?: Transition } => {
-  return (
-    typeof variant === 'object' && variant !== null && 'transition' in variant
-  )
+  return typeof variant === 'object' && variant !== null && 'transition' in variant
 }
 
 const createVariantsWithTransition = (
@@ -184,18 +179,14 @@ const createVariantsWithTransition = (
     visible: {
       ...baseVariants.visible,
       transition: {
-        ...(hasTransition(baseVariants.visible)
-          ? baseVariants.visible.transition
-          : {}),
+        ...(hasTransition(baseVariants.visible) ? baseVariants.visible.transition : {}),
         ...mainTransition,
       },
     },
     exit: {
       ...baseVariants.exit,
       transition: {
-        ...(hasTransition(baseVariants.exit)
-          ? baseVariants.exit.transition
-          : {}),
+        ...(hasTransition(baseVariants.exit) ? baseVariants.exit.transition : {}),
         ...mainTransition,
         staggerDirection: -1,
       },
@@ -233,13 +224,11 @@ export function TextEffect({
   const baseDuration = 0.3 / speedSegment
 
   const customStagger = hasTransition(variants?.container?.visible ?? {})
-    ? (variants?.container?.visible as TargetAndTransition).transition
-        ?.staggerChildren
+    ? (variants?.container?.visible as TargetAndTransition).transition?.staggerChildren
     : undefined
 
   const customDelay = hasTransition(variants?.container?.visible ?? {})
-    ? (variants?.container?.visible as TargetAndTransition).transition
-        ?.delayChildren
+    ? (variants?.container?.visible as TargetAndTransition).transition?.delayChildren
     : undefined
 
   const computedVariants = {

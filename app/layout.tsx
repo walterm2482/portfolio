@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
@@ -5,58 +6,84 @@ import { Header } from './header'
 import { Footer } from './footer'
 import { ThemeProvider } from 'next-themes'
 
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://waltermoya.dev'
+
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#ffffff',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#09090b' },
+  ],
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nim-fawn.vercel.app/'),
+  metadataBase: new URL(SITE),
   alternates: {
-    canonical: '/'
+    canonical: '/',
+    languages: { es: '/', en: '/en', 'x-default': '/' },
   },
-  title: {
-    default: 'Nim - Personal website template',
-    template: '%s | Nim'
+  title: { default: 'Walter Moya – IA y Datos', template: '%s | Walter Moya' },
+  description:
+    'Soluciones de IA y datos precisas, eficientes y escalables. Portafolio de Walter Moya.',
+  openGraph: {
+    type: 'website',
+    url: SITE,
+    title: 'Walter Moya – IA y Datos',
+    description: 'Soluciones de IA y datos precisas, eficientes y escalables.',
+    images: ['/og.png'],
   },
-  description:  'Nim is a free and open-source personal website template built with Next.js 15, React 19 and Motion-Primitives.',
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Walter Moya – IA y Datos',
+    description: 'Soluciones de IA y datos precisas, eficientes y escalables.',
+    images: ['/og.png'],
+  },
+  robots: { index: true, follow: true },
+  icons: { icon: '/favicon.ico' },
+}
 
-const geist = Geist({
-  variable: '--font-geist',
-  subsets: ['latin'],
-})
+const geist = Geist({ variable: '--font-geist', subsets: ['latin'] })
+const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Walter Moya',
+    email: 'mailto:cg.walter.ma@gmail.com',
+    url: 'https://waltermoya.dev',
+    affiliation: {
+      '@type': 'Organization',
+      name: 'CRAFIUM',
+      description: 'Corte y grabado láser',
+    },
+  }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <body
-        className={`${geist.variable} ${geistMono.variable} bg-white tracking-tight antialiased dark:bg-zinc-950`}
+        className={`${geist.variable} ${geistMono.variable} bg-white text-zinc-900 tracking-tight antialiased dark:bg-zinc-950 dark:text-zinc-100`}
       >
         <ThemeProvider
-          enableSystem={true}
           attribute="class"
           storageKey="theme"
           defaultTheme="system"
+          enableSystem
         >
-          <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
-            <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20">
-              <Header />
+          <div className="mx-auto flex min-h-screen w-full max-w-[720px] flex-col px-4 pt-20">
+            <Header />
+            <main id="contenido" className="flex-1 space-y-28 md:space-y-32">
               {children}
-              <Footer />
-            </div>
+            </main>
+            <Footer />
           </div>
         </ThemeProvider>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </body>
     </html>
   )

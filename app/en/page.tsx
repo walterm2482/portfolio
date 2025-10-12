@@ -7,32 +7,68 @@ import { AnimatedBackground } from '@/components/ui/animated-background'
 import { Magnetic } from '@/components/ui/magnetic'
 import { ProjectMedia } from '@/components/ui/ProjectMedia'
 import { Spotlight } from '@/components/ui/spotlight'
-import { Hero } from '@/components/Hero'
 
-import { getData } from './data'
-import type { Project } from './data'
+import { getData } from '../data'
+import type { Project } from '../data'
 
-const { PROJECTS = [], WORK_EXPERIENCE = [], BLOG_POSTS = [], EMAIL, SOCIAL_LINKS = [] } = getData('es')
+const { PROJECTS = [], WORK_EXPERIENCE = [], BLOG_POSTS = [], EMAIL, SOCIAL_LINKS = [] } = getData('en')
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
 }
-
 const VARIANTS_SECTION = {
   hidden: { opacity: 0, y: 20, filter: 'blur(8px)' },
   visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
 }
-
 const TRANSITION_SECTION = { duration: 0.3 }
 
-function MagneticSocialLink({
-  children,
-  link,
-}: {
-  children: React.ReactNode
-  link: string
-}) {
+function HeroEn() {
+  return (
+    <section
+      id="start"
+      aria-label="Intro"
+      className="relative isolate border-b border-zinc-200/50 dark:border-zinc-800/50"
+    >
+      {/* Top background */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 -top-64 z-0 h-[140vh] w-screen -translate-x-1/2 bg-gradient-to-b from-[#0d2a4a]/70 via-[#0d2a4a]/35 to-transparent"
+      />
+      {/* Bottom background */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-[60vh] w-screen -translate-x-1/2 bg-gradient-to-t from-[#0d2a4a]/50 via-[#0d2a4a]/20 to-transparent"
+      />
+      {/* Wide radial */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,white_65%,transparent)]"
+      >
+        <div className="absolute -top-24 left-1/2 h-[80rem] w-[120rem] -translate-x-1/2 rounded-full bg-gradient-to-tr from-emerald-300/25 via-sky-300/25 to-fuchsia-300/25 blur-3xl" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-5xl px-4 py-16 sm:py-20 md:py-28">
+        <p className="text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+          Artificial Intelligence and Data Science
+        </p>
+        <h1 className="mt-3 text-balance text-3xl font-semibold leading-tight tracking-tight md:text-5xl">
+          AI that strengthens decisions
+        </h1>
+        <p className="mt-3 max-w-2xl text-pretty text-sm text-zinc-600 dark:text-zinc-300 md:text-base">
+          Quantitative models and predictive analytics for intelligent decisions.
+        </p>
+        <p className="mt-6 max-w-2xl text-sm text-zinc-600 dark:text-zinc-400">
+          <span className="font-medium">Industrial Engineer.</span> MSc in Engineering Sciences
+          (Industrial specialization). Specialized in predictive modeling, computer vision, and
+          optimization.
+        </p>
+      </div>
+    </section>
+  )
+}
+
+function MagneticSocialLink({ children, link }: { children: React.ReactNode; link: string }) {
   return (
     <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
       <a
@@ -46,10 +82,10 @@ function MagneticSocialLink({
           width="15"
           height="15"
           viewBox="0 0 15 15"
+          aria-hidden="true"
+          className="h-3 w-3"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="h-3 w-3"
-          aria-hidden="true"
         >
           <path
             d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
@@ -66,34 +102,35 @@ function MagneticSocialLink({
 export default function Page() {
   return (
     <motion.main variants={VARIANTS_CONTAINER} initial="hidden" animate="visible">
-      <Hero />
+      <HeroEn />
 
-      {/* Proyectos */}
+      {/* Projects */}
       <motion.section
-        aria-labelledby="proyectos"
-        id="proyectos"
+        id="projects"
+        aria-labelledby="projects"
         className="scroll-mt-24 mt-24 md:mt-32"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h2 className="mb-5 text-lg font-medium">Proyectos</h2>
-
+        <h2 className="mb-5 text-lg font-medium">Projects</h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {PROJECTS.map((project: Project, i) => (
             <article key={project.id} className="space-y-3">
-              {/* Media */}
               <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-inset ring-zinc-200/50 dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectMedia image={project.image} video={project.video} poster={project.poster} index={i} />
+                <ProjectMedia
+                  image={project.image}
+                  video={project.video}
+                  poster={project.poster}
+                  index={i}
+                />
               </div>
-
-              {/* Contenido */}
               <div className="px-1">
                 <div className="flex items-start justify-between gap-3">
                   <a
                     href={project.link ?? project.demo ?? '#'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Abrir proyecto ${project.name}`}
+                    aria-label={`Open project ${project.name}`}
                     className="group relative inline-block font-medium text-zinc-900 dark:text-zinc-50"
                   >
                     {project.name}
@@ -105,61 +142,22 @@ export default function Page() {
                     </span>
                   )}
                 </div>
-
                 <p className="text-base text-zinc-600 dark:text-zinc-400">{project.description}</p>
-
-                {/* Caso de estudio */}
-                {project.caseStudy && (
-                  <div className="mt-3 space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-                    <p>
-                      <span className="font-medium text-zinc-800 dark:text-zinc-200">Problema:</span> {project.caseStudy.problem}
-                    </p>
-                    <p>
-                      <span className="font-medium text-zinc-800 dark:text-zinc-200">Enfoque:</span> {project.caseStudy.approach}
-                    </p>
-                    <p>
-                      <span className="font-medium text-zinc-800 dark:text-zinc-200">Resultado:</span> {project.caseStudy.result}
-                    </p>
-                  </div>
-                )}
-
-                {/* Stack */}
-                {project.stack?.length ? (
-                  <ul className="mt-2 flex flex-wrap gap-1.5">
-                    {project.stack.map((t) => (
-                      <li key={t} className="rounded-md bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
-                        {t}
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-
-                {/* Métricas */}
-                {project.metrics?.length ? (
-                  <dl className="mt-2 grid grid-cols-2 gap-2 text-sm text-zinc-700 dark:text-zinc-300">
-                    {project.metrics.map((m) => (
-                      <div key={m.label} className="rounded-lg border border-zinc-200 p-2 dark:border-zinc-800">
-                        <dt className="text-xs text-zinc-500">{m.label}</dt>
-                        <dd className="font-medium">{m.value}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                ) : null}
               </div>
             </article>
           ))}
         </div>
       </motion.section>
 
-      {/* Experiencia */}
+      {/* Experience */}
       <motion.section
-        aria-labelledby="experiencia"
-        id="experiencia"
+        id="experience"
+        aria-labelledby="experience"
         className="scroll-mt-24 mt-24 md:mt-32"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h2 className="mb-5 text-lg font-medium">Experiencia</h2>
+        <h2 className="mb-5 text-lg font-medium">Experience</h2>
         <ul className="flex flex-col space-y-2">
           {WORK_EXPERIENCE.map((job) => (
             <li key={job.id}>
@@ -189,14 +187,18 @@ export default function Page() {
 
       {/* Blog */}
       <motion.section
-        aria-labelledby="blog"
         id="blog"
+        aria-labelledby="blog"
         className="scroll-mt-24 mt-24 md:mt-32"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
         <h2 className="mb-3 text-lg font-medium">Blog</h2>
-        <AnimatedBackground enableHover className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80" transition={{ type: 'spring', bounce: 0, duration: 0.2 }}>
+        <AnimatedBackground
+          enableHover
+          className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80"
+          transition={{ type: 'spring', bounce: 0, duration: 0.2 }}
+        >
           {BLOG_POSTS.map((post) => (
             <Link
               key={post.uid}
@@ -205,7 +207,7 @@ export default function Page() {
               className="-mx-3 block rounded-xl px-3 py-3 focus-visible:outline-2"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Abrir post ${post.title}`}
+              aria-label={`Open post ${post.title}`}
             >
               <div className="flex flex-col space-y-1">
                 <h3 className="font-normal dark:text-zinc-100">{post.title}</h3>
@@ -216,17 +218,20 @@ export default function Page() {
         </AnimatedBackground>
       </motion.section>
 
-      {/* Contacto */}
+      {/* Contact */}
       <motion.section
-        aria-labelledby="contacto"
-        id="contacto"
+        id="contact"
+        aria-labelledby="contact"
         className="scroll-mt-24 mt-24 md:mt-32"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h2 className="mb-5 text-lg font-medium">Contacto</h2>
+        <h2 className="mb-5 text-lg font-medium">Contact</h2>
         <p className="mb-5 text-zinc-600 dark:text-zinc-400">
-          Escríbeme a <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+          Email me at{' '}
+          <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>
+            {EMAIL}
+          </a>
         </p>
         <div className="flex items-center gap-3">
           {SOCIAL_LINKS.map((s) => (
