@@ -45,18 +45,9 @@ export type SocialLink = { label: string; link: string }
 
 // ==== Redes y contacto (comparten idioma) ====
 export const SOCIAL_LINKS: SocialLink[] = [
-  {
-    label: 'GitHub',
-    link: 'https://github.com/walterm2482',
-  },
-  {
-    label: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/walter-thomas-moya-araya-a211b9307/',
-  },
-  {
-    label: 'Kaggle',
-    link: 'https://www.kaggle.com/waltertmoyaaraya',
-  },
+  { label: 'GitHub', link: 'https://github.com/walterm2482' },
+  { label: 'LinkedIn', link: 'https://www.linkedin.com/in/walter-thomas-moya-araya-a211b9307/' },
+  { label: 'Kaggle', link: 'https://www.kaggle.com/waltertmoyaaraya' },
 ]
 
 export const EMAIL = 'cg.walter.ma@gmail.com'
@@ -70,14 +61,7 @@ const PROJECTS_ES: Project[] = [
       'Indicador de clustering K-Means para cTrader que utiliza machine learning para detectar patrones de mercado y visualizar señales de trading.',
     image: '/projects/k_means.webp',
     role: 'ML Engineer',
-    stack: [
-      'C#',
-      'cTrader',
-      'Machine Learning',
-      'Clustering',
-      'Online Learning',
-      'REST API (Telegram)',
-    ],
+    stack: ['C#', 'cTrader', 'Machine Learning', 'Clustering', 'Online Learning', 'REST API (Telegram)'],
     metrics: [
       { label: 'Versión', value: '2.0.0' },
       { label: 'Actualizado', value: '2025-10-08' },
@@ -94,14 +78,7 @@ const PROJECTS_ES: Project[] = [
       'Indicador GMM para cTrader que actúa como clasificador probabilístico, empleando modelos de mezcla de gaussianas para identificar patrones de mercado y generar señales de trading basadas en probabilidad de modelo.',
     image: '/projects/gaussian_mixture_model.webp',
     role: 'ML Engineer',
-    stack: [
-      'C#',
-      'cTrader',
-      'GMM',
-      'Probabilistic Classifier',
-      'Model Probability',
-      'REST API (Telegram)',
-    ],
+    stack: ['C#', 'cTrader', 'GMM', 'Probabilistic Classifier', 'Model Probability', 'REST API (Telegram)'],
     metrics: [
       { label: 'Versión', value: '1.0.0' },
       { label: 'Actualizado', value: '2025-09-18' },
@@ -117,13 +94,7 @@ const PROJECTS_ES: Project[] = [
       'Estrategia de portafolio de mínima correlación que automatiza el análisis de activos y optimiza el balance riesgo-retorno mediante recocido simulado e integración con cAlgo.',
     image: '/projects/smart_portfolio.webp',
     role: 'ML Engineer',
-    stack: [
-      'cAlgo',
-      'Portfolio Optimization',
-      'Simulated Annealing',
-      'Risk Management',
-      'REST API (Telegram)',
-    ],
+    stack: ['cAlgo', 'Portfolio Optimization', 'Simulated Annealing', 'Risk Management', 'REST API (Telegram)'],
     metrics: [
       { label: 'Versión', value: '1.0.0' },
       { label: 'Actualizado', value: '2025-09-18' },
@@ -140,12 +111,7 @@ const PROJECTS_ES: Project[] = [
       'Indicador de umbral para cTrader que aplica el filtro de Kalman lineal, MEWMA y bandas de ATR para el análisis de series temporales y generación de señales de trading con alertas vía Telegram.',
     image: '/projects/moya_bands.webp',
     role: 'ML Engineer',
-    stack: [
-      'Kalman Filter',
-      'Time Series Analysis',
-      'cTrader',
-      'Telegram API',
-    ],
+    stack: ['Kalman Filter', 'Time Series Analysis', 'cTrader', 'Telegram API'],
     metrics: [
       { label: 'Versión', value: '1.0.0' },
       { label: 'Actualizado', value: '2025-09-09' },
@@ -162,13 +128,7 @@ const PROJECTS_ES: Project[] = [
       'Análisis de segmentación y optimización operativa del sistema de bicicletas de Chicago para impulsar la conversión a membresías anuales.',
     image: '/projects/divvy_chicago.webp',
     role: 'Data Scientist',
-    stack: [
-      'Segmentation Analysis',
-      'Clustering',
-      'Time Series',
-      'GeoAnalytics',
-      'Digital Strategy',
-    ],
+    stack: ['Segmentation Analysis', 'Clustering', 'Time Series', 'GeoAnalytics', 'Digital Strategy'],
     caseStudy: {
       problem: 'Detectar patrones de uso y factores de conversión en el programa Cyclistic Bike-Share.',
       approach: 'Modelado espacio-temporal y clustering de usuarios para orientar acciones de marketing y operación.',
@@ -184,14 +144,7 @@ const PROJECTS_ES: Project[] = [
 ]
 
 const WORK_EXPERIENCE_ES: WorkExperience[] = [
-  {
-    id: 'wm-work-1',
-    title: 'Fundador',
-    company: 'CRAFIUM (corte y grabado láser)',
-    start: 'feb 2025',
-    end: 'Presente',
-    link: '#',
-  },
+  { id: 'wm-work-1', title: 'Fundador', company: 'CRAFIUM (corte y grabado láser)', start: 'feb 2025', end: 'Presente', link: '#' },
   {
     id: 'wm-work-2',
     title: 'Desarrollador de soluciones de trading e inteligencia artificial',
@@ -200,22 +153,8 @@ const WORK_EXPERIENCE_ES: WorkExperience[] = [
     end: 'Presente',
     link: '#',
   },
-  {
-    id: 'wm-work-3',
-    title: 'Junior Programmer',
-    company: 'ClickAlgo',
-    start: 'nov 2023',
-    end: 'oct 2024',
-    link: 'https://clickalgo.com',
-  },
-  {
-    id: 'wm-work-4',
-    title: 'Analyst Trainee',
-    company: 'PwC Chile',
-    start: 'Aug 2022',
-    end: 'Nov 2022',
-    link: 'https://www.pwc.com/cl/',
-  },
+  { id: 'wm-work-3', title: 'Junior Programmer', company: 'ClickAlgo', start: 'nov 2023', end: 'oct 2024', link: 'https://clickalgo.com' },
+  { id: 'wm-work-4', title: 'Analyst Trainee', company: 'PwC Chile', start: 'Aug 2022', end: 'Nov 2022', link: 'https://www.pwc.com/cl/' },
 ]
 
 const BLOG_POSTS_ES: BlogPost[] = [
@@ -267,14 +206,7 @@ const PROJECTS_EN: Project[] = [
       'K-Means clustering indicator for cTrader that uses machine learning to detect market patterns and visualize trading signals.',
     image: '/projects/k_means.webp',
     role: 'ML Engineer',
-    stack: [
-      'C#',
-      'cTrader',
-      'Machine Learning',
-      'Clustering',
-      'Online Learning',
-      'REST API (Telegram)',
-    ],
+    stack: ['C#', 'cTrader', 'Machine Learning', 'Clustering', 'Online Learning', 'REST API (Telegram)'],
     metrics: [
       { label: 'Version', value: '2.0.0' },
       { label: 'Updated', value: '2025-10-08' },
@@ -291,14 +223,7 @@ const PROJECTS_EN: Project[] = [
       'GMM indicator for cTrader that acts as a probabilistic classifier, using Gaussian mixture models to identify market patterns and generate trading signals based on model probability.',
     image: '/projects/gaussian_mixture_model.webp',
     role: 'ML Engineer',
-    stack: [
-      'C#',
-      'cTrader',
-      'GMM',
-      'Probabilistic Classifier',
-      'Model Probability',
-      'REST API (Telegram)',
-    ],
+    stack: ['C#', 'cTrader', 'GMM', 'Probabilistic Classifier', 'Model Probability', 'REST API (Telegram)'],
     metrics: [
       { label: 'Version', value: '1.0.0' },
       { label: 'Updated', value: '2025-09-18' },
@@ -314,13 +239,7 @@ const PROJECTS_EN: Project[] = [
       'Minimum-correlation portfolio strategy that automates asset analysis and optimizes the risk–return balance using simulated annealing and cAlgo integration.',
     image: '/projects/smart_portfolio.webp',
     role: 'ML Engineer',
-    stack: [
-      'cAlgo',
-      'Portfolio Optimization',
-      'Simulated Annealing',
-      'Risk Management',
-      'REST API (Telegram)',
-    ],
+    stack: ['cAlgo', 'Portfolio Optimization', 'Simulated Annealing', 'Risk Management', 'REST API (Telegram)'],
     metrics: [
       { label: 'Version', value: '1.0.0' },
       { label: 'Updated', value: '2025-09-18' },
@@ -337,12 +256,7 @@ const PROJECTS_EN: Project[] = [
       'Threshold indicator for cTrader that applies the linear Kalman filter, MEWMA, and ATR bands for time-series analysis and signal generation, with Telegram alerts.',
     image: '/projects/moya_bands.webp',
     role: 'ML Engineer',
-    stack: [
-      'Kalman Filter',
-      'Time Series Analysis',
-      'cTrader',
-      'Telegram API',
-    ],
+    stack: ['Kalman Filter', 'Time Series Analysis', 'cTrader', 'Telegram API'],
     metrics: [
       { label: 'Version', value: '1.0.0' },
       { label: 'Updated', value: '2025-09-09' },
@@ -359,13 +273,7 @@ const PROJECTS_EN: Project[] = [
       "Segmentation analysis and operational optimization of Chicago's bike system to drive conversion to annual memberships.",
     image: '/projects/divvy_chicago.webp',
     role: 'Data Scientist',
-    stack: [
-      'Segmentation Analysis',
-      'Clustering',
-      'Time Series',
-      'GeoAnalytics',
-      'Digital Strategy',
-    ],
+    stack: ['Segmentation Analysis', 'Clustering', 'Time Series', 'GeoAnalytics', 'Digital Strategy'],
     caseStudy: {
       problem: 'Detect usage patterns and conversion drivers in the Cyclistic bike-share program.',
       approach: 'Spatiotemporal modeling and user clustering to guide marketing and operations.',
@@ -389,30 +297,9 @@ const WORK_EXPERIENCE_EN: WorkExperience[] = [
     end: 'Present',
     link: '#',
   },
-  {
-    id: 'wm-work-2',
-    title: 'Trading and AI Solutions Developer',
-    company: 'Freelance',
-    start: 'Oct 2024',
-    end: 'Present',
-    link: '#',
-  },
-  {
-    id: 'wm-work-3',
-    title: 'Junior Programmer',
-    company: 'ClickAlgo',
-    start: 'Nov 2023',
-    end: 'Oct 2024',
-    link: 'https://clickalgo.com',
-  },
-  {
-    id: 'wm-work-4',
-    title: 'Analyst Trainee',
-    company: 'PwC Chile',
-    start: 'ago 2022',
-    end: 'nov 2022',
-    link: 'https://www.pwc.com/cl/',
-  },
+  { id: 'wm-work-2', title: 'Trading and AI Solutions Developer', company: 'Freelance', start: 'Oct 2024', end: 'Present', link: '#' },
+  { id: 'wm-work-3', title: 'Junior Programmer', company: 'ClickAlgo', start: 'Nov 2023', end: 'Oct 2024', link: 'https://clickalgo.com' },
+  { id: 'wm-work-4', title: 'Analyst Trainee', company: 'PwC Chile', start: 'ago 2022', end: 'nov 2022', link: 'https://www.pwc.com/cl/' },
 ]
 
 const BLOG_POSTS_EN: BlogPost[] = [
