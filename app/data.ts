@@ -45,10 +45,20 @@ export type SocialLink = { label: string; link: string }
 
 // ==== Redes y contacto (comparten idioma) ====
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: 'GitHub', link: 'https://github.com/walterm2482' },
-  { label: 'LinkedIn', link: 'https://www.linkedin.com/in/walter-thomas-moya-araya-a211b9307/' },
-  { label: 'Kaggle', link: 'https://www.kaggle.com/waltertmoyaaraya' },
+  {
+    label: 'GitHub',
+    link: 'https://github.com/walterm2482',
+  },
+  {
+    label: 'LinkedIn',
+    link: 'https://www.linkedin.com/in/walter-thomas-moya-araya-a211b9307/',
+  },
+  {
+    label: 'Kaggle',
+    link: 'https://www.kaggle.com/waltertmoyaaraya',
+  },
 ]
+
 export const EMAIL = 'cg.walter.ma@gmail.com'
 
 // ====================== ES ======================
@@ -143,11 +153,38 @@ const PROJECTS_ES: Project[] = [
 ]
 
 const WORK_EXPERIENCE_ES: WorkExperience[] = [
-  { id: 'wm-work-1', title: 'Fundador', company: 'CRAFIUM (corte y grabado láser)', start: 'feb 2025', end: 'Presente', link: '#' },
-  { id: 'wm-work-2', title: 'Desarrollador de soluciones de trading e inteligencia artificial', company: 'Independiente', start: 'oct 2024', end: 'Presente', link: '#' },
-  { id: 'wm-work-3', title: 'Junior Programmer', company: 'ClickAlgo', start: 'nov 2023', end: 'oct 2024', link: 'https://clickalgo.com' },
-  { id: 'wm-work-4', title: 'Analyst Trainee', company: 'PwC Chile', start: 'Aug 2022', end: 'Nov 2022', link: 'https://www.pwc.com/cl/' },
-
+  {
+    id: 'wm-work-1',
+    title: 'Fundador',
+    company: 'CRAFIUM (corte y grabado láser)',
+    start: 'feb 2025',
+    end: 'Presente',
+    link: '#',
+  },
+  {
+    id: 'wm-work-2',
+    title: 'Desarrollador de soluciones de trading e inteligencia artificial',
+    company: 'Independiente',
+    start: 'oct 2024',
+    end: 'Presente',
+    link: '#',
+  },
+  {
+    id: 'wm-work-3',
+    title: 'Junior Programmer',
+    company: 'ClickAlgo',
+    start: 'nov 2023',
+    end: 'oct 2024',
+    link: 'https://clickalgo.com',
+  },
+  {
+    id: 'wm-work-4',
+    title: 'Analyst Trainee',
+    company: 'PwC Chile',
+    start: 'Aug 2022',
+    end: 'Nov 2022',
+    link: 'https://www.pwc.com/cl/',
+  },
 ]
 
 const BLOG_POSTS_ES: BlogPost[] = [
@@ -164,8 +201,7 @@ const BLOG_POSTS_ES: BlogPost[] = [
   {
     uid: 'ridge-regression-active-learning',
     title: 'Ridge Regression + Active Learning',
-    description:
-      'Uso de aprendizaje activo para optimizar la selección de datos en regresión Ridge.',
+    description: 'Uso de aprendizaje activo para optimizar la selección de datos en regresión Ridge.',
     link: 'https://www.kaggle.com/code/waltertmoyaaraya/ridge-regression-active-learning',
     date: '2025-06-10',
     tags: ['Machine Learning', 'Active Learning', 'Regression'],
@@ -174,8 +210,7 @@ const BLOG_POSTS_ES: BlogPost[] = [
   {
     uid: 'imdb-logistic-baseline',
     title: 'Simple IMDB Reviews: Logistic Regression Baseline',
-    description:
-      'Modelo base de clasificación de sentimiento con regresión logística y bag-of-words.',
+    description: 'Modelo base de clasificación de sentimiento con regresión logística y bag-of-words.',
     link: 'https://www.kaggle.com/code/waltertmoyaaraya/simple-imdb-reviews-logistic-regression-baseline',
     date: '2025-05-12',
     tags: ['NLP', 'Logistic Regression', 'Baseline'],
@@ -184,8 +219,7 @@ const BLOG_POSTS_ES: BlogPost[] = [
   {
     uid: 'lime-shap-bias',
     title: 'LIME & SHAP: Interpretabilidad y Sesgo en Modelos',
-    description:
-      'Comparación crítica entre LIME y SHAP aplicada a modelos predictivos en salud.',
+    description: 'Comparación crítica entre LIME y SHAP aplicada a modelos predictivos en salud.',
     link: 'https://www.kaggle.com/code/waltertmoyaaraya/lime-shap-interpretability-model-bias',
     date: '2025-04-01',
     tags: ['Explainability', 'LIME', 'SHAP', 'Bias'],
@@ -285,18 +319,45 @@ const PROJECTS_EN: Project[] = [
 ]
 
 const WORK_EXPERIENCE_EN: WorkExperience[] = [
-  { id: 'wm-work-1', title: 'Founder', company: 'CRAFIUM (laser cutting and engraving)', start: 'Feb 2025', end: 'Present', link: '#' },
-  { id: 'wm-work-2', title: 'Trading and AI Solutions Developer', company: 'Freelance', start: 'Oct 2024', end: 'Present', link: '#' },
-  { id: 'wm-work-3', title: 'Junior Programmer', company: 'ClickAlgo', start: 'Nov 2023', end: 'Oct 2024', link: 'https://clickalgo.com' },
-  { id: 'wm-work-4', title: 'Analyst Trainee', company: 'PwC Chile', start: 'ago 2022', end: 'nov 2022', link: 'https://www.pwc.com/cl/' },
+  {
+    id: 'wm-work-1',
+    title: 'Founder',
+    company: 'CRAFIUM (laser cutting and engraving)',
+    start: 'Feb 2025',
+    end: 'Present',
+    link: '#',
+  },
+  {
+    id: 'wm-work-2',
+    title: 'Trading and AI Solutions Developer',
+    company: 'Freelance',
+    start: 'Oct 2024',
+    end: 'Present',
+    link: '#',
+  },
+  {
+    id: 'wm-work-3',
+    title: 'Junior Programmer',
+    company: 'ClickAlgo',
+    start: 'Nov 2023',
+    end: 'Oct 2024',
+    link: 'https://clickalgo.com',
+  },
+  {
+    id: 'wm-work-4',
+    title: 'Analyst Trainee',
+    company: 'PwC Chile',
+    start: 'ago 2022',
+    end: 'nov 2022',
+    link: 'https://www.pwc.com/cl/',
+  },
 ]
 
 const BLOG_POSTS_EN: BlogPost[] = [
   {
     uid: 'naive-bayes',
     title: 'Classification with Naive Bayes',
-    description:
-      'Implementation and evaluation of Naive Bayes classifiers applied to textual datasets.',
+    description: 'Implementation and evaluation of Naive Bayes classifiers applied to textual datasets.',
     link: 'https://www.kaggle.com/code/waltertmoyaaraya/classification-with-naive-bayes',
     date: '2025-07-01',
     tags: ['Python', 'Naive Bayes', 'Classification'],
@@ -305,8 +366,7 @@ const BLOG_POSTS_EN: BlogPost[] = [
   {
     uid: 'ridge-regression-active-learning',
     title: 'Ridge Regression + Active Learning',
-    description:
-      'Active learning to optimize data selection in Ridge regression.',
+    description: 'Active learning to optimize data selection in Ridge regression.',
     link: 'https://www.kaggle.com/code/waltertmoyaaraya/ridge-regression-active-learning',
     date: '2025-06-10',
     tags: ['Machine Learning', 'Active Learning', 'Regression'],
@@ -315,8 +375,7 @@ const BLOG_POSTS_EN: BlogPost[] = [
   {
     uid: 'imdb-logistic-baseline',
     title: 'Simple IMDB Reviews: Logistic Regression Baseline',
-    description:
-      'Baseline sentiment classifier with logistic regression and bag-of-words.',
+    description: 'Baseline sentiment classifier with logistic regression and bag-of-words.',
     link: 'https://www.kaggle.com/code/waltertmoyaaraya/simple-imdb-reviews-logistic-regression-baseline',
     date: '2025-05-12',
     tags: ['NLP', 'Logistic Regression', 'Baseline'],
@@ -325,8 +384,7 @@ const BLOG_POSTS_EN: BlogPost[] = [
   {
     uid: 'lime-shap-bias',
     title: 'LIME & SHAP: Interpretability and Bias in Models',
-    description:
-      'Critical comparison between LIME and SHAP applied to health predictive models.',
+    description: 'Critical comparison between LIME and SHAP applied to health predictive models.',
     link: 'https://www.kaggle.com/code/waltertmoyaaraya/lime-shap-interpretability-model-bias',
     date: '2025-04-01',
     tags: ['Explainability', 'LIME', 'SHAP', 'Bias'],
