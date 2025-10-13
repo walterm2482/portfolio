@@ -11,7 +11,6 @@ import {
 import React from 'react'
 
 export type PresetType = 'blur' | 'fade-in-blur' | 'scale' | 'fade' | 'slide'
-
 export type PerType = 'word' | 'char' | 'line'
 
 export type TextEffectProps = {
@@ -46,9 +45,7 @@ const defaultContainerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.05,
-    },
+    transition: { staggerChildren: 0.05 },
   },
   exit: {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
@@ -57,9 +54,7 @@ const defaultContainerVariants: Variants = {
 
 const defaultItemVariants: Variants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-  },
+  visible: { opacity: 1 },
   exit: { opacity: 0 },
 }
 
@@ -140,12 +135,9 @@ const AnimationComponent: React.FC<{
       </motion.span>
     )
 
-  if (!segmentWrapperClassName) {
-    return content
-  }
+  if (!segmentWrapperClassName) return content
 
   const defaultWrapperClassName = per === 'line' ? 'block' : 'inline-block'
-
   return (
     <span className={cn(defaultWrapperClassName, segmentWrapperClassName)}>
       {content}
@@ -172,7 +164,8 @@ const createVariantsWithTransition = (
 ): Variants => {
   if (!transition) return baseVariants
 
-  const { exit: _, ...mainTransition } = transition
+  // usar 'exit' en lugar de ignorarlo para evitar la variable sin uso
+  const { exit, ...mainTransition } = transition
 
   return {
     ...baseVariants,
@@ -188,6 +181,7 @@ const createVariantsWithTransition = (
       transition: {
         ...(hasTransition(baseVariants.exit) ? baseVariants.exit.transition : {}),
         ...mainTransition,
+        ...(exit ?? {}),
         staggerDirection: -1,
       },
     },
@@ -220,7 +214,6 @@ export function TextEffect({
     : { container: defaultContainerVariants, item: defaultItemVariants }
 
   const stagger = defaultStaggerTimes[per] / speedReveal
-
   const baseDuration = 0.3 / speedSegment
 
   const customStagger = hasTransition(variants?.container?.visible ?? {})

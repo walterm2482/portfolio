@@ -12,7 +12,13 @@ import { Hero } from '@/components/Hero'
 import { getData } from './data'
 import type { Project } from './data'
 
-const { PROJECTS = [], WORK_EXPERIENCE = [], BLOG_POSTS = [], EMAIL, SOCIAL_LINKS = [] } = getData('es')
+const {
+  PROJECTS = [],
+  WORK_EXPERIENCE = [],
+  BLOG_POSTS = [],
+  EMAIL,
+  SOCIAL_LINKS = [],
+} = getData('es')
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -72,7 +78,7 @@ export default function Page() {
       <motion.section
         aria-labelledby="proyectos"
         id="proyectos"
-        className="scroll-mt-24 mt-24 md:mt-32"
+        className="mt-24 scroll-mt-24 md:mt-32"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
@@ -82,8 +88,13 @@ export default function Page() {
           {PROJECTS.map((project: Project, i) => (
             <article key={project.id} className="space-y-3">
               {/* Media */}
-              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-inset ring-zinc-200/50 dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectMedia image={project.image} video={project.video} poster={project.poster} index={i} />
+              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
+                <ProjectMedia
+                  image={project.image}
+                  video={project.video}
+                  poster={project.poster}
+                  index={i}
+                />
               </div>
 
               {/* Contenido */}
@@ -106,19 +117,30 @@ export default function Page() {
                   )}
                 </div>
 
-                <p className="text-base text-zinc-600 dark:text-zinc-400">{project.description}</p>
+                <p className="text-base text-zinc-600 dark:text-zinc-400">
+                  {project.description}
+                </p>
 
                 {/* Caso de estudio */}
                 {project.caseStudy && (
                   <div className="mt-3 space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
                     <p>
-                      <span className="font-medium text-zinc-800 dark:text-zinc-200">Problema:</span> {project.caseStudy.problem}
+                      <span className="font-medium text-zinc-800 dark:text-zinc-200">
+                        Problema:
+                      </span>{' '}
+                      {project.caseStudy.problem}
                     </p>
                     <p>
-                      <span className="font-medium text-zinc-800 dark:text-zinc-200">Enfoque:</span> {project.caseStudy.approach}
+                      <span className="font-medium text-zinc-800 dark:text-zinc-200">
+                        Enfoque:
+                      </span>{' '}
+                      {project.caseStudy.approach}
                     </p>
                     <p>
-                      <span className="font-medium text-zinc-800 dark:text-zinc-200">Resultado:</span> {project.caseStudy.result}
+                      <span className="font-medium text-zinc-800 dark:text-zinc-200">
+                        Resultado:
+                      </span>{' '}
+                      {project.caseStudy.result}
                     </p>
                   </div>
                 )}
@@ -127,7 +149,10 @@ export default function Page() {
                 {project.stack?.length ? (
                   <ul className="mt-2 flex flex-wrap gap-1.5">
                     {project.stack.map((t) => (
-                      <li key={t} className="rounded-md bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+                      <li
+                        key={t}
+                        className="rounded-md bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300"
+                      >
                         {t}
                       </li>
                     ))}
@@ -138,7 +163,10 @@ export default function Page() {
                 {project.metrics?.length ? (
                   <dl className="mt-2 grid grid-cols-2 gap-2 text-sm text-zinc-700 dark:text-zinc-300">
                     {project.metrics.map((m) => (
-                      <div key={m.label} className="rounded-lg border border-zinc-200 p-2 dark:border-zinc-800">
+                      <div
+                        key={m.label}
+                        className="rounded-lg border border-zinc-200 p-2 dark:border-zinc-800"
+                      >
                         <dt className="text-xs text-zinc-500">{m.label}</dt>
                         <dd className="font-medium">{m.value}</dd>
                       </div>
@@ -155,7 +183,7 @@ export default function Page() {
       <motion.section
         aria-labelledby="experiencia"
         id="experiencia"
-        className="scroll-mt-24 mt-24 md:mt-32"
+        className="mt-24 scroll-mt-24 md:mt-32"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
@@ -169,7 +197,10 @@ export default function Page() {
                 rel="noopener noreferrer"
                 className="relative block overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
               >
-                <Spotlight className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50" size={64} />
+                <Spotlight
+                  className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+                  size={64}
+                />
                 <div className="relative rounded-[15px] bg-white p-4 dark:bg-zinc-950">
                   <div className="flex items-start justify-between gap-3">
                     <div>
@@ -191,12 +222,16 @@ export default function Page() {
       <motion.section
         aria-labelledby="blog"
         id="blog"
-        className="scroll-mt-24 mt-24 md:mt-32"
+        className="mt-24 scroll-mt-24 md:mt-32"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
         <h2 className="mb-3 text-lg font-medium">Blog</h2>
-        <AnimatedBackground enableHover className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80" transition={{ type: 'spring', bounce: 0, duration: 0.2 }}>
+        <AnimatedBackground
+          enableHover
+          className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80"
+          transition={{ type: 'spring', bounce: 0, duration: 0.2 }}
+        >
           {BLOG_POSTS.map((post) => (
             <Link
               key={post.uid}
@@ -220,13 +255,16 @@ export default function Page() {
       <motion.section
         aria-labelledby="contacto"
         id="contacto"
-        className="scroll-mt-24 mt-24 md:mt-32"
+        className="mt-24 scroll-mt-24 md:mt-32"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
         <h2 className="mb-5 text-lg font-medium">Contacto</h2>
         <p className="mb-5 text-zinc-600 dark:text-zinc-400">
-          Escríbeme a <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+          Escríbeme a{' '}
+          <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>
+            {EMAIL}
+          </a>
         </p>
         <div className="flex items-center gap-3">
           {SOCIAL_LINKS.map((s) => (

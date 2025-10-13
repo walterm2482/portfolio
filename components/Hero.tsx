@@ -12,7 +12,7 @@ export function Hero() {
       {/* Fondo superior */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 -top-64 z-0 h-[140vh] w-screen -translate-x-1/2 bg-gradient-to-b from-[#0d2a4a]/70 via-[#0d2a4a]/35 to-transparent"
+        className="pointer-events-none absolute -top-64 left-1/2 z-0 h-[140vh] w-screen -translate-x-1/2 bg-gradient-to-b from-[#0d2a4a]/70 via-[#0d2a4a]/35 to-transparent"
       />
       {/* Fondo inferior */}
       <div
@@ -29,20 +29,24 @@ export function Hero() {
 
       {/* Contenido */}
       <div className="relative z-10 mx-auto max-w-5xl px-4 py-16 sm:py-20 md:py-28">
-        <p className="text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+        <p className="text-xs tracking-widest text-zinc-500 uppercase dark:text-zinc-400">
           Inteligencia Artificial y Ciencia de Datos
         </p>
 
-        <h1 className="mt-3 text-balance text-3xl font-semibold leading-tight tracking-tight md:text-5xl">
+        <h1 className="mt-3 text-3xl leading-tight font-semibold tracking-tight text-balance md:text-5xl">
           La IA que potencia decisiones
         </h1>
 
-        <p className="mt-3 max-w-2xl text-pretty text-sm text-zinc-600 dark:text-zinc-300 md:text-base">
+        <p className="mt-3 max-w-2xl text-sm text-pretty text-zinc-600 md:text-base dark:text-zinc-300">
           Modelos cuantitativos y analítica predictiva para decisiones inteligentes.
         </p>
 
         <p className="mt-6 max-w-2xl text-sm text-zinc-600 dark:text-zinc-400">
-          Ingeniero Civil Industrial. Magíster en Ciencias de la Ingeniería (mención Industrias). <span className="font-medium">Especializado en modelos predictivos, visión por computador y optimización.</span>
+          Ingeniero Civil Industrial. Magíster en Ciencias de la Ingeniería (mención
+          Industrias).{' '}
+          <span className="font-medium">
+            Especializado en modelos predictivos, visión por computador y optimización.
+          </span>
         </p>
       </div>
     </section>

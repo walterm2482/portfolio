@@ -44,7 +44,10 @@ export const metadata: Metadata = {
 }
 
 const geist = Geist({ variable: '--font-geist', subsets: ['latin'] })
-const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+})
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const jsonLd = {
@@ -63,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" suppressHydrationWarning>
       <body
-        className={`${geist.variable} ${geistMono.variable} bg-white text-zinc-900 tracking-tight antialiased dark:bg-zinc-950 dark:text-zinc-100`}
+        className={`${geist.variable} ${geistMono.variable} bg-white tracking-tight text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100`}
       >
         <ThemeProvider
           attribute="class"

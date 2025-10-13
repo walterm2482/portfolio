@@ -10,6 +10,7 @@ import {
   MorphingDialogClose,
   MorphingDialogContainer,
 } from '@/components/ui/morphing-dialog'
+
 type Props = {
   image?: string
   video?: string
@@ -19,25 +20,25 @@ type Props = {
 }
 
 export function ProjectMedia({ image, video, poster, index = 0, alt }: Props) {
-  const src = video ?? image ?? ''
-  if (!src) return null
-  const isVideo = Boolean(video)
   const [reduced, setReduced] = useState(false)
-
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setReduced(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
     }
   }, [])
 
+  const src = video ?? image ?? ''
+  if (!src) return null
+
+  const isVideo = Boolean(video)
   const base = 'aspect-video w-full rounded-xl bg-zinc-100 dark:bg-zinc-900'
   const priority = index === 0
   const altText = alt || 'Media del proyecto'
 
   return (
     <MorphingDialog transition={{ type: 'spring', bounce: 0, duration: 0.3 }}>
-      <MorphingDialogTrigger asChild>
-        <button type="button" aria-label={`Abrir media de ${altText}`} className="group w-full">
+      <MorphingDialogTrigger>
+        <div className="group w-full" aria-label={`Abrir media de ${altText}`}>
           {isVideo ? (
             <video
               src={src}
@@ -61,11 +62,11 @@ export function ProjectMedia({ image, video, poster, index = 0, alt }: Props) {
               />
             </div>
           )}
-        </button>
+        </div>
       </MorphingDialogTrigger>
 
       <MorphingDialogContainer>
-        <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-inset ring-zinc-200/50 dark:bg-zinc-950 dark:ring-zinc-800/50">
+        <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
           {isVideo ? (
             <video
               src={src}
@@ -92,7 +93,7 @@ export function ProjectMedia({ image, video, poster, index = 0, alt }: Props) {
           )}
         </MorphingDialogContent>
 
-        <MorphingDialogClose className="fixed right-6 top-6 h-fit w-fit rounded-full bg-white p-1 ring-1 ring-zinc-200/60 dark:bg-zinc-900 dark:ring-zinc-800/60">
+        <MorphingDialogClose className="fixed top-6 right-6 h-fit w-fit rounded-full bg-white p-1 ring-1 ring-zinc-200/60 dark:bg-zinc-900 dark:ring-zinc-800/60">
           <XIcon className="h-5 w-5 text-zinc-500" />
         </MorphingDialogClose>
       </MorphingDialogContainer>
