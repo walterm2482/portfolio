@@ -41,6 +41,9 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   icons: { icon: '/favicon.ico' },
+  other: {
+    'impact-site-verification': '10cc509f-7719-4713-bed3-9f26668108a1',
+  },
 }
 
 const geist = Geist({ variable: '--font-geist', subsets: ['latin'] })
