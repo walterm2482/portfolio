@@ -41,9 +41,6 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   icons: { icon: '/favicon.ico' },
-  other: {
-    'impact-site-verification': '10cc509f-7719-4713-bed3-9f26668108a1',
-  },
 }
 
 const geist = Geist({ variable: '--font-geist', subsets: ['latin'] })
@@ -68,6 +65,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="es" suppressHydrationWarning>
+      <head>
+        {/* @ts-ignore - Forzamos el atributo 'value' requerido por la plataforma externa */}
+        <meta name='impact-site-verification' value='10cc509f-7719-4713-bed3-9f26668108a1' />
+      </head>
       <body
         className={`${geist.variable} ${geistMono.variable} bg-white tracking-tight text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100`}
       >
