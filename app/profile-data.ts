@@ -53,8 +53,8 @@ export function getProfileData(lang: Lang) {
       },
     ],
     thesis: en
-      ? 'Master’s thesis: video-based construction machinery monitoring with YOLOv8 and BoT-SORT, combining object detection, tracking and activity measurement.'
-      : 'Tesis de magíster: monitoreo de maquinaria de construcción por video con YOLOv8 y BoT-SORT, integrando detección, seguimiento y medición de actividad.',
+      ? 'Master’s thesis: video-based construction machinery monitoring with YOLOv8 and BoT-SORT, combining object detection, tracking and activity quantification.'
+      : 'Tesis de magíster: monitoreo de maquinaria de construcción por video con YOLOv8 y BoT-SORT, integrando detección, seguimiento y cuantificación de actividad.',
     learning: [
       { name: 'MLOps', institution: 'Duke University', year: '2026' },
       { name: 'Deep Learning', institution: 'DeepLearning.AI', year: '2025' },
