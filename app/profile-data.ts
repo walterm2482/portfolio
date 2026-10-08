@@ -26,12 +26,12 @@ export function getProfileData(lang: Lang) {
         id: 'quant',
         number: '03',
         title: en
-          ? 'Quantitative software in practice'
-          : 'Software cuantitativo aplicado',
+          ? 'Quantitative research and development'
+          : 'Investigación y desarrollo cuantitativo',
         description: en
-          ? 'Market indicators, portfolio analysis and automated strategies. Turning statistical ideas into documented tools with explicit risk controls.'
-          : 'Indicadores de mercado, análisis de portafolios y estrategias automatizadas. Ideas estadísticas convertidas en herramientas documentadas con controles de riesgo explícitos.',
-        stack: ['C# / .NET', 'cTrader', 'Time Series', 'Backtesting', 'Risk Management'],
+          ? 'Financial ML with nested temporal validation, cost-aware backtesting and pre-registered prospective monitoring. Market indicators and portfolio tools with explicit risk controls.'
+          : 'ML financiero con validación temporal anidada, backtesting con costos y seguimiento prospectivo pre-registrado. Indicadores y herramientas de portafolios con controles de riesgo explícitos.',
+        stack: ['Python', 'AFML', 'CPCV', 'Backtesting', 'C# / .NET', 'cTrader'],
       },
     ],
     education: [

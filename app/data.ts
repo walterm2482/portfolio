@@ -236,19 +236,23 @@ const PROJECTS_ES: Project[] = [
 const WORK_EXPERIENCE_ES: WorkExperience[] = [
   {
     id: 'wm-work-2',
-    title: 'Desarrollador cuantitativo y de IA',
-    company: 'Proyecto independiente',
+    title: 'Desarrollador cuantitativo y de ML',
+    company: 'Investigación independiente',
     start: 'oct 2024',
     end: 'Presente',
     location: 'Remoto · Chile',
     summary:
-      'Investigación aplicada, desarrollo de herramientas y evaluación de estrategias con datos de mercado.',
+      'Diseño y desarrollo de una plataforma modular de machine learning financiero basada en AFML, con énfasis en validación temporal, evaluación estadística y reproducibilidad.',
     highlights: [
-      'Construí una plataforma en Python con ingeniería de características, etiquetado de eventos y backtesting.',
-      'Integré validación temporal con purga y embargo, controles de calidad y trazabilidad para reducir la fuga de información.',
+      'Integré preparación de datos, controles de calidad, variables de microestructura, diferenciación fraccional, muestreo CUSUM, triple-barrier y meta-labeling en pipelines configurables en Python.',
+      'Implementé búsqueda de hiperparámetros anidada, validación walk-forward y CPCV con purga y embargo. Incorporé la memoria de las variables y límites temporales explícitos para separar su ajuste de la evaluación.',
+      'Ponderé observaciones por unicidad y decaimiento temporal; integré backtesting por eventos con spread, comisiones, slippage, financiación y tamaños de posición basados en probabilidades.',
+      'Incorporé Sharpe probabilístico y deflactado, registro de ensayos, controles negativos y auditorías numéricas para evaluar resultados y detectar errores metodológicos.',
+      'Implementé un protocolo de forward testing pre-registrado con configuración congelada, datos aislados, inferencia horaria y registros de señales y resultados encadenados por SHA-256.',
+      'Desarrollé trazabilidad de artefactos mediante huellas de configuración y datos, contratos de esquemas y pruebas de causalidad temporal.',
       'Publiqué FSG Ultimate y herramientas de análisis y optimización de portafolios.',
     ],
-    stack: ['Python', 'C#/.NET', 'Time Series', 'Backtesting'],
+    stack: ['Python', 'scikit-learn', 'AFML', 'CPCV', 'Time Series', 'Backtesting'],
   },
   {
     id: 'wm-work-3',
@@ -522,19 +526,23 @@ const PROJECTS_EN: Project[] = [
 const WORK_EXPERIENCE_EN: WorkExperience[] = [
   {
     id: 'wm-work-2',
-    title: 'Quantitative & AI Developer',
-    company: 'Independent project',
+    title: 'Quantitative ML Developer',
+    company: 'Independent research',
     start: 'Oct 2024',
     end: 'Present',
     location: 'Remote · Chile',
     summary:
-      'Applied research, tool development and strategy evaluation using market data.',
+      'Designed and developed a modular financial machine learning platform based on AFML, focusing on temporal validation, statistical evaluation and reproducibility.',
     highlights: [
-      'Built a Python research platform with feature engineering, event labeling and backtesting.',
-      'Integrated purged temporal validation with embargo, data quality checks and artifact tracking to reduce information leakage.',
+      'Integrated data preparation, quality checks, microstructure features, fractional differentiation, CUSUM sampling, triple-barrier labeling and meta-labeling into configurable Python pipelines.',
+      'Implemented nested hyperparameter search, walk-forward validation and CPCV with purging and embargo. Accounted for feature memory and explicit time boundaries separating feature fitting from evaluation.',
+      'Weighted observations by uniqueness and time decay; integrated event-replay backtesting with spread, commissions, slippage, financing and probability-based position sizing.',
+      'Added probabilistic and deflated Sharpe, a trial ledger, negative controls and numerical audits to evaluate results and detect methodological errors.',
+      'Implemented a pre-registered forward testing protocol with frozen configuration, isolated data, hourly inference and SHA-256 hash-chained signal and outcome records.',
+      'Built artifact provenance using configuration and data fingerprints, schema contracts and temporal causality tests.',
       'Published FSG Ultimate and portfolio analysis and optimization tools.',
     ],
-    stack: ['Python', 'C#/.NET', 'Time Series', 'Backtesting'],
+    stack: ['Python', 'scikit-learn', 'AFML', 'CPCV', 'Time Series', 'Backtesting'],
   },
   {
     id: 'wm-work-3',
