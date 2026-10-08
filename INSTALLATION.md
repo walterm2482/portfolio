@@ -66,6 +66,8 @@ Categorías: `quant` (desarrollo cuantitativo), `ml` (Machine Learning), `data` 
 
 Para cambiar tu presentación, edita `components/Hero.tsx`. Para modificar experiencia, redes o correo, edita las otras listas en `app/data.ts`. Las habilidades, títulos y cursos están en `app/profile-data.ts`.
 
+El retrato aparece junto a tu nombre en el inicio, tanto en español como en inglés. Para cambiarlo, reemplaza `public/profile/walter-moya.png` por una foto cuadrada. Se muestra a 64 px en móvil y 80 px en pantallas mayores; Next.js entrega una versión optimizada para cada pantalla.
+
 Las dos versiones comparten la estructura de `components/PortfolioPage.tsx`; los textos se eligen según el idioma. El diseño general, las tarjetas y los colores están en `app/globals.css`. La imagen que aparece al compartir el sitio se genera desde `lib/opengraph-image.tsx`.
 
 La portada muestra primero FSG Ultimate, Portfolio Optimizer y Machine Learning API. El botón **Ver todos los proyectos** abre los ocho proyectos y sus filtros. La selección se define en `lib/project-routes.ts`.
