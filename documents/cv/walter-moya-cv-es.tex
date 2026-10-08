@@ -1,0 +1,125 @@
+% Walter Thomas Moya Araya — CV final, 8 de octubre de 2026.
+% Desde la raíz del repositorio: tectonic --outdir public/cv documents/cv/walter-moya-cv-es.tex
+% También compatible con pdfLaTeX y XeLaTeX (paquetes estándar de TeX Live).
+% Una columna; contacto en el cuerpo; texto Unicode; sin imágenes ni tablas.
+\documentclass[10pt,a4paper]{article}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \input{glyphtounicode}
+  \pdfgentounicode=1
+  \usepackage{lmodern}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  \usepackage{fontspec}
+  \setmainfont{lmsans10-regular.otf}[
+    BoldFont=lmsans10-bold.otf,
+    ItalicFont=lmsans10-oblique.otf,
+    BoldItalicFont=lmsans10-boldoblique.otf,
+    Ligatures=NoCommon]
+\fi
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage[left=1.4cm,right=1.4cm,top=1.2cm,bottom=1.2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\definecolor{navy}{HTML}{193D53}
+\definecolor{muted}{HTML}{465462}
+\hypersetup{
+  colorlinks=true,urlcolor=navy,linkcolor=navy,
+  pdftitle={Walter Thomas Moya Araya | Ciencia de Datos y Análisis Cuantitativo},
+  pdfauthor={Walter Thomas Moya Araya},
+  pdfsubject={CV | Data Scientist Junior, Data Analyst Junior, Análisis Cuantitativo},
+  pdfkeywords={Python, SQL, Power BI, BigQuery, Machine Learning, K-means, ETL},
+  pdflang={es-CL}}
+\urlstyle{same}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.6pt}
+\setlength{\emergencystretch}{1.5em}
+\setlist[itemize]{leftmargin=1.1em,label=\textbullet,itemsep=1.3pt,topsep=2pt,parsep=0pt,partopsep=0pt}
+\titleformat{\section}{\fontsize{10.7}{12}\selectfont\bfseries\color{navy}}{}{0pt}{}[\vspace{-4pt}\color{navy!25}\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{4.5pt}
+\newcommand{\entry}[2]{\par\addvspace{3pt}\textbf{#1}\hfill{\fontsize{9.5}{11}\selectfont\color{muted}#2}\par\nopagebreak}
+\newcommand{\project}[3]{\par\addvspace{3pt}\textbf{\href{#1}{#2}}\hfill{\fontsize{9.5}{11}\selectfont\color{muted}#3}\par\nopagebreak}
+
+\begin{document}
+\fontsize{10.7}{12.5}\selectfont
+\RaggedRight
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+{\fontsize{23}{26}\selectfont\bfseries\color{navy}Walter Thomas Moya Araya}\par
+{\fontsize{11}{13}\selectfont\bfseries Data Scientist Junior | Data Analyst Junior | Análisis Cuantitativo}\par
+{\fontsize{9.7}{11.5}\selectfont
+Santiago, Chile \enspace|\enspace \href{tel:+56933669343}{+56 9 3366 9343} \enspace|\enspace
+\href{mailto:cg.walter.ma@gmail.com}{cg.walter.ma@gmail.com}\par
+\href{https://waltermoya.vercel.app/}{waltermoya.vercel.app} \enspace|\enspace
+\href{https://github.com/walterm2482}{github.com/walterm2482} \enspace|\enspace
+\href{https://www.linkedin.com/in/walter-moya-araya-a211b9307/}{linkedin.com/in/walter-moya-araya-a211b9307}}
+
+\section{Perfil profesional}
+Ingeniero Civil Industrial y Magíster en Ciencias de la Ingeniería, con experiencia en ETL y calidad de datos
+en PwC Chile y desarrollo cuantitativo remoto en ClickAlgo. Combino Python, SQL y estadística para construir
+pipelines reproducibles, evaluar modelos y transformar datos en herramientas de decisión.
+
+\section{Habilidades técnicas}
+\textbf{Datos y BI:} Python (Pandas, NumPy), SQL, R, Excel, Power BI, ETL y análisis exploratorio de datos.\par
+\textbf{Machine learning:} scikit-learn, TensorFlow/Keras, clustering, PCA, series de tiempo y validación temporal.\par
+\textbf{Cloud y desarrollo:} Google Cloud (BigQuery, Data Fusion, Cloud Storage), C\#/.NET, Git, Docker y MLflow.
+
+\section{Proyectos destacados}
+\project{https://clickalgo.com/k-means}{K-Means Indicator v2 | Machine learning aplicado}{ClickAlgo · 2025}
+Desarrollé un indicador para identificar regímenes de mercado mediante clustering K-means, PCA y variables
+de precio, volatilidad y momentum. Refactoricé el código e incorporé visualizaciones y alertas por Telegram.
+
+\project{https://ctrader.com/products/438}{FSG Ultimate / Smart Grid Ultimate v2.1 | Automatización y riesgo}{cTrader Store · 2024--2026}
+Desarrollé y publiqué un robot de reversión a la media en C\#/.NET, con ejecución sobre velas cerradas,
+objetivos según volatilidad (ATR) y tres capas de control de riesgo para gestionar exposición y pérdidas.
+
+\project{https://clickalgo.com/smart-portfolio-architect}{Smart Portfolio Architect | Diversificación de portafolios}{ClickAlgo · 2024}
+Automaticé la selección de activos por mínima correlación en C\# para cTrader. La herramienta analiza datos
+históricos y compara combinaciones de instrumentos para apoyar decisiones de diversificación.
+
+\project{https://github.com/walterm2482/portfolio-optimizer}{Portfolio Optimizer | Python, Dash y backtesting}{GitHub · 2025}
+Construí una aplicación con cuatro métodos de asignación de activos, backtesting con rebalanceo y
+visualizaciones de rentabilidad, drawdown y correlación para comparar estrategias.
+
+\section{Experiencia profesional}
+\entry{Desarrollador cuantitativo y de IA | Independiente}{10/2024 -- actualidad}
+\begin{itemize}
+  \item Construí una plataforma de investigación en Python con datos de mercado, ingeniería de variables,
+  modelos predictivos y backtesting; automaticé controles de calidad y trazabilidad de resultados.
+  \item Apliqué validación temporal y evaluación fuera de muestra para reducir fuga de información entre
+  entrenamiento y evaluación de modelos de series de tiempo.
+\end{itemize}
+
+\entry{Programador junior (Junior Programmer) | ClickAlgo, Reino Unido · Remoto}{11/2023 -- 10/2024}
+\begin{itemize}
+  \item Desarrollé indicadores cuantitativos en C\#/.NET con clustering, filtros de Kalman y análisis de volatilidad;
+  entregué módulos probados y documentados y brindé soporte a usuarios internacionales.
+  \item Publiqué un artículo técnico sobre portafolios de mínima correlación con Pearson, Spearman y Kendall.
+\end{itemize}
+
+\entry{Analista en formación (Analyst Trainee) | PwC Chile}{08/2022 -- 11/2022}
+\begin{itemize}
+  \item Optimicé cargas históricas de inventario de cientos de miles de registros a \textbf{menos de 30 segundos por archivo}.
+  \item Apoyé pipelines ETL en Google Cloud con Python y APIs REST, validación de esquemas y controles
+  de calidad para alimentar dashboards en Power BI.
+\end{itemize}
+
+\section{Educación}
+\entry{Magíster en Ciencias de la Ingeniería, mención Industrias}{08/2021 -- 06/2023}
+Universidad Diego Portales · \textbf{Máxima distinción} · Tesis: 6,8/7,0.\par
+Tesis: detección y seguimiento de maquinaria de construcción con YOLOv8 y BoT-SORT.\par
+\entry{Ingeniería Civil Industrial}{03/2016 -- 07/2023}
+Universidad Diego Portales · Titulado con distinción.
+
+\section{Certificaciones seleccionadas}
+MLOps Specialization — Duke University (2026) · Machine Learning — DeepLearning.AI / Stanford (2025).\par
+IBM Data Science Professional Certificate (2025) · Google Data Analytics Professional Certificate (2025).
+\end{document}

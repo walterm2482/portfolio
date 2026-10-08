@@ -2,7 +2,7 @@
 
 ## Cambios
 
-- Descarga del CV junto a la presentación y en Contacto. El PDF es el CV de una página en español; la interfaz inglesa lo identifica como **PDF · ES**.
+- Descarga del CV junto a la presentación y en Contacto, con dos versiones de una página: español (**PDF · ES**) e inglés (**PDF · EN**). Ambas están disponibles desde los dos idiomas del sitio.
 - Tres proyectos al abrir la portada: FSG Ultimate v2.1, Portfolio Optimizer y Machine Learning API. Los ocho proyectos siguen disponibles mediante **Ver todos los proyectos**, con filtros por categoría.
 - Seis páginas de casos de estudio: tres en español y tres en inglés. Incluyen problema, aporte, flujo de trabajo, decisiones, entregables verificables, capturas ampliables y fuentes.
 - Descripciones breves y etiquetas de tecnología de 12 px. El resumen visual del proceso del inicio se muestra desde tablet para acercar los proyectos en móvil.
@@ -11,9 +11,9 @@
 
 ## CV
 
-Origen: `../cv_walter_moya_una_pagina.pdf`, generado el 8 de octubre de 2026. Se copió sin modificar a `public/cv/walter-moya-cv-es.pdf`. Incluye el número **+56 9 3366 9343** y el correo de contacto del sitio.
+Español: `../cv_walter_moya_final_ats.pdf`, generado el 8 de octubre de 2026 y copiado sin modificar a `public/cv/walter-moya-cv-es.pdf`. Inglés: `public/cv/walter-moya-cv-en.pdf`, traducido a partir de esa versión y compilado con Tectonic. Ambos conservan los mismos hechos, fechas, proyectos, número **+56 9 3366 9343** y correo de contacto.
 
-Para reemplazarlo, copiar el nuevo PDF a la misma ruta. `components/CVDownload.tsx` comparte el enlace y nombre de descarga entre las dos secciones y ambos idiomas.
+Destacan K-Means, FSG Ultimate v2.1 y Smart Portfolio Architect, con Portfolio Optimizer como complemento en Python. Las fuentes LaTeX editables se incluyen en `documents/cv/`; ver su [README](documents/cv/README.md) para recompilar. `components/CVDownload.tsx` muestra ambos archivos en las dos secciones, con el idioma de la página en primer lugar y nombres de descarga que distinguen ES y EN.
 
 ## Evidencia de los casos
 
@@ -42,7 +42,7 @@ Comprobar con `npm run lint`, `npm run typecheck` y `npm run build`; después se
 ## Validación realizada
 
 - Compilación de producción y comprobación de tipos correctas. Lint sin errores; permanece la advertencia anterior de `<img>` en `mdx-components.tsx`.
-- Playwright sobre la compilación de producción: descarga real del PDF en ambos idiomas, nombre del archivo y contenido idéntico al original; teléfono, tres destacados, expansión a ocho proyectos, filtros y retorno a destacados.
+- Revisión inicial con Playwright sobre la compilación de producción: descarga real del PDF español desde ambas portadas, nombre del archivo y contenido idéntico al original; teléfono, tres destacados, expansión a ocho proyectos, filtros y retorno a destacados. La validación de los dos PDF finales se detalla en `documents/cv/README.md`.
 - Seis casos con HTTP 200, capturas cargadas, cambio de idioma conservando el caso, canonicals y sitemap con ocho URLs. Imagen de redes disponible en la dirección estable `/opengraph-image`.
 - Menú móvil, modales con teclado y recuperación del foco; revisión de desbordamiento en 320, 375, 768, 1024 y 1440 px. Etiquetas de tecnología de 12 px.
 - HTML inicial con el idioma correcto en las ocho páginas, comprobado con JavaScript desactivado. Los dos artículos de ejemplo y los casos inexistentes devuelven HTTP 404.

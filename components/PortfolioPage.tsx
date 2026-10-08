@@ -260,8 +260,8 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
           title={en ? 'Analysis worth sharing.' : 'Análisis para compartir.'}
           description={
             en
-              ? 'Public notebooks on Machine Learning, explainability and model evaluation. Code and reasoning, documented together.'
-              : 'Notebooks públicos sobre Machine Learning, explicabilidad y evaluación de modelos. Código y razonamiento, documentados en un mismo lugar.'
+              ? 'Public notebooks on data analysis, Machine Learning and explainability. Code and reasoning, documented together.'
+              : 'Notebooks públicos de análisis de datos, Machine Learning e interpretabilidad. Código y razonamiento, documentados en un mismo lugar.'
           }
         />
         <div className="grid gap-3 sm:grid-cols-2">
@@ -308,6 +308,22 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
                 </span>
               </a>
             ))}
+        </div>
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-sm">
+          <p className="text-zinc-500 dark:text-zinc-400">
+            {en
+              ? `${BLOG_POSTS.length} public notebooks`
+              : `${BLOG_POSTS.length} notebooks públicos`}
+          </p>
+          <a
+            href="https://www.kaggle.com/waltertmoyaaraya/code"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 items-center gap-2 font-medium text-teal-700 hover:underline dark:text-teal-300"
+          >
+            {en ? 'View all my notebooks on Kaggle' : 'Ver todos mis notebooks en Kaggle'}
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
         </div>
       </section>
       <ContactSection lang={lang} />
