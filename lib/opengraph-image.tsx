@@ -2,11 +2,9 @@ import { ImageResponse } from 'next/og'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
-export const alt = 'Walter Moya — Data Science & Quantitative Development'
-export const size = { width: 1200, height: 630 }
-export const contentType = 'image/png'
+const size = { width: 1200, height: 630 }
 
-export default async function Image() {
+export async function createOpenGraphImage() {
   const logo = await readFile(
     join(process.cwd(), 'public/brand/walter-moya-icon-192.png'),
   )
@@ -32,7 +30,7 @@ export default async function Image() {
             justifyContent: 'space-between',
           }}
         >
-          {/* ImageResponse necesita un elemento img nativo para incrustar el logo. */}
+          {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse requires native image elements. */}
           <img
             src={`data:image/png;base64,${logo.toString('base64')}`}
             alt=""

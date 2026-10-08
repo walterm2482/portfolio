@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight, Check, Copy, Mail, Phone } from 'lucide-react'
 import { EMAIL, PHONE, PHONE_DISPLAY, SOCIAL_LINKS, type Lang } from '@/app/data'
+import { CVDownload } from './CVDownload'
 
 export function ContactSection({ lang }: { lang: Lang }) {
   const en = lang === 'en'
@@ -49,14 +50,17 @@ export function ContactSection({ lang }: { lang: Lang }) {
             ? 'Interested in my work? I’m looking for opportunities in data analytics, Data Science and quantitative development where I can combine engineering, analysis and software.'
             : '¿Te interesa mi trabajo? Busco oportunidades en análisis de datos, Data Science y desarrollo cuantitativo donde pueda combinar ingeniería, análisis y software.'}
         </p>
-        <a
-          href={`mailto:${EMAIL}`}
-          className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-teal-950 transition-colors hover:bg-teal-100"
-        >
-          <Mail size={16} aria-hidden="true" />
-          {en ? 'Send an email' : 'Escribirme por correo'}
-          <ArrowUpRight size={16} aria-hidden="true" />
-        </a>
+        <div className="mt-7 flex flex-wrap items-center gap-3">
+          <a
+            href={`mailto:${EMAIL}`}
+            className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-teal-950 transition-colors hover:bg-teal-100"
+          >
+            <Mail size={16} aria-hidden="true" />
+            {en ? 'Send an email' : 'Escribirme por correo'}
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+          <CVDownload lang={lang} className="cv-contact" />
+        </div>
       </div>
       <div className="flex flex-col justify-end gap-6">
         <div>

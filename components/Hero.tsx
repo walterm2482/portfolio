@@ -1,13 +1,7 @@
 import Image from 'next/image'
-import {
-  ArrowDown,
-  ArrowUpRight,
-  Braces,
-  CheckCheck,
-  Database,
-  MapPin,
-} from 'lucide-react'
+import { ArrowDown, Braces, CheckCheck, Database, MapPin } from 'lucide-react'
 import type { Lang } from '@/app/data'
+import { CVDownload } from './CVDownload'
 
 export function Hero({
   lang = 'es',
@@ -62,13 +56,10 @@ export function Hero({
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a href={en ? '#projects' : '#proyectos'} className="button-primary">
-              {en ? 'Explore my work' : 'Explorar mi trabajo'}{' '}
+              {en ? 'View projects' : 'Ver proyectos'}{' '}
               <ArrowDown size={16} aria-hidden="true" />
             </a>
-            <a href={en ? '#contact' : '#contacto'} className="button-secondary">
-              {en ? 'Get in touch' : 'Conversemos'}{' '}
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
+            <CVDownload lang={lang} />
           </div>
           <p className="mt-6 flex items-center gap-2 text-xs text-zinc-500 dark:text-zinc-400">
             <MapPin size={14} aria-hidden="true" />

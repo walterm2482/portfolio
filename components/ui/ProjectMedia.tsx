@@ -20,6 +20,7 @@ type Props = {
   index?: number
   alt?: string
   lang?: 'es' | 'en'
+  imageAspectRatio?: string
 }
 
 export function ProjectMedia({
@@ -29,6 +30,7 @@ export function ProjectMedia({
   index = 0,
   alt,
   lang = 'es',
+  imageAspectRatio = '16 / 9',
 }: Props) {
   const [reduced, setReduced] = useState(false)
   useEffect(() => {
@@ -64,7 +66,10 @@ export function ProjectMedia({
               className={`${base} object-contain`}
             />
           ) : (
-            <div className={`relative ${base}`}>
+            <div
+              className="relative w-full rounded-xl"
+              style={{ aspectRatio: imageAspectRatio }}
+            >
               <Image
                 src={src}
                 alt={altText}

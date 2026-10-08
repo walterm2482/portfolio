@@ -10,7 +10,7 @@ La copia preparada en este equipo está en:
 cd /home/walter/Documentos/busqueda-trabajo/portfolio
 ```
 
-En VS Code: **Archivo → Abrir carpeta** y selecciona esa carpeta. El archivo de LinkedIn y los CV están en la carpeta superior y no forman parte del sitio.
+En VS Code: **Archivo → Abrir carpeta** y selecciona esa carpeta. El archivo de LinkedIn y los CV originales están en la carpeta superior. El sitio incluye una copia del CV de una página en `public/cv/walter-moya-cv-es.pdf` para descargarlo.
 
 Para instalarlo en otro equipo, con Git y Node.js 22:
 
@@ -66,7 +66,15 @@ Categorías: `quant` (desarrollo cuantitativo), `ml` (Machine Learning), `data` 
 
 Para cambiar tu presentación, edita `components/Hero.tsx`. Para modificar experiencia, redes o correo, edita las otras listas en `app/data.ts`. Las habilidades, títulos y cursos están en `app/profile-data.ts`.
 
-Las dos versiones comparten la estructura de `components/PortfolioPage.tsx`; los textos se eligen según el idioma. El diseño general, las tarjetas y los colores están en `app/globals.css`. La imagen que aparece al compartir el sitio se genera desde `app/opengraph-image.tsx`.
+Las dos versiones comparten la estructura de `components/PortfolioPage.tsx`; los textos se eligen según el idioma. El diseño general, las tarjetas y los colores están en `app/globals.css`. La imagen que aparece al compartir el sitio se genera desde `lib/opengraph-image.tsx`.
+
+La portada muestra primero FSG Ultimate, Portfolio Optimizer y Machine Learning API. El botón **Ver todos los proyectos** abre los ocho proyectos y sus filtros. La selección se define en `lib/project-routes.ts`.
+
+Los casos ampliados se editan en `app/case-studies.ts`, con textos ES/EN, contribuciones, decisiones, capturas y enlaces de respaldo. Sus rutas son `/proyectos/fsg-ultimate`, `/proyectos/portfolio-optimizer` y `/proyectos/mlops-api`; en inglés, `/en/projects/` seguido del mismo identificador. Las capturas originales están en `public/projects/cases/`.
+
+Para actualizar el CV, reemplaza `public/cv/walter-moya-cv-es.pdf` por el nuevo PDF. Los botones del inicio y Contacto usan ese mismo archivo. En inglés se indica **PDF · ES**, porque el documento está en español. Ver [CASOS_Y_CV.md](CASOS_Y_CV.md) para las fuentes.
+
+Los grupos `app/(es)/` y `app/(en)/` conservan las direcciones `/` y `/en`. Cada uno genera su documento HTML con el idioma correcto; los paréntesis no forman parte de la URL.
 
 ## 4. Comprobar antes de subir
 
@@ -76,7 +84,7 @@ npm run typecheck
 npm run build
 ```
 
-Revisa español e inglés, filtros, enlaces, imágenes ampliadas y navegación desde un celular. Para ver la compilación de producción, ejecuta `npm start` después de `npm run build`.
+Revisa español e inglés, descarga del CV, destacados y catálogo completo, casos de estudio, imágenes ampliadas y navegación desde un celular. Para ver la compilación de producción, ejecuta `npm start` después de `npm run build`.
 
 ## 5. Subir una rama para revisar en Vercel
 

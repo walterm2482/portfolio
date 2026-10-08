@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { ThemeControls } from '@/components/ThemeControls'
+import { caseStudyPath, hasCaseStudy } from '@/lib/project-routes'
 
 const SECTIONS = [
   { es: 'proyectos', en: 'projects', labelEs: 'Proyectos', labelEn: 'Projects' },
@@ -27,7 +28,6 @@ export function Header() {
   const navRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    document.documentElement.lang = en ? 'en' : 'es'
     setOpen(false)
   }, [en, pathname])
   useEffect(() => {
@@ -73,7 +73,12 @@ export function Header() {
 
   const section = SECTIONS.find((item) => `#${en ? item.en : item.es}` === hash)
   const nextHash = section ? `#${en ? section.es : section.en}` : ''
-  const switchHref = `${en ? '/' : '/en'}${home ? nextHash : ''}`
+  const caseMatch = pathname.match(/^\/(?:en\/projects|proyectos)\/([^/]+)$/)
+  const caseSlug = caseMatch?.[1]
+  const switchHref =
+    caseSlug && hasCaseStudy(caseSlug)
+      ? caseStudyPath(en ? 'es' : 'en', caseSlug)
+      : `${en ? '/' : '/en'}${home ? nextHash : ''}`
 
   return (
     <header className="site-header">

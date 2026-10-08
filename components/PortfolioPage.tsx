@@ -107,7 +107,7 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
                   {area.description}
                 </p>
                 <ul
-                  className="mt-5 flex flex-wrap gap-x-3 gap-y-1.5 border-t border-zinc-100 pt-4 font-mono text-[10px] text-zinc-500 dark:border-zinc-800 dark:text-zinc-400"
+                  className="mt-5 flex flex-wrap gap-x-3 gap-y-1.5 border-t border-zinc-100 pt-4 font-mono text-xs text-zinc-500 dark:border-zinc-800 dark:text-zinc-400"
                   aria-label={en ? 'Technologies' : 'Tecnologías'}
                 >
                   {area.stack.map((item) => (
@@ -129,7 +129,7 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
                 <div key={item.degree}>
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h4 className="text-sm font-medium">{item.degree}</h4>
-                    <span className="font-mono text-[10px] text-zinc-500 dark:text-zinc-400">
+                    <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">
                       {item.year}
                     </span>
                   </div>
@@ -165,7 +165,7 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
                       {item.institution}
                     </p>
                   </div>
-                  <span className="font-mono text-[10px] text-zinc-500 dark:text-zinc-400">
+                  <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">
                     {item.year}
                   </span>
                 </li>
@@ -279,7 +279,7 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
                 className="notebook-card group"
               >
                 <div className="mb-6 flex items-center justify-between">
-                  <span className="font-mono text-[10px] text-zinc-500 dark:text-zinc-400">
+                  <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">
                     NOTEBOOK / {String(index + 1).padStart(2, '0')}
                   </span>
                   <ArrowUpRight
