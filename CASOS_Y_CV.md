@@ -11,7 +11,7 @@
 
 ## CV
 
-Español: basado en `../cv_walter_moya_final_ats.pdf`, con fuente editable en `documents/cv/walter_thomas_moya_araya_cv_es.tex` y PDF en `public/cv/walter_thomas_moya_araya_cv_es.pdf`. Inglés: `documents/cv/walter_thomas_moya_araya_cv_en.tex` y `public/cv/walter_thomas_moya_araya_cv_en.pdf`. Ambos se compilaron con Tectonic y conservan los mismos hechos, fechas, proyectos, número **+56 9 3366 9343** y correo de contacto. El enlace al portafolio apunta al dominio estable de Vercel: `/` en español y `/en` en inglés.
+Español: basado en `../cv_walter_moya_araya.pdf`, con fuente editable en `documents/cv/walter_thomas_moya_araya_cv_es.tex` y PDF en `public/cv/walter_thomas_moya_araya_cv_es.pdf`. Inglés: `documents/cv/walter_thomas_moya_araya_cv_en.tex` y `public/cv/walter_thomas_moya_araya_cv_en.pdf`. Ambos incorporan el ajuste visual de los divisores del 8 de octubre de 2026 y conservan los mismos hechos, fechas, proyectos, número **+56 9 3366 9343** y correo de contacto. El enlace al portafolio apunta al dominio estable de Vercel: `/` en español y `/en` en inglés.
 
 Destacan K-Means, FSG Ultimate v2.1 y Smart Portfolio Architect, con Portfolio Optimizer como complemento en Python. Las fuentes LaTeX editables se incluyen en `documents/cv/`; ver su [README](documents/cv/README.md) para recompilar. `components/CVDownload.tsx` selecciona un único archivo según el idioma de la página. Los nombres de descarga usan minúsculas y guiones bajos. Las direcciones anteriores de los PDF redirigen a las nuevas.
 

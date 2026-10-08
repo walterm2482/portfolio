@@ -42,8 +42,8 @@
 \setlength{\parskip}{1.6pt}
 \setlength{\emergencystretch}{1.5em}
 \setlist[itemize]{leftmargin=1.1em,label=\textbullet,itemsep=1.3pt,topsep=2pt,parsep=0pt,partopsep=0pt}
-\titleformat{\section}{\fontsize{10.7}{12}\selectfont\bfseries\color{navy}}{}{0pt}{}[\vspace{-4pt}\color{navy!25}\titlerule]
-\titlespacing*{\section}{0pt}{8pt}{4.5pt}
+\titleformat{\section}{\fontsize{10.7}{12}\selectfont\bfseries\color{navy}}{}{0pt}{}[\vspace{-0.5pt}\color{navy!25}\titlerule]
+\titlespacing*{\section}{0pt}{7.5pt}{4.5pt}
 \newcommand{\entry}[2]{\par\addvspace{3pt}\textbf{#1}\hfill{\fontsize{9.5}{11}\selectfont\color{muted}#2}\par\nopagebreak}
 \newcommand{\project}[3]{\par\addvspace{3pt}\textbf{\href{#1}{#2}}\hfill{\fontsize{9.5}{11}\selectfont\color{muted}#3}\par\nopagebreak}
 
@@ -63,14 +63,38 @@ Santiago, Chile \enspace|\enspace \href{tel:+56933669343}{+56 9 3366 9343} \ensp
 \href{https://www.linkedin.com/in/walter-moya-araya-a211b9307/}{linkedin.com/in/walter-moya-araya-a211b9307}}
 
 \section{Perfil profesional}
-Ingeniero Civil Industrial y Magíster en Ciencias de la Ingeniería, con experiencia en ETL y calidad de datos
-en PwC Chile y desarrollo cuantitativo remoto en ClickAlgo. Combino Python, SQL y estadística para construir
-pipelines reproducibles, evaluar modelos y transformar datos en herramientas de decisión.
+Ingeniero Civil Industrial y Magíster en Ciencias de la Ingeniería. Experiencia en ETL y calidad de datos
+(PwC Chile), desarrollo cuantitativo (ClickAlgo) e investigación en machine learning financiero.
 
 \section{Habilidades técnicas}
 \textbf{Datos y BI:} Python (Pandas, NumPy), SQL, R, Excel, Power BI, ETL y análisis exploratorio de datos.\par
 \textbf{Machine learning:} scikit-learn, TensorFlow/Keras, clustering, PCA, series de tiempo y validación temporal.\par
 \textbf{Cloud y desarrollo:} Google Cloud (BigQuery, Data Fusion, Cloud Storage), C\#/.NET, Git, Docker y MLflow.
+
+\section{Experiencia profesional}
+\entry{Desarrollador cuantitativo y de ML | Independiente}{10/2024 -- actualidad}
+\begin{itemize}
+  \item Diseñé una plataforma modular de ML financiero en Python con variables de microestructura,
+  diferenciación fraccional, muestreo CUSUM, triple-barrier y meta-labeling.
+  \item Implementé búsqueda de hiperparámetros anidada, walk-forward y CPCV con purga y embargo según
+  la memoria de las variables; ponderación por unicidad y decaimiento temporal.
+  \item Integré backtesting con costos y tamaños de posición probabilísticos, Sharpe deflactado y forward
+  testing pre-registrado; trazabilidad de artefactos y señales encadenadas por hash.
+\end{itemize}
+
+\entry{Programador junior (Junior Programmer) | ClickAlgo, Reino Unido · Remoto}{11/2023 -- 10/2024}
+\begin{itemize}
+  \item Desarrollé indicadores cuantitativos en C\#/.NET con clustering, filtros de Kalman y análisis de volatilidad;
+  entregué módulos probados y documentados y brindé soporte a usuarios internacionales.
+  \item Publiqué un artículo técnico sobre portafolios de mínima correlación con Pearson, Spearman y Kendall.
+\end{itemize}
+
+\entry{Analista en formación (Analyst Trainee) | PwC Chile}{08/2022 -- 11/2022}
+\begin{itemize}
+  \item Optimicé cargas históricas de inventario de cientos de miles de registros a \textbf{menos de 30 segundos por archivo}.
+  \item Apoyé pipelines ETL en Google Cloud con Python y APIs REST, validación de esquemas y controles
+  de calidad para alimentar dashboards en Power BI.
+\end{itemize}
 
 \section{Proyectos destacados}
 \project{https://clickalgo.com/k-means}{K-Means Indicator v2 | Machine learning aplicado}{ClickAlgo · 2025}
@@ -89,35 +113,12 @@ históricos y compara combinaciones de instrumentos para apoyar decisiones de di
 Construí una aplicación con cuatro métodos de asignación de activos, backtesting con rebalanceo y
 visualizaciones de rentabilidad, drawdown y correlación para comparar estrategias.
 
-\section{Experiencia profesional}
-\entry{Desarrollador cuantitativo y de IA | Independiente}{10/2024 -- actualidad}
-\begin{itemize}
-  \item Construí una plataforma de investigación en Python con datos de mercado, ingeniería de variables,
-  modelos predictivos y backtesting; automaticé controles de calidad y trazabilidad de resultados.
-  \item Apliqué validación temporal y evaluación fuera de muestra para reducir fuga de información entre
-  entrenamiento y evaluación de modelos de series de tiempo.
-\end{itemize}
-
-\entry{Programador junior (Junior Programmer) | ClickAlgo, Reino Unido · Remoto}{11/2023 -- 10/2024}
-\begin{itemize}
-  \item Desarrollé indicadores cuantitativos en C\#/.NET con clustering, filtros de Kalman y análisis de volatilidad;
-  entregué módulos probados y documentados y brindé soporte a usuarios internacionales.
-  \item Publiqué un artículo técnico sobre portafolios de mínima correlación con Pearson, Spearman y Kendall.
-\end{itemize}
-
-\entry{Analista en formación (Analyst Trainee) | PwC Chile}{08/2022 -- 11/2022}
-\begin{itemize}
-  \item Optimicé cargas históricas de inventario de cientos de miles de registros a \textbf{menos de 30 segundos por archivo}.
-  \item Apoyé pipelines ETL en Google Cloud con Python y APIs REST, validación de esquemas y controles
-  de calidad para alimentar dashboards en Power BI.
-\end{itemize}
-
 \section{Educación}
 \entry{Magíster en Ciencias de la Ingeniería, mención Industrias}{08/2021 -- 06/2023}
 Universidad Diego Portales · \textbf{Máxima distinción} · Tesis: 6,8/7,0.\par
-Tesis: detección y seguimiento de maquinaria de construcción con YOLOv8 y BoT-SORT.\par
+Tesis: detección, seguimiento y cuantificación de actividad de maquinaria de construcción (YOLOv8, BoT-SORT).\par
 \entry{Ingeniería Civil Industrial}{03/2016 -- 07/2023}
-Universidad Diego Portales · Titulado con distinción.
+Universidad Diego Portales · Titulado con distinción · Nota: 5,7/7,0.
 
 \section{Certificaciones seleccionadas}
 MLOps Specialization — Duke University (2026) · Machine Learning — DeepLearning.AI / Stanford (2025).\par
