@@ -24,6 +24,7 @@ export function SiteLayout({
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Walter Moya',
+    image: `${SITE}/profile/walter-moya.png`,
     email: 'mailto:cg.walter.ma@gmail.com',
     telephone: PHONE,
     url: SITE,

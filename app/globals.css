@@ -198,6 +198,23 @@ html.dark {
   align-items: center;
   gap: 48px;
 }
+.hero-identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.hero-face {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border: 3px solid var(--surface);
+  border-radius: 18px;
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 6px 18px -12px #143d3450;
+}
 .hero-title {
   max-width: 740px;
   font-size: clamp(2.6rem, 5.2vw, 4.2rem);
@@ -222,16 +239,6 @@ html.dark {
   inset: 0;
   background-image: radial-gradient(#c7f5e815 0.5px, transparent 0.5px);
   background-size: 8px 8px;
-}
-.hero-portrait {
-  max-width: 380px;
-  padding: 12px 12px 0;
-  border: 1px solid var(--line);
-  border-radius: 30px;
-  background: linear-gradient(145deg, #e2ede5, #eff5ee);
-}
-.dark .hero-portrait {
-  background: linear-gradient(145deg, #1e3a32, #142622);
 }
 .hero-proof {
   display: flex;
@@ -665,6 +672,11 @@ html.dark {
 }
 
 @media (min-width: 640px) {
+  .hero-face {
+    width: 80px;
+    height: 80px;
+    border-radius: 22px;
+  }
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

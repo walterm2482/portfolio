@@ -39,6 +39,7 @@ Para revisar la versión compilada: `npm start` y abrir <http://localhost:3000>.
 | `components/ContactSection.tsx`                               | Correo, teléfono, CV y redes                                      |
 | `components/ThemeControls.tsx`                                | Controles de tema claro, oscuro y del sistema                     |
 | `public/projects/`                                            | Imágenes de proyectos                                             |
+| `public/profile/walter-moya.png`                              | Retrato junto al nombre en Inicio                                 |
 | `public/brand/`                                               | Nuevo logo WM, tamaños para web y prompt de generación            |
 | `app/favicon.ico` / `lib/brand.ts`                            | Iconos del navegador y metadatos compartidos                      |
 | `app/(es)/page.tsx` / `app/(en)/en/page.tsx`                  | Inicio en `/` y `/en`                                             |
