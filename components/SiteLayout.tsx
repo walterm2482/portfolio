@@ -1,52 +1,11 @@
-// app/layout.tsx
-import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import './globals.css'
-import { Header } from './header'
-import { Footer } from './footer'
+import '@/app/globals.css'
+import { Header } from '@/app/header'
+import { Footer } from '@/app/footer'
 import { ThemeProvider } from 'next-themes'
+import { PHONE, type Lang } from '@/app/data'
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://waltermoya.vercel.app'
-
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f7f9f7' },
-    { media: '(prefers-color-scheme: dark)', color: '#0d1415' },
-  ],
-}
-
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE),
-  alternates: {
-    canonical: '/',
-    languages: { es: '/', en: '/en', 'x-default': '/' },
-  },
-  title: {
-    default: 'Walter Moya – Data Science y Desarrollo Cuantitativo',
-    template: '%s | Walter Moya',
-  },
-  description:
-    'Ingeniero Civil Industrial, MSc. Proyectos de datos, Machine Learning y desarrollo cuantitativo con Python, SQL y C#/.NET. Experiencia en PwC Chile y ClickAlgo.',
-  openGraph: {
-    type: 'website',
-    url: SITE,
-    title: 'Walter Moya – Data Science y Desarrollo Cuantitativo',
-    description:
-      'Datos, Machine Learning y software cuantitativo. Conoce el trabajo de Walter Moya.',
-    images: ['/opengraph-image'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Walter Moya – Data Science y Desarrollo Cuantitativo',
-    description:
-      'Datos, Machine Learning y software cuantitativo. Conoce el trabajo de Walter Moya.',
-    images: ['/opengraph-image'],
-  },
-  robots: { index: true, follow: true },
-  icons: { icon: '/favicon.ico' },
-}
 
 const geist = Geist({ variable: '--font-geist', subsets: ['latin'] })
 const geistMono = Geist_Mono({
@@ -54,12 +13,19 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export function SiteLayout({
+  children,
+  lang,
+}: {
+  children: React.ReactNode
+  lang: Lang
+}) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Walter Moya',
     email: 'mailto:cg.walter.ma@gmail.com',
+    telephone: PHONE,
     url: SITE,
     jobTitle: 'Data Scientist / Quantitative Developer',
     alumniOf: { '@type': 'CollegeOrUniversity', name: 'Universidad Diego Portales' },
@@ -71,7 +37,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }
 
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang={lang} suppressHydrationWarning>
+      {/* eslint-disable-next-line @next/next/no-head-element -- Shared App Router root document. */}
       <head>
         {/* El proveedor de afiliación utiliza el atributo value. */}
         <meta

@@ -62,6 +62,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { label: 'Kaggle', link: 'https://www.kaggle.com/waltertmoyaaraya' },
 ]
 export const EMAIL = 'cg.walter.ma@gmail.com'
+export const PHONE = '+56933669343'
+export const PHONE_DISPLAY = '+56 9 3366 9343'
 
 // ====================== ES ======================
 const PROJECTS_ES: Project[] = [
@@ -69,7 +71,7 @@ const PROJECTS_ES: Project[] = [
     id: 'fsg-ultimate',
     name: 'FSG Ultimate v2.1',
     description:
-      'cBot de reversión a la media para cTrader Automate. Evalúa velas cerradas con filtros Stochastic, confirmación multitemporal y ADX; gestiona una cesta a la vez con tamaño fijo por posición, salidas por ATR y tres capas de control de riesgo.',
+      'cBot de reversión a la media con confirmación multitemporal, salidas por ATR y tres controles de riesgo. Publicado para cTrader.',
     image: '/projects/fsg-ultimate.webp',
     role: 'Quantitative Developer',
     category: 'quant',
@@ -84,7 +86,7 @@ const PROJECTS_ES: Project[] = [
     id: 'portfolio-optimizer',
     name: 'Portfolio Optimizer',
     description:
-      'Aplicación Python con dashboard Dash y CLI para construir y evaluar portafolios. Compara Sharpe, mínima varianza, HRP y pesos iguales; incorpora señales ML opcionales y backtesting con rebalanceo, equity, drawdown y correlaciones.',
+      'Dashboard y CLI para comparar cuatro métodos de asignación de activos, con señales ML opcionales y backtesting visual.',
     image: '/projects/portfolio-optimizer.png',
     role: 'Quantitative Developer',
     category: 'quant',
@@ -108,10 +110,10 @@ const PROJECTS_ES: Project[] = [
   },
   {
     id: 'mlops-api',
-    name: 'Machine Learning API · Flask & Docker',
+    name: 'Machine Learning API',
     description:
-      'Proyecto académico que lleva un Random Forest desde el entrenamiento hasta una API REST. Incluye serialización del modelo, predicciones y probabilidades, pruebas con pytest y ejecución reproducible en Docker sobre el dataset Breast Cancer Wisconsin.',
-    image: '/projects/mlops-api.png',
+      'Random Forest servido mediante una API Flask, con validación de entradas, probabilidades, pruebas y Docker. Proyecto académico de MLOps.',
+    image: '/projects/ml-api-workflow.svg',
     role: 'ML Developer',
     category: 'ml',
     stack: ['Python', 'Flask', 'Scikit-learn', 'Docker', 'REST API', 'pytest'],
@@ -152,7 +154,7 @@ const PROJECTS_ES: Project[] = [
     category: 'ml',
     name: 'Gaussian Mixture Model Indicator',
     description:
-      'Indicador GMM para cTrader que actúa como clasificador probabilístico, empleando modelos de mezcla de gaussianas para identificar patrones de mercado y generar señales de trading basadas en probabilidad de modelo.',
+      'Clasificador probabilístico para cTrader que utiliza mezclas gaussianas para explorar patrones de mercado y visualizar señales.',
     image: '/projects/gaussian_mixture_model.webp',
     role: 'ML Engineer',
     stack: [
@@ -189,7 +191,7 @@ const PROJECTS_ES: Project[] = [
     id: 'wm-project-4',
     name: 'Moya Bands Threshold Indicator',
     description:
-      'Indicador de umbral para cTrader que aplica el filtro de Kalman lineal, MEWMA y bandas de ATR para el análisis de series temporales y generación de señales de trading con alertas vía Telegram.',
+      'Indicador de series temporales con filtro de Kalman, MEWMA y bandas ATR. Incluye alertas vía Telegram.',
     image: '/projects/moya_bands.webp',
     role: 'Quantitative Developer',
     stack: ['Kalman Filter', 'Time Series Analysis', 'cTrader', 'Telegram API'],
@@ -348,7 +350,7 @@ const PROJECTS_EN: Project[] = [
     id: 'fsg-ultimate',
     name: 'FSG Ultimate v2.1',
     description:
-      'Mean-reversion cBot for cTrader Automate. Uses closed-bar Stochastic signals, multi-timeframe confirmation and ADX filters; manages one basket at a time with fixed position sizing, ATR exits and three layers of risk controls.',
+      'Mean-reversion cBot with multi-timeframe confirmation, ATR exits and three risk controls. Published for cTrader.',
     image: '/projects/fsg-ultimate.webp',
     role: 'Quantitative Developer',
     category: 'quant',
@@ -363,7 +365,7 @@ const PROJECTS_EN: Project[] = [
     id: 'portfolio-optimizer',
     name: 'Portfolio Optimizer',
     description:
-      'Python application with a Dash dashboard and CLI for portfolio construction and evaluation. Compares Sharpe, minimum variance, HRP and equal weights; includes optional ML signals and rebalancing backtests with equity, drawdown and correlation views.',
+      'Dashboard and CLI for comparing four asset allocation methods, with optional ML signals and visual backtesting.',
     image: '/projects/portfolio-optimizer.png',
     role: 'Quantitative Developer',
     category: 'quant',
@@ -386,10 +388,10 @@ const PROJECTS_EN: Project[] = [
   },
   {
     id: 'mlops-api',
-    name: 'Machine Learning API · Flask & Docker',
+    name: 'Machine Learning API',
     description:
-      'Academic project taking a Random Forest from training to a REST API. Includes model serialization, predictions and probabilities, pytest coverage and reproducible Docker execution using the Breast Cancer Wisconsin dataset.',
-    image: '/projects/mlops-api.png',
+      'Random Forest served through a Flask API, with input validation, probabilities, tests and Docker. An academic MLOps project.',
+    image: '/projects/ml-api-workflow.svg',
     role: 'ML Developer',
     category: 'ml',
     stack: ['Python', 'Flask', 'Scikit-learn', 'Docker', 'REST API', 'pytest'],
@@ -429,7 +431,7 @@ const PROJECTS_EN: Project[] = [
     category: 'ml',
     name: 'Gaussian Mixture Model Indicator',
     description:
-      'GMM indicator for cTrader that acts as a probabilistic classifier, using Gaussian mixture models to identify market patterns and generate trading signals based on model probability.',
+      'Probabilistic classifier for cTrader using Gaussian mixtures to explore market patterns and visualize signals.',
     image: '/projects/gaussian_mixture_model.webp',
     role: 'ML Engineer',
     stack: [
@@ -466,7 +468,7 @@ const PROJECTS_EN: Project[] = [
     id: 'wm-project-4',
     name: 'Moya Bands Threshold Indicator',
     description:
-      'Threshold indicator for cTrader that applies the linear Kalman filter, MEWMA, and ATR bands for time-series analysis and signal generation, with Telegram alerts.',
+      'Time-series indicator with a Kalman filter, MEWMA and ATR bands. Includes Telegram alerts.',
     image: '/projects/moya_bands.webp',
     role: 'Quantitative Developer',
     stack: ['Kalman Filter', 'Time Series Analysis', 'cTrader', 'Telegram API'],

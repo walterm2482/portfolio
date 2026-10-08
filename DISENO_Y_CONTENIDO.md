@@ -5,12 +5,12 @@ Rama: `diseno-contenido-portfolio`. Esta iteración parte de la actualización c
 ## Presentación
 
 - Identidad visual verde, monograma, mejor jerarquía tipográfica y más espacio entre secciones.
-- Inicio con una presentación profesional, acceso a proyectos y contacto, y un resumen del proceso de trabajo.
-- Tarjetas que distinguen productos publicados, código abierto y notebooks, con contadores por categoría.
-- Contexto de problema, enfoque y resultado en Portfolio Optimizer, la API de Machine Learning y Divvy.
+- Inicio con una presentación profesional, acceso a proyectos y descarga del CV, y un resumen del proceso de trabajo en escritorio.
+- Tres proyectos destacados al abrir la portada; botón para abrir las ocho fichas y sus filtros por categoría.
+- Casos ampliados de FSG Ultimate, Portfolio Optimizer y Machine Learning API, con capturas reales, aportes, decisiones y fuentes. Divvy conserva su resumen desplegable.
 - Sección de habilidades, formación académica, tesis y cursos seleccionados.
 - Experiencia con tareas concretas, contexto y tecnologías, en ambos idiomas.
-- Contacto visible con correo, redes y botón para copiar la dirección.
+- Contacto visible con correo, teléfono, redes, descarga del CV y botón para copiar la dirección.
 - Imagen Open Graph propia al compartir el enlace.
 
 ## Contenido
@@ -22,7 +22,7 @@ Los datos se editan en `app/data.ts` y `app/profile-data.ts`. Las páginas ES/EN
 ## Interacción y accesibilidad
 
 - Menú móvil con estado accesible, cierre con Escape y retorno del foco al botón.
-- Enlaces de navegación por sección y cambio de idioma que conserva la sección seleccionada.
+- Enlaces de navegación por sección y cambio de idioma que conserva la sección o el caso seleccionado.
 - Tema claro, oscuro o automático, con controles identificados en cada idioma.
 - Enlace para saltar al contenido, encabezados ordenados y foco visible.
 - Filtros que anuncian el número de resultados y vistas ampliadas operables con teclado.
@@ -44,7 +44,7 @@ npm run build
 
 Seguir [INSTALLATION.md](INSTALLATION.md) para subir la rama, revisar la Preview y publicar mediante `main`.
 
-## Validación realizada
+## Validación de la primera iteración de diseño
 
 - Lint sin errores, comprobación de tipos y compilación de producción correctos. Persiste una advertencia previa sobre `<img>` en `mdx-components.tsx`.
 - Pruebas de navegador con Playwright en español e inglés: ocho proyectos, cuatro filtros, detalles, modal con teclado y restauración del foco, copia del correo, menú móvil y cambio de idioma conservando la sección.
@@ -52,3 +52,5 @@ Seguir [INSTALLATION.md](INSTALLATION.md) para subir la rama, revisar la Preview
 - Análisis automático con axe-core para WCAG A/AA en ambas páginas y temas, sin infracciones detectadas. Esto complementa la revisión visual y de teclado.
 - Imagen Open Graph y sitemap disponibles; contenido principal legible sin JavaScript.
 - Capturas guardadas fuera del repositorio en `../vista-previa-portfolio/`.
+
+La iteración posterior con CV, galería enfocada y casos ampliados se documenta en [CASOS_Y_CV.md](CASOS_Y_CV.md).

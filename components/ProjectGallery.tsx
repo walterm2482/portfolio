@@ -1,12 +1,15 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowUpRight, Code2 } from 'lucide-react'
+import Link from 'next/link'
+import { ArrowRight, ArrowUpRight, Code2, Plus, Minus } from 'lucide-react'
 import { ProjectMedia } from '@/components/ui/ProjectMedia'
 import type { Lang, Project } from '@/app/data'
+import { caseStudyPath, hasCaseStudy } from '@/lib/project-routes'
 
 export function ProjectGallery({ projects, lang }: { projects: Project[]; lang: Lang }) {
   const [filter, setFilter] = useState('all')
+  const [expanded, setExpanded] = useState(false)
   const en = lang === 'en'
   const filters = [
     { id: 'all', label: en ? 'All projects' : 'Todos' },
@@ -17,46 +20,85 @@ export function ProjectGallery({ projects, lang }: { projects: Project[]; lang: 
     { id: 'ml', label: 'Machine Learning' },
     { id: 'data', label: en ? 'Data analytics' : 'Análisis de datos' },
   ]
-  const visible = projects.filter(
-    (project) => filter === 'all' || (project.category ?? 'quant') === filter,
+  const visible = projects.filter((project) =>
+    expanded
+      ? filter === 'all' || (project.category ?? 'quant') === filter
+      : hasCaseStudy(project.id),
   )
 
   return (
     <div>
-      <div
-        className="mb-7 flex flex-wrap gap-2"
-        role="group"
-        aria-label={en ? 'Filter projects' : 'Filtrar proyectos'}
-      >
-        {filters.map(({ id, label }) => (
-          <button
-            key={id}
-            type="button"
-            aria-pressed={filter === id}
-            onClick={() => setFilter(id)}
-            className="project-filter"
-          >
-            {label}
-            <span className="filter-count" aria-hidden="true">
-              {id === 'all'
-                ? projects.length
-                : projects.filter((project) => (project.category ?? 'quant') === id)
-                    .length}
-            </span>
-          </button>
-        ))}
+      <div className="gallery-toolbar">
+        <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          {expanded
+            ? en
+              ? 'The full collection'
+              : 'La colección completa'
+            : en
+              ? 'Three projects. Three approaches.'
+              : 'Tres proyectos. Tres enfoques.'}
+        </p>
+        <button
+          type="button"
+          className="gallery-toggle"
+          aria-expanded={expanded}
+          aria-controls="project-grid"
+          onClick={() => {
+            setExpanded(!expanded)
+            setFilter('all')
+          }}
+        >
+          {expanded ? (
+            <Minus size={16} aria-hidden="true" />
+          ) : (
+            <Plus size={16} aria-hidden="true" />
+          )}
+          {expanded
+            ? en
+              ? 'Show featured projects'
+              : 'Ver solo destacados'
+            : en
+              ? 'View all projects'
+              : 'Ver todos los proyectos'}
+          {!expanded && (
+            <span className="font-mono text-xs opacity-70">{projects.length}</span>
+          )}
+        </button>
       </div>
+      {expanded && (
+        <div
+          className="mb-7 flex flex-wrap gap-2"
+          role="group"
+          aria-label={en ? 'Filter projects' : 'Filtrar proyectos'}
+        >
+          {filters.map(({ id, label }) => (
+            <button
+              key={id}
+              type="button"
+              aria-pressed={filter === id}
+              onClick={() => setFilter(id)}
+              className="project-filter"
+            >
+              {label}
+              <span className="filter-count" aria-hidden="true">
+                {id === 'all'
+                  ? projects.length
+                  : projects.filter((project) => (project.category ?? 'quant') === id)
+                      .length}
+              </span>
+            </button>
+          ))}
+        </div>
+      )}
       <p className="sr-only" role="status" aria-live="polite">
         {visible.length} {en ? 'projects shown' : 'proyectos mostrados'}
       </p>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+      <div id="project-grid" className="project-grid">
         {visible.map((project, index) => (
           <article
             key={project.id}
             className="project-card"
-            data-featured={
-              project.id === 'fsg-ultimate' || project.id === 'portfolio-optimizer'
-            }
+            data-featured={hasCaseStudy(project.id)}
           >
             <div className="project-media">
               <ProjectMedia
@@ -71,7 +113,7 @@ export function ProjectGallery({ projects, lang }: { projects: Project[]; lang: 
             <div className="project-body">
               <div>
                 <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-                  <p className="text-[10px] font-medium tracking-wide text-zinc-500 dark:text-zinc-400">
+                  <p className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
                     {project.role}
                   </p>
                   <span className="project-status">
@@ -89,14 +131,23 @@ export function ProjectGallery({ projects, lang }: { projects: Project[]; lang: 
                   </span>
                 </div>
                 <h3 className="text-xl leading-snug font-semibold tracking-tight">
-                  <a
-                    href={project.link ?? project.demo ?? project.code}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-teal-700 dark:hover:text-teal-300"
-                  >
-                    {project.name}
-                  </a>
+                  {hasCaseStudy(project.id) ? (
+                    <Link
+                      href={caseStudyPath(lang, project.id)}
+                      className="hover:text-teal-700 dark:hover:text-teal-300"
+                    >
+                      {project.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={project.link ?? project.demo ?? project.code}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-teal-700 dark:hover:text-teal-300"
+                    >
+                      {project.name}
+                    </a>
+                  )}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                   {project.description}
@@ -106,11 +157,20 @@ export function ProjectGallery({ projects, lang }: { projects: Project[]; lang: 
                 className="flex flex-wrap gap-1.5"
                 aria-label={en ? 'Technologies' : 'Tecnologías'}
               >
-                {project.stack.map((technology) => (
+                {project.stack.slice(0, 4).map((technology) => (
                   <li key={technology} className="tech-tag">
                     {technology}
                   </li>
                 ))}
+                {project.stack.length > 4 && (
+                  <li
+                    className="tech-tag"
+                    title={project.stack.slice(4).join(', ')}
+                    aria-label={`${en ? 'Also: ' : 'También: '}${project.stack.slice(4).join(', ')}`}
+                  >
+                    +{project.stack.length - 4}
+                  </li>
+                )}
               </ul>
               {project.metrics?.length ? (
                 <dl className="flex flex-wrap gap-x-6 gap-y-2 border-t border-zinc-100 pt-3 text-sm dark:border-zinc-800">
@@ -124,7 +184,7 @@ export function ProjectGallery({ projects, lang }: { projects: Project[]; lang: 
                   ))}
                 </dl>
               ) : null}
-              {project.caseStudy && (
+              {project.caseStudy && !hasCaseStudy(project.id) && (
                 <details className="text-sm text-zinc-600 dark:text-zinc-400">
                   <summary className="cursor-pointer font-medium text-zinc-900 dark:text-zinc-200">
                     {en ? 'Inside the project' : 'Cómo lo construí'}
@@ -145,7 +205,13 @@ export function ProjectGallery({ projects, lang }: { projects: Project[]; lang: 
                   </div>
                 </details>
               )}
-              <div className="mt-auto flex flex-wrap gap-4 border-t border-zinc-100 pt-4 text-xs font-medium dark:border-zinc-800">
+              <div className="mt-auto flex flex-wrap gap-x-4 gap-y-3 border-t border-zinc-100 pt-4 text-sm font-medium dark:border-zinc-800">
+                {hasCaseStudy(project.id) && (
+                  <Link href={caseStudyPath(lang, project.id)} className="case-link">
+                    {en ? 'Read case study' : 'Ver caso de estudio'}
+                    <ArrowRight size={16} aria-hidden="true" />
+                  </Link>
+                )}
                 {(project.link || project.demo) && (
                   <a
                     href={project.link ?? project.demo}
