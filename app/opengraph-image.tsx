@@ -1,10 +1,15 @@
 import { ImageResponse } from 'next/og'
+import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
 
 export const alt = 'Walter Moya — Data Science & Quantitative Development'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
-export default function Image() {
+export default async function Image() {
+  const logo = await readFile(
+    join(process.cwd(), 'public/brand/walter-moya-icon-192.png'),
+  )
   return new ImageResponse(
     (
       <div
@@ -27,21 +32,17 @@ export default function Image() {
             justifyContent: 'space-between',
           }}
         >
-          <div
+          {/* ImageResponse necesita un elemento img nativo para incrustar el logo. */}
+          <img
+            src={`data:image/png;base64,${logo.toString('base64')}`}
+            alt=""
+            width={84}
+            height={84}
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '72px',
-              height: '72px',
               border: '1px solid #4b7b69',
               borderRadius: '20px',
-              fontSize: '36px',
-              fontWeight: 700,
             }}
-          >
-            wm.
-          </div>
+          />
           <div style={{ display: 'flex', fontSize: '18px', color: '#b4e8d6' }}>
             waltermoya.vercel.app
           </div>

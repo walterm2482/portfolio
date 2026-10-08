@@ -100,21 +100,12 @@ html.dark {
   padding: 18px 24px;
 }
 .brand-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
+  display: block;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
   border-radius: 10px;
-  background: #193f37;
-  color: white;
-  font-weight: 600;
-  font-size: 17px;
-  letter-spacing: -2px;
-  padding-right: 2px;
-}
-.brand-mark > span {
-  color: #8be5c9;
+  background: #143d34;
 }
 .site-nav {
   display: flex;

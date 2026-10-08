@@ -1,5 +1,6 @@
 // app/en/layout.tsx
 import type { Metadata } from 'next'
+import { BRAND_ICONS } from '@/lib/brand'
 import '../globals.css'
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://waltermoya.vercel.app'
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     images: ['/opengraph-image'],
   },
   robots: { index: true, follow: true },
-  icons: { icon: '/favicon.ico' },
+  icons: BRAND_ICONS,
 }
 
 export default function EnLayout({ children }: { children: React.ReactNode }) {

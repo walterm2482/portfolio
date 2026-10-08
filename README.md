@@ -36,6 +36,8 @@ Para revisar la versión compilada: `npm start` y abrir <http://localhost:3000>.
 | `components/ContactSection.tsx` | Contacto y botón para copiar el correo |
 | `components/ThemeControls.tsx` | Controles de tema claro, oscuro y del sistema |
 | `public/projects/` | Imágenes de proyectos |
+| `public/brand/` | Nuevo logo WM, tamaños para web y prompt de generación |
+| `app/favicon.ico` / `lib/brand.ts` | Iconos del navegador y metadatos compartidos |
 | `app/page.tsx` / `app/en/page.tsx` | Entrada de cada idioma |
 | `app/header.tsx` / `app/footer.tsx` | Navegación, idioma y temas |
 | `app/globals.css` | Estilos generales |

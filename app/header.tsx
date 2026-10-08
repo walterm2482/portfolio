@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { ThemeControls } from '@/components/ThemeControls'
@@ -85,9 +86,15 @@ export function Header() {
           aria-label={en ? 'Walter Moya, home' : 'Walter Moya, inicio'}
           className="flex shrink-0 items-center gap-3"
         >
-          <span className="brand-mark" aria-hidden="true">
-            wm<span>.</span>
-          </span>
+          <Image
+            src="/brand/walter-moya-logo.png"
+            width={38}
+            height={38}
+            sizes="38px"
+            alt=""
+            className="brand-mark"
+            priority
+          />
           <span className="text-sm font-semibold tracking-tight">Walter Moya</span>
         </Link>
         <nav

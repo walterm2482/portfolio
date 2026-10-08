@@ -5,6 +5,7 @@ import './globals.css'
 import { Header } from './header'
 import { Footer } from './footer'
 import { ThemeProvider } from 'next-themes'
+import { BRAND_ICONS } from '@/lib/brand'
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://waltermoya.vercel.app'
 
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     images: ['/opengraph-image'],
   },
   robots: { index: true, follow: true },
-  icons: { icon: '/favicon.ico' },
+  icons: BRAND_ICONS,
 }
 
 const geist = Geist({ variable: '--font-geist', subsets: ['latin'] })
