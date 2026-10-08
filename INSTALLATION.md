@@ -20,10 +20,10 @@ cd portfolio
 npm ci
 ```
 
-Si la actualización todavía no se integró a `main`, cambia a su rama antes de instalar:
+La actualización inicial con FSG Ultimate ya se integró a `main`. La siguiente mejora de diseño y contenido está preparada en la rama `diseno-contenido-portfolio`. Para revisar esa versión, si aún no se ha integrado:
 
 ```bash
-git switch actualizar-portfolio-2026-10
+git switch diseno-contenido-portfolio
 npm ci
 ```
 
@@ -64,7 +64,9 @@ Ejemplo de una ficha:
 
 Categorías: `quant` (desarrollo cuantitativo), `ml` (Machine Learning), `data` (análisis de datos). `link` abre la ficha pública del producto, `demo` un notebook o demostración y `code` el repositorio. Completa únicamente enlaces existentes. `metrics` es opcional: usa versiones o fechas verificadas y evita presentar proyecciones como resultados obtenidos.
 
-Para cambiar tu presentación, edita `components/Hero.tsx`. Para modificar experiencia, redes o correo, edita las otras listas en `app/data.ts`.
+Para cambiar tu presentación, edita `components/Hero.tsx`. Para modificar experiencia, redes o correo, edita las otras listas en `app/data.ts`. Las habilidades, títulos y cursos están en `app/profile-data.ts`.
+
+Las dos versiones comparten la estructura de `components/PortfolioPage.tsx`; los textos se eligen según el idioma. El diseño general, las tarjetas y los colores están en `app/globals.css`. La imagen que aparece al compartir el sitio se genera desde `app/opengraph-image.tsx`.
 
 ## 4. Comprobar antes de subir
 
@@ -78,16 +80,17 @@ Revisa español e inglés, filtros, enlaces, imágenes ampliadas y navegación d
 
 ## 5. Subir una rama para revisar en Vercel
 
-Para esta actualización se preparó la rama `actualizar-portfolio-2026-10`. Revisa el estado y guarda los cambios:
+Comprueba en qué rama estás y revisa los cambios. Si ya hay un commit preparado, basta con el último comando:
 
 ```bash
+git branch --show-current
 git status
 git add .
-git commit -m "Actualiza portafolio con FSG Ultimate v2.1 y proyectos de datos"
-git push -u origin actualizar-portfolio-2026-10
+git commit -m "Mejora el diseño y contenido del portafolio"
+git push -u origin HEAD
 ```
 
-Si ya existe un commit con estos cambios, no necesitas crearlo de nuevo. Si Git solicita autenticación, usa la integración de GitHub de VS Code o tu clave SSH; GitHub no admite la contraseña de tu cuenta para operaciones Git por HTTPS.
+`HEAD` sube la rama actual con su mismo nombre. En este equipo puedes usar la terminal integrada de VS Code, donde ya funcionó la autenticación con `walterm2482`. La sesión del navegador y la cuenta usada por Git son independientes. Si Git solicita autenticación, usa la integración de GitHub de VS Code o una clave SSH con acceso al repositorio; GitHub no admite la contraseña de tu cuenta para operaciones Git por HTTPS.
 
 En GitHub, abre **Compare & pull request**, con base `main` y la rama de actualización como origen. Vercel normalmente genera una **Preview** al recibir el push. En tu panel abre **portfolio → Deployments**, selecciona el despliegue de esa rama y pulsa **Visit** para revisar la versión.
 

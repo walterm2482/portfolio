@@ -41,7 +41,7 @@ export function ProjectMedia({
   if (!src) return null
 
   const isVideo = Boolean(video)
-  const base = 'aspect-video w-full rounded-xl bg-zinc-100 dark:bg-zinc-900'
+  const base = 'aspect-video w-full rounded-xl'
   const priority = index === 0
   const altText = alt || 'Media del proyecto'
 
@@ -70,7 +70,7 @@ export function ProjectMedia({
                 alt={altText}
                 fill
                 sizes="(min-width: 1040px) 480px, (min-width: 640px) 50vw, 100vw"
-                className="rounded-xl object-contain"
+                className="rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.025]"
                 priority={priority}
               />
             </div>

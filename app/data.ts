@@ -33,7 +33,11 @@ export type WorkExperience = {
   title: string
   start: string
   end: string
-  link: string
+  link?: string
+  location: string
+  summary: string
+  highlights: string[]
+  stack: string[]
 }
 
 export type BlogPost = {
@@ -53,7 +57,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { label: 'GitHub', link: 'https://github.com/walterm2482' },
   {
     label: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/walter-moya-a211b9307/',
+    link: 'https://www.linkedin.com/in/walter-moya-araya-a211b9307/',
   },
   { label: 'Kaggle', link: 'https://www.kaggle.com/waltertmoyaaraya' },
 ]
@@ -92,6 +96,14 @@ const PROJECTS_ES: Project[] = [
       'Portfolio Optimization',
       'pytest',
     ],
+    caseStudy: {
+      problem:
+        'Comparar asignaciones de activos con distintos objetivos de riesgo y retorno.',
+      approach:
+        'Ingesta de precios, optimización, señales ML opcionales y backtesting con rebalanceo.',
+      result:
+        'Dashboard en Dash y CLI publicados, con vistas de equity, drawdown y exposición.',
+    },
     code: 'https://github.com/walterm2482/portfolio-optimizer',
   },
   {
@@ -103,6 +115,13 @@ const PROJECTS_ES: Project[] = [
     role: 'ML Developer',
     category: 'ml',
     stack: ['Python', 'Flask', 'Scikit-learn', 'Docker', 'REST API', 'pytest'],
+    caseStudy: {
+      problem: 'Pasar de un modelo entrenado a un servicio de predicción reproducible.',
+      approach:
+        'Serialización de Random Forest, API Flask, pruebas automatizadas y contenedorización.',
+      result:
+        'Repositorio académico con endpoints de predicción, probabilidades y ejecución en Docker.',
+    },
     code: 'https://github.com/walterm2482/kibernum_ml_modulo_10_actividad_modular',
   },
   {
@@ -214,20 +233,20 @@ const PROJECTS_ES: Project[] = [
 
 const WORK_EXPERIENCE_ES: WorkExperience[] = [
   {
-    id: 'wm-work-1',
-    title: 'Fundador',
-    company: 'CRAFIUM (corte y grabado láser)',
-    start: 'feb 2025',
-    end: 'Presente',
-    link: '#',
-  },
-  {
     id: 'wm-work-2',
-    title: 'Desarrollador de soluciones de trading e inteligencia artificial',
-    company: 'Independiente',
+    title: 'Desarrollador cuantitativo y de IA',
+    company: 'Proyecto independiente',
     start: 'oct 2024',
     end: 'Presente',
-    link: '#',
+    location: 'Remoto · Chile',
+    summary:
+      'Investigación aplicada, desarrollo de herramientas y evaluación de estrategias con datos de mercado.',
+    highlights: [
+      'Construí una plataforma en Python con ingeniería de características, etiquetado de eventos y backtesting.',
+      'Integré validación temporal con purga y embargo, controles de calidad y trazabilidad para reducir la fuga de información.',
+      'Publiqué FSG Ultimate y herramientas de análisis y optimización de portafolios.',
+    ],
+    stack: ['Python', 'C#/.NET', 'Time Series', 'Backtesting'],
   },
   {
     id: 'wm-work-3',
@@ -235,7 +254,16 @@ const WORK_EXPERIENCE_ES: WorkExperience[] = [
     company: 'ClickAlgo',
     start: 'nov 2023',
     end: 'oct 2024',
+    location: 'Reino Unido · Remoto',
     link: 'https://clickalgo.com',
+    summary:
+      'Desarrollo de indicadores cuantitativos para cTrader y soporte a usuarios internacionales.',
+    highlights: [
+      'Implementé K-means y Gaussian Mixture Models en C#/.NET para analizar patrones de mercado.',
+      'Desarrollé Moya Bands con filtro de Kalman, MEWMA y bandas ATR, y herramientas de diversificación por correlación.',
+      'Entregué módulos documentados y publiqué un artículo técnico sobre portafolios de mínima correlación en Forex.',
+    ],
+    stack: ['C#/.NET', 'cTrader', 'Clustering', 'Signal Processing'],
   },
   {
     id: 'wm-work-4',
@@ -243,7 +271,31 @@ const WORK_EXPERIENCE_ES: WorkExperience[] = [
     company: 'PwC Chile',
     start: 'ago 2022',
     end: 'nov 2022',
+    location: 'Santiago · Chile',
     link: 'https://www.pwc.com/cl/',
+    summary:
+      'Integración y calidad de datos en Google Cloud para apoyar análisis y reportes operacionales.',
+    highlights: [
+      'Apoyé pipelines ETL con Data Fusion, BigQuery, Cloud Storage, Python y APIs REST.',
+      'Optimicé cargas históricas de inventario con cientos de miles de registros a menos de 30 segundos por archivo.',
+      'Participé en validación de esquemas, controles de calidad y monitoreo de inconsistencias.',
+    ],
+    stack: ['Google Cloud', 'BigQuery', 'Python', 'ETL'],
+  },
+  {
+    id: 'wm-work-1',
+    title: 'Fundador',
+    company: 'Crafium',
+    start: 'feb 2025',
+    end: 'nov 2025',
+    location: 'Santiago · Chile',
+    summary:
+      'Emprendimiento de diseño y fabricación de productos personalizados con corte láser.',
+    highlights: [
+      'Gestioné diseño, materiales, producción, control de calidad, ventas y distribución.',
+      'Analicé costos, tiempos y márgenes para evaluar precios y rentabilidad.',
+    ],
+    stack: ['Gestión de operaciones', 'Análisis de costos', 'Diseño de producto'],
   },
 ]
 
@@ -323,6 +375,13 @@ const PROJECTS_EN: Project[] = [
       'Portfolio Optimization',
       'pytest',
     ],
+    caseStudy: {
+      problem: 'Compare asset allocations with different risk and return objectives.',
+      approach:
+        'Price ingestion, optimization, optional ML signals and rebalancing backtests.',
+      result:
+        'Published Dash dashboard and CLI with equity, drawdown and exposure views.',
+    },
     code: 'https://github.com/walterm2482/portfolio-optimizer',
   },
   {
@@ -334,6 +393,12 @@ const PROJECTS_EN: Project[] = [
     role: 'ML Developer',
     category: 'ml',
     stack: ['Python', 'Flask', 'Scikit-learn', 'Docker', 'REST API', 'pytest'],
+    caseStudy: {
+      problem: 'Turn a trained model into a reproducible prediction service.',
+      approach: 'Random Forest serialization, Flask API, automated tests and containers.',
+      result:
+        'Academic repository with prediction endpoints, probabilities and Docker execution.',
+    },
     code: 'https://github.com/walterm2482/kibernum_ml_modulo_10_actividad_modular',
   },
   {
@@ -445,20 +510,20 @@ const PROJECTS_EN: Project[] = [
 
 const WORK_EXPERIENCE_EN: WorkExperience[] = [
   {
-    id: 'wm-work-1',
-    title: 'Founder',
-    company: 'CRAFIUM (laser cutting and engraving)',
-    start: 'Feb 2025',
-    end: 'Present',
-    link: '#',
-  },
-  {
     id: 'wm-work-2',
-    title: 'Trading and AI Solutions Developer',
-    company: 'Freelance',
+    title: 'Quantitative & AI Developer',
+    company: 'Independent project',
     start: 'Oct 2024',
     end: 'Present',
-    link: '#',
+    location: 'Remote · Chile',
+    summary:
+      'Applied research, tool development and strategy evaluation using market data.',
+    highlights: [
+      'Built a Python research platform with feature engineering, event labeling and backtesting.',
+      'Integrated purged temporal validation with embargo, data quality checks and artifact tracking to reduce information leakage.',
+      'Published FSG Ultimate and portfolio analysis and optimization tools.',
+    ],
+    stack: ['Python', 'C#/.NET', 'Time Series', 'Backtesting'],
   },
   {
     id: 'wm-work-3',
@@ -466,7 +531,16 @@ const WORK_EXPERIENCE_EN: WorkExperience[] = [
     company: 'ClickAlgo',
     start: 'Nov 2023',
     end: 'Oct 2024',
+    location: 'United Kingdom · Remote',
     link: 'https://clickalgo.com',
+    summary:
+      'Quantitative indicator development for cTrader and support for international users.',
+    highlights: [
+      'Implemented K-means and Gaussian Mixture Models in C#/.NET to analyze market patterns.',
+      'Developed Moya Bands using a Kalman filter, MEWMA and ATR bands, and correlation-based diversification tools.',
+      'Delivered documented modules and published a technical article on minimum-correlation Forex portfolios.',
+    ],
+    stack: ['C#/.NET', 'cTrader', 'Clustering', 'Signal Processing'],
   },
   {
     id: 'wm-work-4',
@@ -474,7 +548,31 @@ const WORK_EXPERIENCE_EN: WorkExperience[] = [
     company: 'PwC Chile',
     start: 'Aug 2022',
     end: 'Nov 2022',
+    location: 'Santiago · Chile',
     link: 'https://www.pwc.com/cl/',
+    summary:
+      'Data integration and quality checks in Google Cloud for operational analysis and reporting.',
+    highlights: [
+      'Supported ETL pipelines with Data Fusion, BigQuery, Cloud Storage, Python and REST APIs.',
+      'Optimized historical inventory loads with hundreds of thousands of records to under 30 seconds per file.',
+      'Contributed to schema validation, data quality checks and inconsistency monitoring.',
+    ],
+    stack: ['Google Cloud', 'BigQuery', 'Python', 'ETL'],
+  },
+  {
+    id: 'wm-work-1',
+    title: 'Founder',
+    company: 'Crafium',
+    start: 'Feb 2025',
+    end: 'Nov 2025',
+    location: 'Santiago · Chile',
+    summary:
+      'Product design and manufacturing venture using laser cutting and engraving.',
+    highlights: [
+      'Managed design, materials, production, quality control, sales and distribution.',
+      'Analyzed costs, production times and margins to assess pricing and profitability.',
+    ],
+    stack: ['Operations', 'Cost Analysis', 'Product Design'],
   },
 ]
 

@@ -12,8 +12,8 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#09090b' },
+    { media: '(prefers-color-scheme: light)', color: '#f7f9f7' },
+    { media: '(prefers-color-scheme: dark)', color: '#0d1415' },
   ],
 }
 
@@ -23,21 +23,26 @@ export const metadata: Metadata = {
     canonical: '/',
     languages: { es: '/', en: '/en', 'x-default': '/' },
   },
-  title: { default: 'Walter Moya – IA y Datos', template: '%s | Walter Moya' },
+  title: {
+    default: 'Walter Moya – Data Science y Desarrollo Cuantitativo',
+    template: '%s | Walter Moya',
+  },
   description:
-    'Soluciones de IA y datos precisas, eficientes y escalables. Portafolio de Walter Moya.',
+    'Ingeniero Civil Industrial, MSc. Proyectos de datos, Machine Learning y desarrollo cuantitativo con Python, SQL y C#/.NET. Experiencia en PwC Chile y ClickAlgo.',
   openGraph: {
     type: 'website',
     url: SITE,
-    title: 'Walter Moya – IA y Datos',
-    description: 'Soluciones de IA y datos precisas, eficientes y escalables.',
-    images: ['/cover.jpg'],
+    title: 'Walter Moya – Data Science y Desarrollo Cuantitativo',
+    description:
+      'Datos, Machine Learning y software cuantitativo. Conoce el trabajo de Walter Moya.',
+    images: ['/opengraph-image'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Walter Moya – IA y Datos',
-    description: 'Soluciones de IA y datos precisas, eficientes y escalables.',
-    images: ['/cover.jpg'],
+    title: 'Walter Moya – Data Science y Desarrollo Cuantitativo',
+    description:
+      'Datos, Machine Learning y software cuantitativo. Conoce el trabajo de Walter Moya.',
+    images: ['/opengraph-image'],
   },
   robots: { index: true, follow: true },
   icons: { icon: '/favicon.ico' },
@@ -56,11 +61,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     name: 'Walter Moya',
     email: 'mailto:cg.walter.ma@gmail.com',
     url: SITE,
-    affiliation: {
-      '@type': 'Organization',
-      name: 'CRAFIUM',
-      description: 'Corte y grabado láser',
-    },
+    jobTitle: 'Data Scientist / Quantitative Developer',
+    alumniOf: { '@type': 'CollegeOrUniversity', name: 'Universidad Diego Portales' },
+    sameAs: [
+      'https://github.com/walterm2482',
+      'https://www.linkedin.com/in/walter-moya-araya-a211b9307/',
+      'https://www.kaggle.com/waltertmoyaaraya',
+    ],
   }
 
   return (
@@ -73,7 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body
-        className={`${geist.variable} ${geistMono.variable} bg-white tracking-tight text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100`}
+        className={`${geist.variable} ${geistMono.variable} tracking-tight text-zinc-900 antialiased dark:text-zinc-100`}
       >
         <ThemeProvider
           attribute="class"
@@ -81,9 +88,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           defaultTheme="system"
           enableSystem
         >
-          <div className="mx-auto flex min-h-screen w-full max-w-[1040px] flex-col px-4 pt-28 sm:pt-24">
+          <div className="mx-auto flex min-h-screen w-full max-w-[1120px] flex-col px-5 pt-28 sm:px-6">
             <Header />
-            <main id="contenido" className="flex-1 space-y-28 md:space-y-32">
+            <main id="contenido" tabIndex={-1} className="flex-1">
               {children}
             </main>
             <Footer />
