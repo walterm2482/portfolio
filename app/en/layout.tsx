@@ -10,20 +10,26 @@ export const metadata: Metadata = {
     canonical: '/en',
     languages: { es: '/', en: '/en', 'x-default': '/' },
   },
-  title: { default: 'Walter Moya – AI & Data', template: '%s | Walter Moya' },
-  description: 'Accurate, efficient and scalable AI & data solutions.',
+  title: {
+    default: 'Walter Moya – Data Science & Quantitative Development',
+    template: '%s | Walter Moya',
+  },
+  description:
+    'Industrial Engineer, MSc. Data, Machine Learning and quantitative software with Python, SQL and C#/.NET. Experience at PwC Chile and ClickAlgo.',
   openGraph: {
     type: 'website',
     url: '/en',
-    title: 'Walter Moya – AI & Data',
-    description: 'Accurate, efficient and scalable AI & data solutions.',
-    images: ['/cover.jpg'],
+    title: 'Walter Moya – Data Science & Quantitative Development',
+    description:
+      'Industrial Engineer, MSc. Data, Machine Learning and quantitative software with Python, SQL and C#/.NET. Experience at PwC Chile and ClickAlgo.',
+    images: ['/opengraph-image'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Walter Moya – AI & Data',
-    description: 'Accurate, efficient and scalable AI & data solutions.',
-    images: ['/cover.jpg'],
+    title: 'Walter Moya – Data Science & Quantitative Development',
+    description:
+      'Industrial Engineer, MSc. Data, Machine Learning and quantitative software with Python, SQL and C#/.NET. Experience at PwC Chile and ClickAlgo.',
+    images: ['/opengraph-image'],
   },
   robots: { index: true, follow: true },
   icons: { icon: '/favicon.ico' },

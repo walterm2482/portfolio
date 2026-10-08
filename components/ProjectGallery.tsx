@@ -24,7 +24,7 @@ export function ProjectGallery({ projects, lang }: { projects: Project[]; lang: 
   return (
     <div>
       <div
-        className="mb-6 flex flex-wrap gap-2"
+        className="mb-7 flex flex-wrap gap-2"
         role="group"
         aria-label={en ? 'Filter projects' : 'Filtrar proyectos'}
       >
@@ -34,9 +34,15 @@ export function ProjectGallery({ projects, lang }: { projects: Project[]; lang: 
             type="button"
             aria-pressed={filter === id}
             onClick={() => setFilter(id)}
-            className="rounded-full border border-zinc-200 px-4 py-2 text-sm text-zinc-600 transition-colors hover:border-teal-600 aria-pressed:border-teal-700 aria-pressed:bg-teal-700 aria-pressed:text-white dark:border-zinc-700 dark:text-zinc-300 dark:aria-pressed:border-teal-400 dark:aria-pressed:bg-teal-400 dark:aria-pressed:text-zinc-950"
+            className="project-filter"
           >
             {label}
+            <span className="filter-count" aria-hidden="true">
+              {id === 'all'
+                ? projects.length
+                : projects.filter((project) => (project.category ?? 'quant') === id)
+                    .length}
+            </span>
           </button>
         ))}
       </div>
@@ -47,9 +53,12 @@ export function ProjectGallery({ projects, lang }: { projects: Project[]; lang: 
         {visible.map((project, index) => (
           <article
             key={project.id}
-            className="flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900/50"
+            className="project-card"
+            data-featured={
+              project.id === 'fsg-ultimate' || project.id === 'portfolio-optimizer'
+            }
           >
-            <div className="border-b border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-800 dark:bg-zinc-950">
+            <div className="project-media">
               <ProjectMedia
                 image={project.image}
                 video={project.video}
@@ -59,11 +68,26 @@ export function ProjectGallery({ projects, lang }: { projects: Project[]; lang: 
                 lang={lang}
               />
             </div>
-            <div className="flex flex-1 flex-col gap-4 p-5">
+            <div className="project-body">
               <div>
-                <p className="mb-2 text-xs font-medium tracking-wide text-teal-700 dark:text-teal-300">
-                  {project.role}
-                </p>
+                <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+                  <p className="text-[10px] font-medium tracking-wide text-zinc-500 dark:text-zinc-400">
+                    {project.role}
+                  </p>
+                  <span className="project-status">
+                    {project.code
+                      ? en
+                        ? 'Open source'
+                        : 'Código abierto'
+                      : project.link
+                        ? en
+                          ? 'Published product'
+                          : 'Producto publicado'
+                        : en
+                          ? 'Public notebook'
+                          : 'Notebook público'}
+                  </span>
+                </div>
                 <h3 className="text-xl leading-snug font-semibold tracking-tight">
                   <a
                     href={project.link ?? project.demo ?? project.code}
@@ -83,10 +107,7 @@ export function ProjectGallery({ projects, lang }: { projects: Project[]; lang: 
                 aria-label={en ? 'Technologies' : 'Tecnologías'}
               >
                 {project.stack.map((technology) => (
-                  <li
-                    key={technology}
-                    className="rounded-md bg-zinc-100 px-2 py-1 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300"
-                  >
+                  <li key={technology} className="tech-tag">
                     {technology}
                   </li>
                 ))}
@@ -106,7 +127,7 @@ export function ProjectGallery({ projects, lang }: { projects: Project[]; lang: 
               {project.caseStudy && (
                 <details className="text-sm text-zinc-600 dark:text-zinc-400">
                   <summary className="cursor-pointer font-medium text-zinc-900 dark:text-zinc-200">
-                    {en ? 'Read case study' : 'Ver caso de estudio'}
+                    {en ? 'Inside the project' : 'Cómo lo construí'}
                   </summary>
                   <div className="mt-3 space-y-2 leading-relaxed">
                     <p>
@@ -124,7 +145,7 @@ export function ProjectGallery({ projects, lang }: { projects: Project[]; lang: 
                   </div>
                 </details>
               )}
-              <div className="mt-auto flex flex-wrap gap-4 pt-2 text-sm font-medium">
+              <div className="mt-auto flex flex-wrap gap-4 border-t border-zinc-100 pt-4 text-xs font-medium dark:border-zinc-800">
                 {(project.link || project.demo) && (
                   <a
                     href={project.link ?? project.demo}
