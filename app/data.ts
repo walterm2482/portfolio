@@ -47,7 +47,7 @@ export type BlogPost = {
   link: string
   date: string
   tags: string[]
-  readingTime: string
+  readingTime?: string
 }
 
 export type SocialLink = { label: string; link: string }
@@ -342,6 +342,15 @@ const BLOG_POSTS_ES: BlogPost[] = [
     tags: ['Explainability', 'LIME', 'SHAP', 'Bias'],
     readingTime: '5 min',
   },
+  {
+    uid: 'divvy-chicago',
+    title: 'Divvy Chicago: Strategic Insights (Jan–Jun 2025)',
+    description:
+      'Integración de datos de viajes y clima, análisis exploratorio y segmentación para orientar decisiones de marketing y operación.',
+    link: 'https://www.kaggle.com/code/waltertmoyaaraya/divvy-chicago-strategic-insights-jan-jun-2025',
+    date: '2025-08-17',
+    tags: ['Data Analytics', 'EDA', 'Segmentation'],
+  },
 ]
 
 // ====================== EN ======================
@@ -617,6 +626,15 @@ const BLOG_POSTS_EN: BlogPost[] = [
     date: '2025-04-01',
     tags: ['Explainability', 'LIME', 'SHAP', 'Bias'],
     readingTime: '5 min',
+  },
+  {
+    uid: 'divvy-chicago',
+    title: 'Divvy Chicago: Strategic Insights (Jan–Jun 2025)',
+    description:
+      'Integration of trip and weather data, exploratory analysis and segmentation to inform marketing and operations decisions.',
+    link: 'https://www.kaggle.com/code/waltertmoyaaraya/divvy-chicago-strategic-insights-jan-jun-2025',
+    date: '2025-08-17',
+    tags: ['Data Analytics', 'EDA', 'Segmentation'],
   },
 ]
 
