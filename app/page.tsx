@@ -5,12 +5,11 @@ import { motion } from 'motion/react'
 
 import { AnimatedBackground } from '@/components/ui/animated-background'
 import { Magnetic } from '@/components/ui/magnetic'
-import { ProjectMedia } from '@/components/ui/ProjectMedia'
+import { ProjectGallery } from '@/components/ProjectGallery'
 import { Spotlight } from '@/components/ui/spotlight'
 import { Hero } from '@/components/Hero'
 
 import { getData } from './data'
-import type { Project } from './data'
 
 const {
   PROJECTS = [],
@@ -71,112 +70,26 @@ function MagneticSocialLink({
 
 export default function Page() {
   return (
-    <motion.main variants={VARIANTS_CONTAINER} initial="hidden" animate="visible">
-      <Hero />
+    <motion.div variants={VARIANTS_CONTAINER} initial="hidden" animate="visible">
+      <Hero lang="es" />
 
       {/* Proyectos */}
       <motion.section
-        aria-labelledby="proyectos"
+        aria-labelledby="proyectos-title"
         id="proyectos"
         className="mt-24 scroll-mt-24 md:mt-32"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h2 className="mb-5 text-lg font-medium">Proyectos</h2>
+        <h2 id="proyectos-title" className="mb-2 text-2xl font-semibold tracking-tight">
+          Proyectos destacados
+        </h2>
+        <p className="mb-6 text-sm text-zinc-600 dark:text-zinc-400">
+          Productos publicados, herramientas de código abierto y proyectos de datos
+          aplicados.
+        </p>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {PROJECTS.map((project: Project, i) => (
-            <article key={project.id} className="space-y-3">
-              {/* Media */}
-              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectMedia
-                  image={project.image}
-                  video={project.video}
-                  poster={project.poster}
-                  index={i}
-                />
-              </div>
-
-              {/* Contenido */}
-              <div className="px-1">
-                <div className="flex items-start justify-between gap-3">
-                  <a
-                    href={project.link ?? project.demo ?? '#'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Abrir proyecto ${project.name}`}
-                    className="group relative inline-block font-medium text-zinc-900 dark:text-zinc-50"
-                  >
-                    {project.name}
-                    <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-50" />
-                  </a>
-                  {project.role && (
-                    <span className="shrink-0 rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
-                      {project.role}
-                    </span>
-                  )}
-                </div>
-
-                <p className="text-base text-zinc-600 dark:text-zinc-400">
-                  {project.description}
-                </p>
-
-                {/* Caso de estudio */}
-                {project.caseStudy && (
-                  <div className="mt-3 space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-                    <p>
-                      <span className="font-medium text-zinc-800 dark:text-zinc-200">
-                        Problema:
-                      </span>{' '}
-                      {project.caseStudy.problem}
-                    </p>
-                    <p>
-                      <span className="font-medium text-zinc-800 dark:text-zinc-200">
-                        Enfoque:
-                      </span>{' '}
-                      {project.caseStudy.approach}
-                    </p>
-                    <p>
-                      <span className="font-medium text-zinc-800 dark:text-zinc-200">
-                        Resultado:
-                      </span>{' '}
-                      {project.caseStudy.result}
-                    </p>
-                  </div>
-                )}
-
-                {/* Stack */}
-                {project.stack?.length ? (
-                  <ul className="mt-2 flex flex-wrap gap-1.5">
-                    {project.stack.map((t) => (
-                      <li
-                        key={t}
-                        className="rounded-md bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300"
-                      >
-                        {t}
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-
-                {/* Métricas */}
-                {project.metrics?.length ? (
-                  <dl className="mt-2 grid grid-cols-2 gap-2 text-sm text-zinc-700 dark:text-zinc-300">
-                    {project.metrics.map((m) => (
-                      <div
-                        key={m.label}
-                        className="rounded-lg border border-zinc-200 p-2 dark:border-zinc-800"
-                      >
-                        <dt className="text-xs text-zinc-500">{m.label}</dt>
-                        <dd className="font-medium">{m.value}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                ) : null}
-              </div>
-            </article>
-          ))}
-        </div>
+        <ProjectGallery projects={PROJECTS} lang="es" />
       </motion.section>
 
       {/* Experiencia */}
@@ -274,6 +187,6 @@ export default function Page() {
           ))}
         </div>
       </motion.section>
-    </motion.main>
+    </motion.div>
   )
 }

@@ -19,7 +19,7 @@ const MAP_ES_TO_EN: Record<string, string> = {
 const MAP_EN_TO_ES: Record<string, string> = {
   '#projects': '#proyectos',
   '#experience': '#experiencia',
-  '#blog': '#experiencia' /* si es blog -> blog en ambos, ajusta si corresponde */,
+  '#blog': '#blog',
   '#contact': '#contacto',
 }
 
@@ -30,6 +30,10 @@ export function Header() {
   const SECTIONS = isEn ? EN : ES
 
   const [active, setActive] = useState<Sec>(SECTIONS[0])
+
+  useEffect(() => {
+    document.documentElement.lang = isEn ? 'en' : 'es'
+  }, [isEn])
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -50,7 +54,10 @@ export function Header() {
 
   const [hash, setHash] = useState('')
   useEffect(() => {
-    setHash(window.location.hash)
+    const updateHash = () => setHash(window.location.hash)
+    updateHash()
+    window.addEventListener('hashchange', updateHash)
+    return () => window.removeEventListener('hashchange', updateHash)
   }, [])
 
   const toggledHash = useMemo(
@@ -72,8 +79,8 @@ export function Header() {
         {isEn ? 'Skip to content' : 'Saltar al contenido'}
       </a>
 
-      <div className="mx-auto flex h-14 max-w-[720px] items-center justify-between px-4">
-        <div className="flex items-center gap-3">
+      <div className="mx-auto flex min-h-20 max-w-[1040px] flex-wrap items-center justify-between gap-2 px-4 py-3 sm:min-h-14 sm:flex-nowrap sm:py-2">
+        <div className="flex items-center gap-2">
           <Link
             href={isEn ? '/en' : '/'}
             aria-label={isEn ? 'Home' : 'Inicio'}
@@ -82,16 +89,19 @@ export function Header() {
             <Image
               src="/projects/logo.webp"
               alt="Walter Moya logo"
-              width={120}
-              height={30}
+              width={32}
+              height={32}
               priority
-              className="h-8 w-auto"
+              className="h-8 w-8"
             />
           </Link>
           <span className="text-sm font-medium">Walter Moya</span>
         </div>
 
-        <nav className="flex items-center gap-4 text-sm text-zinc-600 dark:text-zinc-400">
+        <nav
+          aria-label={isEn ? 'Main navigation' : 'Navegación principal'}
+          className="flex w-full items-center justify-between gap-1 text-xs text-zinc-600 sm:w-auto sm:gap-4 sm:text-sm dark:text-zinc-400"
+        >
           {SECTIONS.map((id) => (
             <a
               key={id}

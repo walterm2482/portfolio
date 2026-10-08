@@ -2,7 +2,7 @@
 import type { Metadata } from 'next'
 import '../globals.css'
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://waltermoya.dev'
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://waltermoya.vercel.app'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     url: '/en',
     title: 'Walter Moya – AI & Data',
     description: 'Accurate, efficient and scalable AI & data solutions.',
-    images: ['/og.png'],
+    images: ['/cover.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Walter Moya – AI & Data',
     description: 'Accurate, efficient and scalable AI & data solutions.',
-    images: ['/og.png'],
+    images: ['/cover.jpg'],
   },
   robots: { index: true, follow: true },
   icons: { icon: '/favicon.ico' },

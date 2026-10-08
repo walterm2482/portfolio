@@ -2,8 +2,9 @@ import type { MetadataRoute } from 'next'
 import { WEBSITE_URL } from '@/lib/constants'
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? WEBSITE_URL
-const IS_PROD =
-  process.env.VERCEL_ENV === 'production' || process.env.NODE_ENV === 'production'
+const IS_PROD = process.env.VERCEL_ENV
+  ? process.env.VERCEL_ENV === 'production'
+  : process.env.NODE_ENV === 'production'
 
 export default function robots(): MetadataRoute.Robots {
   // Bloquea indexación en previews/staging

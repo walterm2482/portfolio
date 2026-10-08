@@ -5,11 +5,12 @@ import { motion } from 'motion/react'
 
 import { AnimatedBackground } from '@/components/ui/animated-background'
 import { Magnetic } from '@/components/ui/magnetic'
-import { ProjectMedia } from '@/components/ui/ProjectMedia'
+import { ProjectGallery } from '@/components/ProjectGallery'
 import { Spotlight } from '@/components/ui/spotlight'
 
+import { Hero } from '@/components/Hero'
+
 import { getData } from '../data'
-import type { Project } from '../data'
 
 const {
   PROJECTS = [],
@@ -28,51 +29,6 @@ const VARIANTS_SECTION = {
   visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
 }
 const TRANSITION_SECTION = { duration: 0.3 }
-
-function HeroEn() {
-  return (
-    <section
-      id="start"
-      aria-label="Intro"
-      className="relative isolate border-b border-zinc-200/50 dark:border-zinc-800/50"
-    >
-      {/* Top background */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-64 left-1/2 z-0 h-[140vh] w-screen -translate-x-1/2 bg-gradient-to-b from-[#0d2a4a]/70 via-[#0d2a4a]/35 to-transparent"
-      />
-      {/* Bottom background */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-[60vh] w-screen -translate-x-1/2 bg-gradient-to-t from-[#0d2a4a]/50 via-[#0d2a4a]/20 to-transparent"
-      />
-      {/* Wide radial */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,white_65%,transparent)]"
-      >
-        <div className="absolute -top-24 left-1/2 h-[80rem] w-[120rem] -translate-x-1/2 rounded-full bg-gradient-to-tr from-emerald-300/25 via-sky-300/25 to-fuchsia-300/25 blur-3xl" />
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-5xl px-4 py-16 sm:py-20 md:py-28">
-        <p className="text-xs tracking-widest text-zinc-500 uppercase dark:text-zinc-400">
-          Artificial Intelligence and Data Science
-        </p>
-        <h1 className="mt-3 text-3xl leading-tight font-semibold tracking-tight text-balance md:text-5xl">
-          AI that strengthens decisions
-        </h1>
-        <p className="mt-3 max-w-2xl text-sm text-pretty text-zinc-600 md:text-base dark:text-zinc-300">
-          Quantitative models and predictive analytics for intelligent decisions.
-        </p>
-        <p className="mt-6 max-w-2xl text-sm text-zinc-600 dark:text-zinc-400">
-          <span className="font-medium">Industrial Engineer.</span> MSc in Engineering
-          Sciences (Industrial specialization). Specialized in predictive modeling,
-          computer vision, and optimization.
-        </p>
-      </div>
-    </section>
-  )
-}
 
 function MagneticSocialLink({
   children,
@@ -113,54 +69,24 @@ function MagneticSocialLink({
 
 export default function Page() {
   return (
-    <motion.main variants={VARIANTS_CONTAINER} initial="hidden" animate="visible">
-      <HeroEn />
+    <motion.div variants={VARIANTS_CONTAINER} initial="hidden" animate="visible">
+      <Hero lang="en" />
 
       {/* Projects */}
       <motion.section
         id="projects"
-        aria-labelledby="projects"
+        aria-labelledby="projects-title"
         className="mt-24 scroll-mt-24 md:mt-32"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h2 className="mb-5 text-lg font-medium">Projects</h2>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {PROJECTS.map((project: Project, i) => (
-            <article key={project.id} className="space-y-3">
-              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectMedia
-                  image={project.image}
-                  video={project.video}
-                  poster={project.poster}
-                  index={i}
-                />
-              </div>
-              <div className="px-1">
-                <div className="flex items-start justify-between gap-3">
-                  <a
-                    href={project.link ?? project.demo ?? '#'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Open project ${project.name}`}
-                    className="group relative inline-block font-medium text-zinc-900 dark:text-zinc-50"
-                  >
-                    {project.name}
-                    <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-50" />
-                  </a>
-                  {project.role && (
-                    <span className="shrink-0 rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
-                      {project.role}
-                    </span>
-                  )}
-                </div>
-                <p className="text-base text-zinc-600 dark:text-zinc-400">
-                  {project.description}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
+        <h2 id="projects-title" className="mb-2 text-2xl font-semibold tracking-tight">
+          Selected projects
+        </h2>
+        <p className="mb-6 text-sm text-zinc-600 dark:text-zinc-400">
+          Published products, open-source tools and applied data projects.
+        </p>
+        <ProjectGallery projects={PROJECTS} lang="en" />
       </motion.section>
 
       {/* Experience */}
@@ -258,6 +184,6 @@ export default function Page() {
           ))}
         </div>
       </motion.section>
-    </motion.main>
+    </motion.div>
   )
 }

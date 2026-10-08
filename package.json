@@ -1,23 +1,24 @@
 {
-  "name": "nim",
+  "name": "walter-moya-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
-    "@next/mdx": "^14.2.13",
+    "@next/mdx": "15.5.27",
     "@tailwindcss/typography": "^0.5.15",
     "@types/mdx": "^2.0.13",
     "clsx": "^2.1.1",
     "lucide-react": "^0.468.0",
     "motion": "^11.15.0",
-    "next": "15.1.11",
+    "next": "15.5.27",
     "next-themes": "^0.4.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -31,13 +32,20 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.1.1",
+    "eslint-config-next": "15.5.27",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
-    "postcss": "^8",
+    "postcss": "^8.5.23",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.10",
     "tailwindcss": "^4.0.0",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": "22.x"
+  },
+  "overrides": {
+    "postcss": "$postcss",
+    "postcss-selector-parser": "^7.1.6"
   }
 }
