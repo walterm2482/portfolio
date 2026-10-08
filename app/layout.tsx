@@ -6,6 +6,7 @@ import { Header } from './header'
 import { Footer } from './footer'
 import { ThemeProvider } from 'next-themes'
 import { BRAND_ICONS } from '@/lib/brand'
+import { PHONE } from '@/app/data'
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://waltermoya.vercel.app'
 
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@type': 'Person',
     name: 'Walter Moya',
     email: 'mailto:cg.walter.ma@gmail.com',
+    telephone: PHONE,
     url: SITE,
     jobTitle: 'Data Scientist / Quantitative Developer',
     alumniOf: { '@type': 'CollegeOrUniversity', name: 'Universidad Diego Portales' },

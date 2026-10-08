@@ -62,6 +62,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { label: 'Kaggle', link: 'https://www.kaggle.com/waltertmoyaaraya' },
 ]
 export const EMAIL = 'cg.walter.ma@gmail.com'
+export const PHONE = '+56933669343'
+export const PHONE_DISPLAY = '+56 9 3366 9343'
 
 // ====================== ES ======================
 const PROJECTS_ES: Project[] = [
