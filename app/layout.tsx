@@ -6,7 +6,7 @@ import { Header } from './header'
 import { Footer } from './footer'
 import { ThemeProvider } from 'next-themes'
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://waltermoya.dev'
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://waltermoya.vercel.app'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -31,13 +31,13 @@ export const metadata: Metadata = {
     url: SITE,
     title: 'Walter Moya – IA y Datos',
     description: 'Soluciones de IA y datos precisas, eficientes y escalables.',
-    images: ['/og.png'],
+    images: ['/cover.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Walter Moya – IA y Datos',
     description: 'Soluciones de IA y datos precisas, eficientes y escalables.',
-    images: ['/og.png'],
+    images: ['/cover.jpg'],
   },
   robots: { index: true, follow: true },
   icons: { icon: '/favicon.ico' },
@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@type': 'Person',
     name: 'Walter Moya',
     email: 'mailto:cg.walter.ma@gmail.com',
-    url: 'https://waltermoya.dev',
+    url: SITE,
     affiliation: {
       '@type': 'Organization',
       name: 'CRAFIUM',
@@ -66,8 +66,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
-        {/* @ts-ignore - Forzamos el atributo 'value' requerido por la plataforma externa */}
-        <meta name='impact-site-verification' value='10cc509f-7719-4713-bed3-9f26668108a1' />
+        {/* El proveedor de afiliación utiliza el atributo value. */}
+        <meta
+          name="impact-site-verification"
+          {...{ value: '10cc509f-7719-4713-bed3-9f26668108a1' }}
+        />
       </head>
       <body
         className={`${geist.variable} ${geistMono.variable} bg-white tracking-tight text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100`}
@@ -78,7 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           defaultTheme="system"
           enableSystem
         >
-          <div className="mx-auto flex min-h-screen w-full max-w-[720px] flex-col px-4 pt-20">
+          <div className="mx-auto flex min-h-screen w-full max-w-[1040px] flex-col px-4 pt-28 sm:pt-24">
             <Header />
             <main id="contenido" className="flex-1 space-y-28 md:space-y-32">
               {children}

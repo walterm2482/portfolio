@@ -14,6 +14,7 @@ export type Project = {
   id: string
   name: string
   description: string
+  category?: 'quant' | 'data' | 'ml'
   image?: string
   video?: string
   poster?: string
@@ -52,7 +53,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { label: 'GitHub', link: 'https://github.com/walterm2482' },
   {
     label: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/walter-thomas-moya-araya-a211b9307/',
+    link: 'https://www.linkedin.com/in/walter-moya-a211b9307/',
   },
   { label: 'Kaggle', link: 'https://www.kaggle.com/waltertmoyaaraya' },
 ]
@@ -61,7 +62,52 @@ export const EMAIL = 'cg.walter.ma@gmail.com'
 // ====================== ES ======================
 const PROJECTS_ES: Project[] = [
   {
+    id: 'fsg-ultimate',
+    name: 'FSG Ultimate v2.1',
+    description:
+      'cBot de reversión a la media para cTrader Automate. Evalúa velas cerradas con filtros Stochastic, confirmación multitemporal y ADX; gestiona una cesta a la vez con tamaño fijo por posición, salidas por ATR y tres capas de control de riesgo.',
+    image: '/projects/fsg-ultimate.webp',
+    role: 'Quantitative Developer',
+    category: 'quant',
+    stack: ['C#', '.NET 6', 'cTrader Automate', 'Mean Reversion', 'Risk Management'],
+    metrics: [
+      { label: 'Versión', value: '2.1' },
+      { label: 'Publicado', value: 'Agosto 2026' },
+    ],
+    link: 'https://ctrader.com/products/438',
+  },
+  {
+    id: 'portfolio-optimizer',
+    name: 'Portfolio Optimizer',
+    description:
+      'Aplicación Python con dashboard Dash y CLI para construir y evaluar portafolios. Compara Sharpe, mínima varianza, HRP y pesos iguales; incorpora señales ML opcionales y backtesting con rebalanceo, equity, drawdown y correlaciones.',
+    image: '/projects/portfolio-optimizer.png',
+    role: 'Quantitative Developer',
+    category: 'quant',
+    stack: [
+      'Python',
+      'Dash',
+      'Pandas',
+      'Scikit-learn',
+      'Portfolio Optimization',
+      'pytest',
+    ],
+    code: 'https://github.com/walterm2482/portfolio-optimizer',
+  },
+  {
+    id: 'mlops-api',
+    name: 'Machine Learning API · Flask & Docker',
+    description:
+      'Proyecto académico que lleva un Random Forest desde el entrenamiento hasta una API REST. Incluye serialización del modelo, predicciones y probabilidades, pruebas con pytest y ejecución reproducible en Docker sobre el dataset Breast Cancer Wisconsin.',
+    image: '/projects/mlops-api.png',
+    role: 'ML Developer',
+    category: 'ml',
+    stack: ['Python', 'Flask', 'Scikit-learn', 'Docker', 'REST API', 'pytest'],
+    code: 'https://github.com/walterm2482/kibernum_ml_modulo_10_actividad_modular',
+  },
+  {
     id: 'wm-project-1',
+    category: 'ml',
     name: 'K-Means Clustering Indicator (ML-Based)',
     description:
       'Indicador de clustering K-Means para cTrader que utiliza machine learning para detectar patrones de mercado y visualizar señales de trading.',
@@ -78,14 +124,13 @@ const PROJECTS_ES: Project[] = [
     metrics: [
       { label: 'Versión', value: '2.0.0' },
       { label: 'Actualizado', value: '2025-10-08' },
-      { label: 'Rating', value: '5.0' },
     ],
     link: 'https://clickalgo.com/k-means',
     demo: 'https://clickalgo.com/k-means',
-    code: 'https://github.com/walterm2482/kmeans-indicator',
   },
   {
     id: 'wm-project-2',
+    category: 'ml',
     name: 'Gaussian Mixture Model Indicator',
     description:
       'Indicador GMM para cTrader que actúa como clasificador probabilístico, empleando modelos de mezcla de gaussianas para identificar patrones de mercado y generar señales de trading basadas en probabilidad de modelo.',
@@ -105,30 +150,21 @@ const PROJECTS_ES: Project[] = [
     ],
     link: 'https://clickalgo.com/gaussian-mixture',
     demo: 'https://clickalgo.com/gaussian-mixture',
-    code: 'https://github.com/walterm2482/gmm-indicator',
   },
   {
     id: 'wm-project-3',
     name: 'Smart Portfolio Architect',
     description:
-      'Estrategia de portafolio de mínima correlación que automatiza el análisis de activos y optimiza el balance riesgo-retorno mediante recocido simulado e integración con cAlgo.',
+      'Estrategia de portafolio de mínima correlación que automatiza el análisis de activos y optimiza el balance riesgo-retorno mediante análisis de correlación e integración con cAlgo.',
     image: '/projects/smart_portfolio.webp',
-    role: 'ML Engineer',
-    stack: [
-      'cAlgo',
-      'Portfolio Optimization',
-      'Simulated Annealing',
-      'Risk Management',
-      'REST API (Telegram)',
-    ],
+    role: 'Quantitative Developer',
+    stack: ['cAlgo', 'Portfolio Optimization', 'Risk Management', 'REST API (Telegram)'],
     metrics: [
       { label: 'Versión', value: '1.0.0' },
       { label: 'Actualizado', value: '2025-09-18' },
-      { label: 'Rating', value: '5.0' },
     ],
     link: 'https://clickalgo.com/smart-portfolio-architect',
     demo: 'https://clickalgo.com/smart-portfolio-architect',
-    code: 'https://github.com/walterm2482/smart-portfolio',
   },
   {
     id: 'wm-project-4',
@@ -136,20 +172,19 @@ const PROJECTS_ES: Project[] = [
     description:
       'Indicador de umbral para cTrader que aplica el filtro de Kalman lineal, MEWMA y bandas de ATR para el análisis de series temporales y generación de señales de trading con alertas vía Telegram.',
     image: '/projects/moya_bands.webp',
-    role: 'ML Engineer',
+    role: 'Quantitative Developer',
     stack: ['Kalman Filter', 'Time Series Analysis', 'cTrader', 'Telegram API'],
     metrics: [
       { label: 'Versión', value: '1.0.0' },
       { label: 'Actualizado', value: '2025-09-09' },
-      { label: 'Rating', value: '5.0' },
     ],
     link: 'https://clickalgo.com/moya-bands',
     demo: 'https://clickalgo.com/moya-bands',
-    code: 'https://github.com/walterm2482/moya-bands',
   },
   {
     id: 'wm-project-5',
     name: 'Divvy Chicago Strategic Insights (Jan–Jun 2025)',
+    category: 'data',
     description:
       'Análisis de segmentación y optimización operativa del sistema de bicicletas de Chicago para impulsar la conversión a membresías anuales.',
     image: '/projects/divvy_chicago.webp',
@@ -166,14 +201,14 @@ const PROJECTS_ES: Project[] = [
         'Detectar patrones de uso y factores de conversión en el programa Cyclistic Bike-Share.',
       approach:
         'Modelado espacio-temporal y clustering de usuarios para orientar acciones de marketing y operación.',
-      result: 'Disponibilidad +12 %, traslados –18 % y ROI proyectado +20 %.',
+      result:
+        'Patrones de uso y recomendaciones de marketing y operación documentados en un notebook público.',
     },
     metrics: [
       { label: 'Versión', value: '1.0.0' },
       { label: 'Actualizado', value: '2025-07-01' },
     ],
     demo: 'https://www.kaggle.com/code/waltertmoyaaraya/divvy-chicago-strategic-insights-jan-jun-2025',
-    code: 'https://github.com/tuusuario/divvy-chicago',
   },
 ]
 
@@ -206,8 +241,8 @@ const WORK_EXPERIENCE_ES: WorkExperience[] = [
     id: 'wm-work-4',
     title: 'Analyst Trainee',
     company: 'PwC Chile',
-    start: 'Aug 2022',
-    end: 'Nov 2022',
+    start: 'ago 2022',
+    end: 'nov 2022',
     link: 'https://www.pwc.com/cl/',
   },
 ]
@@ -258,7 +293,52 @@ const BLOG_POSTS_ES: BlogPost[] = [
 // ====================== EN ======================
 const PROJECTS_EN: Project[] = [
   {
+    id: 'fsg-ultimate',
+    name: 'FSG Ultimate v2.1',
+    description:
+      'Mean-reversion cBot for cTrader Automate. Uses closed-bar Stochastic signals, multi-timeframe confirmation and ADX filters; manages one basket at a time with fixed position sizing, ATR exits and three layers of risk controls.',
+    image: '/projects/fsg-ultimate.webp',
+    role: 'Quantitative Developer',
+    category: 'quant',
+    stack: ['C#', '.NET 6', 'cTrader Automate', 'Mean Reversion', 'Risk Management'],
+    metrics: [
+      { label: 'Version', value: '2.1' },
+      { label: 'Published', value: 'August 2026' },
+    ],
+    link: 'https://ctrader.com/products/438',
+  },
+  {
+    id: 'portfolio-optimizer',
+    name: 'Portfolio Optimizer',
+    description:
+      'Python application with a Dash dashboard and CLI for portfolio construction and evaluation. Compares Sharpe, minimum variance, HRP and equal weights; includes optional ML signals and rebalancing backtests with equity, drawdown and correlation views.',
+    image: '/projects/portfolio-optimizer.png',
+    role: 'Quantitative Developer',
+    category: 'quant',
+    stack: [
+      'Python',
+      'Dash',
+      'Pandas',
+      'Scikit-learn',
+      'Portfolio Optimization',
+      'pytest',
+    ],
+    code: 'https://github.com/walterm2482/portfolio-optimizer',
+  },
+  {
+    id: 'mlops-api',
+    name: 'Machine Learning API · Flask & Docker',
+    description:
+      'Academic project taking a Random Forest from training to a REST API. Includes model serialization, predictions and probabilities, pytest coverage and reproducible Docker execution using the Breast Cancer Wisconsin dataset.',
+    image: '/projects/mlops-api.png',
+    role: 'ML Developer',
+    category: 'ml',
+    stack: ['Python', 'Flask', 'Scikit-learn', 'Docker', 'REST API', 'pytest'],
+    code: 'https://github.com/walterm2482/kibernum_ml_modulo_10_actividad_modular',
+  },
+  {
     id: 'wm-project-1',
+    category: 'ml',
     name: 'K-Means Clustering Indicator (ML-Based)',
     description:
       'K-Means clustering indicator for cTrader that uses machine learning to detect market patterns and visualize trading signals.',
@@ -275,14 +355,13 @@ const PROJECTS_EN: Project[] = [
     metrics: [
       { label: 'Version', value: '2.0.0' },
       { label: 'Updated', value: '2025-10-08' },
-      { label: 'Rating', value: '5.0' },
     ],
     link: 'https://clickalgo.com/k-means',
     demo: 'https://clickalgo.com/k-means',
-    code: 'https://github.com/walterm2482/kmeans-indicator',
   },
   {
     id: 'wm-project-2',
+    category: 'ml',
     name: 'Gaussian Mixture Model Indicator',
     description:
       'GMM indicator for cTrader that acts as a probabilistic classifier, using Gaussian mixture models to identify market patterns and generate trading signals based on model probability.',
@@ -302,30 +381,21 @@ const PROJECTS_EN: Project[] = [
     ],
     link: 'https://clickalgo.com/gaussian-mixture',
     demo: 'https://clickalgo.com/gaussian-mixture',
-    code: 'https://github.com/walterm2482/gmm-indicator',
   },
   {
     id: 'wm-project-3',
     name: 'Smart Portfolio Architect',
     description:
-      'Minimum-correlation portfolio strategy that automates asset analysis and optimizes the risk–return balance using simulated annealing and cAlgo integration.',
+      'Minimum-correlation portfolio strategy that automates asset analysis and optimizes the risk–return balance using correlation analysis and cAlgo integration.',
     image: '/projects/smart_portfolio.webp',
-    role: 'ML Engineer',
-    stack: [
-      'cAlgo',
-      'Portfolio Optimization',
-      'Simulated Annealing',
-      'Risk Management',
-      'REST API (Telegram)',
-    ],
+    role: 'Quantitative Developer',
+    stack: ['cAlgo', 'Portfolio Optimization', 'Risk Management', 'REST API (Telegram)'],
     metrics: [
       { label: 'Version', value: '1.0.0' },
       { label: 'Updated', value: '2025-09-18' },
-      { label: 'Rating', value: '5.0' },
     ],
     link: 'https://clickalgo.com/smart-portfolio-architect',
     demo: 'https://clickalgo.com/smart-portfolio-architect',
-    code: 'https://github.com/walterm2482/smart-portfolio',
   },
   {
     id: 'wm-project-4',
@@ -333,20 +403,19 @@ const PROJECTS_EN: Project[] = [
     description:
       'Threshold indicator for cTrader that applies the linear Kalman filter, MEWMA, and ATR bands for time-series analysis and signal generation, with Telegram alerts.',
     image: '/projects/moya_bands.webp',
-    role: 'ML Engineer',
+    role: 'Quantitative Developer',
     stack: ['Kalman Filter', 'Time Series Analysis', 'cTrader', 'Telegram API'],
     metrics: [
       { label: 'Version', value: '1.0.0' },
       { label: 'Updated', value: '2025-09-09' },
-      { label: 'Rating', value: '5.0' },
     ],
     link: 'https://clickalgo.com/moya-bands',
     demo: 'https://clickalgo.com/moya-bands',
-    code: 'https://github.com/walterm2482/moya-bands',
   },
   {
     id: 'wm-project-5',
     name: 'Divvy Chicago Strategic Insights (Jan–Jun 2025)',
+    category: 'data',
     description:
       "Segmentation analysis and operational optimization of Chicago's bike system to drive conversion to annual memberships.",
     image: '/projects/divvy_chicago.webp',
@@ -363,14 +432,14 @@ const PROJECTS_EN: Project[] = [
         'Detect usage patterns and conversion drivers in the Cyclistic bike-share program.',
       approach:
         'Spatiotemporal modeling and user clustering to guide marketing and operations.',
-      result: 'Availability +12%, rebalancing rides −18%, projected ROI +20%.',
+      result:
+        'Usage patterns and marketing and operations recommendations documented in a public notebook.',
     },
     metrics: [
       { label: 'Version', value: '1.0.0' },
       { label: 'Updated', value: '2025-07-01' },
     ],
     demo: 'https://www.kaggle.com/code/waltertmoyaaraya/divvy-chicago-strategic-insights-jan-jun-2025',
-    code: 'https://github.com/tuusuario/divvy-chicago',
   },
 ]
 
@@ -403,8 +472,8 @@ const WORK_EXPERIENCE_EN: WorkExperience[] = [
     id: 'wm-work-4',
     title: 'Analyst Trainee',
     company: 'PwC Chile',
-    start: 'ago 2022',
-    end: 'nov 2022',
+    start: 'Aug 2022',
+    end: 'Nov 2022',
     link: 'https://www.pwc.com/cl/',
   },
 ]
