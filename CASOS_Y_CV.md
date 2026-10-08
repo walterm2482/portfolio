@@ -2,7 +2,7 @@
 
 ## Cambios
 
-- Descarga del CV junto a la presentación y en Contacto, con dos versiones de una página: español (**PDF · ES**) e inglés (**PDF · EN**). Ambas están disponibles desde los dos idiomas del sitio.
+- Descarga del CV junto a la presentación y en Contacto, con un botón por sección que corresponde al idioma del sitio: español (**PDF · ES**) en `/` e inglés (**PDF · EN**) en `/en`.
 - Tres proyectos al abrir la portada: FSG Ultimate v2.1, Portfolio Optimizer y Machine Learning API. Los ocho proyectos siguen disponibles mediante **Ver todos los proyectos**, con filtros por categoría.
 - Seis páginas de casos de estudio: tres en español y tres en inglés. Incluyen problema, aporte, flujo de trabajo, decisiones, entregables verificables, capturas ampliables y fuentes.
 - Descripciones breves y etiquetas de tecnología de 12 px. El resumen visual del proceso del inicio se muestra desde tablet para acercar los proyectos en móvil.
@@ -11,9 +11,9 @@
 
 ## CV
 
-Español: `../cv_walter_moya_final_ats.pdf`, generado el 8 de octubre de 2026 y copiado sin modificar a `public/cv/walter-moya-cv-es.pdf`. Inglés: `public/cv/walter-moya-cv-en.pdf`, traducido a partir de esa versión y compilado con Tectonic. Ambos conservan los mismos hechos, fechas, proyectos, número **+56 9 3366 9343** y correo de contacto.
+Español: basado en `../cv_walter_moya_final_ats.pdf`, con fuente editable en `documents/cv/walter_thomas_moya_araya_cv_es.tex` y PDF en `public/cv/walter_thomas_moya_araya_cv_es.pdf`. Inglés: `documents/cv/walter_thomas_moya_araya_cv_en.tex` y `public/cv/walter_thomas_moya_araya_cv_en.pdf`. Ambos se compilaron con Tectonic y conservan los mismos hechos, fechas, proyectos, número **+56 9 3366 9343** y correo de contacto. El enlace al portafolio apunta al dominio estable de Vercel: `/` en español y `/en` en inglés.
 
-Destacan K-Means, FSG Ultimate v2.1 y Smart Portfolio Architect, con Portfolio Optimizer como complemento en Python. Las fuentes LaTeX editables se incluyen en `documents/cv/`; ver su [README](documents/cv/README.md) para recompilar. `components/CVDownload.tsx` muestra ambos archivos en las dos secciones, con el idioma de la página en primer lugar y nombres de descarga que distinguen ES y EN.
+Destacan K-Means, FSG Ultimate v2.1 y Smart Portfolio Architect, con Portfolio Optimizer como complemento en Python. Las fuentes LaTeX editables se incluyen en `documents/cv/`; ver su [README](documents/cv/README.md) para recompilar. `components/CVDownload.tsx` selecciona un único archivo según el idioma de la página. Los nombres de descarga usan minúsculas y guiones bajos. Las direcciones anteriores de los PDF redirigen a las nuevas.
 
 ## Evidencia de los casos
 

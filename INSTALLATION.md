@@ -10,7 +10,7 @@ La copia preparada en este equipo está en:
 cd /home/walter/Documentos/busqueda-trabajo/portfolio
 ```
 
-En VS Code: **Archivo → Abrir carpeta** y selecciona esa carpeta. El archivo de LinkedIn y los CV originales están en la carpeta superior. El sitio incluye dos CV de una página: `public/cv/walter-moya-cv-es.pdf` en español y `public/cv/walter-moya-cv-en.pdf` en inglés.
+En VS Code: **Archivo → Abrir carpeta** y selecciona esa carpeta. El archivo de LinkedIn y los CV originales están en la carpeta superior. El sitio incluye dos CV de una página: `public/cv/walter_thomas_moya_araya_cv_es.pdf` en español y `public/cv/walter_thomas_moya_araya_cv_en.pdf` en inglés.
 
 Para instalarlo en otro equipo, con Git y Node.js 22:
 
@@ -74,7 +74,7 @@ La portada muestra primero FSG Ultimate, Portfolio Optimizer y Machine Learning 
 
 Los casos ampliados se editan en `app/case-studies.ts`, con textos ES/EN, contribuciones, decisiones, capturas y enlaces de respaldo. Sus rutas son `/proyectos/fsg-ultimate`, `/proyectos/portfolio-optimizer` y `/proyectos/mlops-api`; en inglés, `/en/projects/` seguido del mismo identificador. Las capturas originales están en `public/projects/cases/`.
 
-El inicio y Contacto permiten descargar ambos CV. El idioma de la página aparece primero y las etiquetas **PDF · ES** y **PDF · EN** identifican cada documento. Para actualizarlos, edita las fuentes LaTeX en `documents/cv/` y vuelve a generar los PDF en `public/cv/`; también puedes reemplazar esos PDF directamente. Ver [documents/cv/README.md](documents/cv/README.md) para compilarlos y [CASOS_Y_CV.md](CASOS_Y_CV.md) para las fuentes.
+El inicio y Contacto muestran un solo botón de CV por sección: español en `/` e inglés en `/en`. Las etiquetas **PDF · ES** y **PDF · EN** identifican el documento. Los nombres de archivo y de descarga usan minúsculas y guiones bajos. Para actualizarlos, edita las fuentes LaTeX en `documents/cv/` y vuelve a generar los PDF en `public/cv/`; también puedes reemplazar esos PDF directamente. Ver [documents/cv/README.md](documents/cv/README.md) para compilarlos y [CASOS_Y_CV.md](CASOS_Y_CV.md) para las fuentes.
 
 Los grupos `app/(es)/` y `app/(en)/` conservan las direcciones `/` y `/en`. Cada uno genera su documento HTML con el idioma correcto; los paréntesis no forman parte de la URL.
 
