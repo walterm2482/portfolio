@@ -47,7 +47,9 @@ export function getProfileData(lang: Lang) {
       },
       {
         degree: en ? 'Industrial Engineering' : 'Ingeniería Civil Industrial',
-        detail: en ? 'Graduated with distinction' : 'Titulado con distinción',
+        detail: en
+          ? 'Graduated with distinction · Grade: 5.7/7.0'
+          : 'Titulado con distinción · Nota: 5,7/7,0',
         institution: 'Universidad Diego Portales',
         year: '2016 — 2023',
       },
