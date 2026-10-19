@@ -1,4 +1,15 @@
-# Revisión del portafolio — 8 de octubre de 2026
+# Revisiones del portafolio — octubre de 2026
+
+## SGU v2.3 — 19 de octubre de 2026
+
+- Portada y caso de estudio actualizados en español e inglés a FSG Ultimate / Smart Grid Ultimate v2.3, publicado el 18 de octubre. La versión y la fecha se verificaron en los datos actuales de [cTrader Store](https://ctrader.com/products/438); parte de la descripción pública aún menciona v2.1.
+- Los PDF originales de 63 páginas se publican en `public/guides/`, con un enlace en la portada y opciones para leer y descargar en el caso de estudio. Cada idioma usa su propia guía; las rutas se mantienen en `lib/sgu.ts`.
+- Se documentan la retirada de ADX, los 56 parámetros y las mejoras de ejecución y recuperación descritas en las guías. El estudio histórico conservado corresponde a v2.2.2; no se presenta como una nueva ejecución de v2.3.
+- Se incorpora el [video de SGU v2.3](https://www.youtube.com/watch?v=uTD31OqS04E) en ambos casos de estudio mediante el reproductor de YouTube, con interfaz según el idioma, carga diferida, pantalla completa y enlace directo. YouTube confirmó `playableInEmbed: true` al verificarlo.
+- Los PDF del CV conservan su contenido y fecha de revisión anteriores a esta actualización del producto.
+- Validación: TypeScript y compilación de producción sin errores; comprobación de formato de los archivos modificados; navegación con Playwright sobre Brave en ambos idiomas, escritorio de 1440 px, móvil de 375 px y tema oscuro. Se verificaron las descargas por SHA-256, el tipo `application/pdf`, el cambio de idioma y la ausencia de errores JavaScript o respuestas HTTP fallidas del sitio. Los otros casos de estudio conservan su presentación sin recursos de SGU.
+
+## Revisión del 8 de octubre de 2026
 
 ## Productos verificados
 

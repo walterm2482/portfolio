@@ -1,5 +1,6 @@
 import type { Lang } from './data'
 import type { CaseSlug } from '@/lib/project-routes'
+import { SGU_USER_GUIDES, SGU_VIDEO_ID } from '@/lib/sgu'
 
 type Decision = { title: string; text: string }
 type Evidence = { image: string; alt: string; caption: string; source: string }
@@ -16,6 +17,7 @@ export type CaseStudy = {
   results: Decision[]
   limitation: string
   screenshots: Evidence[]
+  video?: { youtubeId: string; title: string; description: string }
   sources: { label: string; url: string }[]
 }
 
@@ -29,39 +31,48 @@ const ES: Record<CaseSlug, CaseStudy> = {
   'fsg-ultimate': {
     slug: 'fsg-ultimate',
     category: 'Desarrollo cuantitativo',
-    title: 'FSG Ultimate v2.1',
-    lead: 'De una señal de reversión a la media a un cBot con reglas explícitas de ejecución y riesgo.',
+    title: 'FSG Ultimate v2.3',
+    lead: 'Smart Grid Ultimate (SGU): un cBot de reversión a la media con gestión de cesta, controles de riesgo y una configuración simplificada en v2.3.',
     scope: 'Producto independiente · C# / .NET 6 · cTrader Automate',
     problem:
       'Convertir señales de mercado en una estrategia automatizada con exposición acotada y salidas definidas.',
     contribution: [
       'Desarrollé el cBot y su lógica de entrada, gestión de cesta y salida.',
-      'Integré confirmación multitemporal, filtros direccionales y controles de riesgo configurables.',
+      'Integré confirmación estocástica multitemporal opcional, objetivos por ATR y controles de riesgo configurables.',
+      'Mejoré la conciliación de órdenes, la recuperación de posiciones y los reintentos por margen insuficiente; añadí alertas opcionales por Telegram.',
+      'Simplifiqué v2.3 retirando el filtro ADX y sus cinco controles, con 56 parámetros conservados.',
     ],
     flow: ['Evaluar vela cerrada', 'Confirmar señal', 'Gestionar cesta y riesgo'],
     decisions: [
       {
-        title: 'Velas cerradas',
-        text: 'La evaluación al cierre hace determinista la señal.',
+        title: 'Señal y confirmación',
+        text: 'El disparador evalúa la vela cerrada. La confirmación multitemporal opcional puede considerar una vela en formación; la guía explica sus implicaciones.',
       },
       {
         title: 'Exposición acotada',
-        text: 'Tamaño fijo por posición y una sola cesta activa.',
+        text: 'Posiciones de igual tamaño, sin martingala, y una cesta direccional por instancia. El máximo de posiciones limita el volumen previsto.',
       },
       {
         title: 'Salidas independientes',
-        text: 'ATR para la salida; stops por balance, pips y posición en el servidor.',
+        text: 'Objetivo ATR opcional y límites por balance, pips y posición en el bróker. Los umbrales inician una respuesta; el resultado depende de la ejecución.',
       },
     ],
     results: [
-      { title: 'v2.1 publicada', text: 'Ficha y versión disponibles en cTrader Store.' },
       {
-        title: '3 controles de riesgo',
-        text: 'Documentados en la descripción de la versión.',
+        title: 'v2.3 publicada',
+        text: 'Actualización del 18 de octubre de 2026 en cTrader Store.',
+      },
+      {
+        title: '56 parámetros',
+        text: 'Configuración sin ADX, con instrucciones de migración desde los presets anteriores.',
+      },
+      {
+        title: 'Guía de 63 páginas',
+        text: 'Mecánica, instalación, parámetros, riesgos y estudio histórico de 13 pares con análisis Monte Carlo.',
       },
     ],
     limitation:
-      'La evidencia pública documenta el producto y sus reglas. No se presenta rentabilidad auditada.',
+      'El estudio de las guías usa v2.2.2 (ensamblado 2.2.2.0); no se volvió a ejecutar con v2.3. Los resultados son simulaciones históricas, no rentabilidad auditada. Las tendencias persistentes pueden generar pérdidas flotantes importantes.',
     screenshots: [
       {
         image: '/projects/cases/fsg-signal.webp',
@@ -71,7 +82,16 @@ const ES: Record<CaseSlug, CaseStudy> = {
         source: fsg,
       },
     ],
-    sources: [{ label: 'Producto y documentación en cTrader', url: fsg }],
+    video: {
+      youtubeId: SGU_VIDEO_ID,
+      title: 'SGU v2.3: instalación, optimización y backtesting',
+      description:
+        'Recorrido del producto en cTrader: configuración, optimización y pruebas históricas.',
+    },
+    sources: [
+      { label: 'Producto en cTrader Store', url: fsg },
+      { label: 'Guía de usuario v2.3 en español (PDF)', url: SGU_USER_GUIDES.es.url },
+    ],
   },
   'portfolio-optimizer': {
     slug: 'portfolio-optimizer',
@@ -213,39 +233,48 @@ const EN: Record<CaseSlug, CaseStudy> = {
   'fsg-ultimate': {
     slug: 'fsg-ultimate',
     category: 'Quantitative development',
-    title: 'FSG Ultimate v2.1',
-    lead: 'Turning a mean-reversion signal into a cBot with explicit execution and risk rules.',
+    title: 'FSG Ultimate v2.3',
+    lead: 'Smart Grid Ultimate (SGU): a mean-reversion cBot with basket management, risk controls and a simplified configuration in v2.3.',
     scope: 'Independent product · C# / .NET 6 · cTrader Automate',
     problem:
       'Translate market signals into an automated strategy with bounded exposure and defined exits.',
     contribution: [
       'Developed the cBot, including entry, basket management and exit logic.',
-      'Integrated multi-timeframe confirmation, directional filters and configurable risk controls.',
+      'Integrated optional multi-timeframe stochastic confirmation, ATR targets and configurable risk controls.',
+      'Improved order reconciliation, position recovery and insufficient-margin retries; added optional Telegram alerts.',
+      'Simplified v2.3 by removing the ADX filter and its five controls, retaining 56 parameters.',
     ],
     flow: ['Evaluate closed bar', 'Confirm signal', 'Manage basket and risk'],
     decisions: [
       {
-        title: 'Closed bars',
-        text: 'Evaluating at bar close makes the signal deterministic.',
+        title: 'Signal and confirmation',
+        text: 'The trigger evaluates the closed bar. Optional multi-timeframe confirmation can consider a forming bar; the guide explains the implications.',
       },
       {
         title: 'Bounded exposure',
-        text: 'Fixed size per position and one active basket.',
+        text: 'Equal-size positions, no martingale, and one directional basket per instance. The position limit bounds intended volume.',
       },
       {
         title: 'Independent exits',
-        text: 'ATR-based exit; balance, pip and server-side position stops.',
+        text: 'Optional ATR target and balance, pip and broker position stops. Thresholds start a response; the outcome depends on execution.',
       },
     ],
     results: [
       {
-        title: 'v2.1 published',
-        text: 'Product listing and release available on cTrader Store.',
+        title: 'v2.3 published',
+        text: 'Updated on 18 October 2026 on cTrader Store.',
       },
-      { title: '3 risk controls', text: 'Documented in the release description.' },
+      {
+        title: '56 parameters',
+        text: 'Configuration without ADX, with migration instructions for earlier presets.',
+      },
+      {
+        title: '63-page guide',
+        text: 'Mechanics, installation, settings, risks and a historical study of 13 pairs with Monte Carlo analysis.',
+      },
     ],
     limitation:
-      'Public evidence documents the product and its rules. No audited returns are presented.',
+      'The study in the guides uses v2.2.2 (assembly 2.2.2.0); it was not rerun with v2.3. Results are historical simulations, not audited returns. Persistent trends can create substantial floating losses.',
     screenshots: [
       {
         image: '/projects/cases/fsg-signal.webp',
@@ -255,7 +284,16 @@ const EN: Record<CaseSlug, CaseStudy> = {
         source: fsg,
       },
     ],
-    sources: [{ label: 'Product and documentation on cTrader', url: fsg }],
+    video: {
+      youtubeId: SGU_VIDEO_ID,
+      title: 'SGU v2.3: setup, optimization and backtesting',
+      description:
+        'A product walkthrough in cTrader covering setup, optimization and historical testing.',
+    },
+    sources: [
+      { label: 'Product on cTrader Store', url: fsg },
+      { label: 'SGU v2.3 user guide in English (PDF)', url: SGU_USER_GUIDES.en.url },
+    ],
   },
   'portfolio-optimizer': {
     slug: 'portfolio-optimizer',

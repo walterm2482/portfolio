@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { ArrowRight, ArrowUpRight, Code2, Plus, Minus } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Code2, FileText, Plus, Minus } from 'lucide-react'
 import { ProjectMedia } from '@/components/ui/ProjectMedia'
 import type { Lang, Project } from '@/app/data'
 import { caseStudyPath, hasCaseStudy } from '@/lib/project-routes'
@@ -231,6 +231,19 @@ export function ProjectGallery({ projects, lang }: { projects: Project[]; lang: 
                           ? 'View notebook'
                           : 'Ver notebook'}
                     <ArrowUpRight aria-hidden="true" size={16} />
+                  </a>
+                )}
+                {project.userGuide && (
+                  <a
+                    href={project.userGuide.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    hrefLang={lang}
+                    type="application/pdf"
+                    className="inline-flex items-center gap-1 text-teal-700 hover:underline dark:text-teal-300"
+                  >
+                    <FileText size={16} aria-hidden="true" />
+                    {en ? 'User guide (PDF)' : 'Guía de usuario (PDF)'}
                   </a>
                 )}
                 {project.code && (

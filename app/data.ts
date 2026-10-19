@@ -1,4 +1,6 @@
 // data.ts
+import { SGU_USER_GUIDES } from '@/lib/sgu'
+
 // ==== Tipos ====
 export type Lang = 'es' | 'en'
 
@@ -21,6 +23,7 @@ export type Project = {
   link?: string
   demo?: string
   code?: string
+  userGuide?: { url: string; version: string; publishedAt: string; pages: number }
   role: string
   stack: string[]
   metrics?: ProjectMetric[]
@@ -69,18 +72,19 @@ export const PHONE_DISPLAY = '+56 9 3366 9343'
 const PROJECTS_ES: Project[] = [
   {
     id: 'fsg-ultimate',
-    name: 'FSG Ultimate v2.1',
+    name: 'FSG Ultimate v2.3',
     description:
-      'cBot de reversión a la media con confirmación multitemporal, salidas por ATR y tres controles de riesgo. Publicado para cTrader.',
+      'Smart Grid Ultimate: cBot de reversión a la media con posiciones de igual tamaño, confirmación multitemporal opcional y gestión de riesgo por cesta. v2.3 simplifica la configuración y retira ADX.',
     image: '/projects/fsg-ultimate.webp',
     role: 'Quantitative Developer',
     category: 'quant',
     stack: ['C#', '.NET 6', 'cTrader Automate', 'Mean Reversion', 'Risk Management'],
     metrics: [
-      { label: 'Versión', value: '2.1' },
-      { label: 'Publicado', value: 'Agosto 2026' },
+      { label: 'Versión', value: '2.3' },
+      { label: 'Actualizado', value: '18 octubre 2026' },
     ],
     link: 'https://ctrader.com/products/438',
+    userGuide: SGU_USER_GUIDES.es,
   },
   {
     id: 'portfolio-optimizer',
@@ -361,18 +365,19 @@ const BLOG_POSTS_ES: BlogPost[] = [
 const PROJECTS_EN: Project[] = [
   {
     id: 'fsg-ultimate',
-    name: 'FSG Ultimate v2.1',
+    name: 'FSG Ultimate v2.3',
     description:
-      'Mean-reversion cBot with multi-timeframe confirmation, ATR exits and three risk controls. Published for cTrader.',
+      'Smart Grid Ultimate: a mean-reversion cBot with equal-size positions, optional multi-timeframe confirmation and basket risk management. v2.3 simplifies configuration and removes ADX.',
     image: '/projects/fsg-ultimate.webp',
     role: 'Quantitative Developer',
     category: 'quant',
     stack: ['C#', '.NET 6', 'cTrader Automate', 'Mean Reversion', 'Risk Management'],
     metrics: [
-      { label: 'Version', value: '2.1' },
-      { label: 'Published', value: 'August 2026' },
+      { label: 'Version', value: '2.3' },
+      { label: 'Updated', value: '18 October 2026' },
     ],
     link: 'https://ctrader.com/products/438',
+    userGuide: SGU_USER_GUIDES.en,
   },
   {
     id: 'portfolio-optimizer',

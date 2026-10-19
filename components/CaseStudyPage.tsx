@@ -1,5 +1,12 @@
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCheck } from 'lucide-react'
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  CheckCheck,
+  Download,
+  FileText,
+} from 'lucide-react'
 import { getData, type Lang } from '@/app/data'
 import { getCaseStudy } from '@/app/case-studies'
 import { caseStudyPath, FEATURED_PROJECT_IDS, type CaseSlug } from '@/lib/project-routes'
@@ -99,6 +106,88 @@ export function CaseStudyPage({ lang, slug }: { lang: Lang; slug: CaseSlug }) {
             <ArrowUpRight size={16} aria-hidden="true" />
           </a>
         </header>
+        {project.userGuide && (
+          <section aria-labelledby="case-guide" className="case-card">
+            <p className="eyebrow flex items-center gap-2">
+              <FileText size={16} aria-hidden="true" />
+              {en ? 'Product documentation' : 'Documentación del producto'}
+            </p>
+            <h2 id="case-guide" className="case-heading">
+              {en ? 'User guide' : 'Guía de usuario'} v{project.userGuide.version}
+            </h2>
+            <p className="case-copy">
+              {en
+                ? 'Installation, settings, version changes, historical study and operating guidance.'
+                : 'Instalación, parámetros, cambios de versión, estudio histórico y orientación de uso.'}
+            </p>
+            <p className="mt-3 text-xs text-zinc-500 dark:text-zinc-400">
+              {en ? 'English' : 'Español'} · PDF · {project.userGuide.pages}{' '}
+              {en ? 'pages' : 'páginas'} ·{' '}
+              <time dateTime={project.userGuide.publishedAt}>
+                {new Intl.DateTimeFormat(en ? 'en-GB' : 'es-CL', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric',
+                  timeZone: 'UTC',
+                }).format(new Date(`${project.userGuide.publishedAt}T00:00:00Z`))}
+              </time>
+            </p>
+            <div className="mt-5 flex flex-wrap items-center gap-5">
+              <a
+                href={project.userGuide.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                hrefLang={lang}
+                type="application/pdf"
+                className="button-primary"
+              >
+                {en ? 'Read guide' : 'Leer guía'}
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </a>
+              <a
+                href={project.userGuide.url}
+                download
+                hrefLang={lang}
+                type="application/pdf"
+                className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-teal-700 hover:underline dark:text-teal-300"
+              >
+                <Download size={16} aria-hidden="true" />
+                {en ? 'Download PDF' : 'Descargar PDF'}
+              </a>
+            </div>
+          </section>
+        )}
+        {study.video && (
+          <section aria-labelledby="case-video" className="case-section">
+            <p className="eyebrow">
+              {en ? 'Product walkthrough' : 'Demostración del producto'}
+            </p>
+            <h2 id="case-video" className="case-heading">
+              {study.video.title}
+            </h2>
+            <p className="case-copy mb-5">{study.video.description}</p>
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${study.video.youtubeId}?hl=${lang}&cc_lang_pref=${lang}&playsinline=1&rel=0`}
+              title={study.video.title}
+              width="960"
+              height="540"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              className="aspect-video h-auto min-h-[200px] w-full rounded-2xl border-0 bg-black"
+            />
+            <a
+              href={`https://www.youtube.com/watch?v=${study.video.youtubeId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex min-h-11 items-center gap-1 text-sm text-teal-700 hover:underline dark:text-teal-300"
+            >
+              {en ? 'Watch on YouTube' : 'Ver en YouTube'}
+              <ArrowUpRight size={14} aria-hidden="true" />
+            </a>
+          </section>
+        )}
         <Screenshot index={0} />
         <div className="case-context">
           <section aria-labelledby="case-problem">
