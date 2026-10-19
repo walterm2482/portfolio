@@ -297,13 +297,13 @@ const WORK_EXPERIENCE_ES: WorkExperience[] = [
     title: 'Fundador',
     company: 'Crafium',
     start: 'feb 2025',
-    end: 'nov 2025',
+    end: 'Presente',
     location: 'Santiago · Chile',
     summary:
       'Emprendimiento de diseño y fabricación de productos personalizados con corte láser.',
     highlights: [
-      'Gestioné diseño, materiales, producción, control de calidad, ventas y distribución.',
-      'Analicé costos, tiempos y márgenes para evaluar precios y rentabilidad.',
+      'Gestiono diseño, materiales, producción, control de calidad, ventas y distribución.',
+      'Analizo costos, tiempos y márgenes para evaluar precios y rentabilidad.',
     ],
     stack: ['Gestión de operaciones', 'Análisis de costos', 'Diseño de producto'],
   },
@@ -588,13 +588,13 @@ const WORK_EXPERIENCE_EN: WorkExperience[] = [
     title: 'Founder',
     company: 'Crafium',
     start: 'Feb 2025',
-    end: 'Nov 2025',
+    end: 'Present',
     location: 'Santiago · Chile',
     summary:
       'Product design and manufacturing venture using laser cutting and engraving.',
     highlights: [
-      'Managed design, materials, production, quality control, sales and distribution.',
-      'Analyzed costs, production times and margins to assess pricing and profitability.',
+      'Manage design, materials, production, quality control, sales and distribution.',
+      'Analyze costs, production times and margins to assess pricing and profitability.',
     ],
     stack: ['Operations', 'Cost Analysis', 'Product Design'],
   },
