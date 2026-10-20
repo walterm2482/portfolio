@@ -54,3 +54,14 @@ Seguir [INSTALLATION.md](INSTALLATION.md) para subir la rama, revisar la Preview
 - Capturas guardadas fuera del repositorio en `../vista-previa-portfolio/`.
 
 La iteración posterior con CV, galería enfocada y casos ampliados se documenta en [CASOS_Y_CV.md](CASOS_Y_CV.md).
+
+## Pulido visual — 20 de octubre de 2026
+
+Rama: `mejora-visual-portfolio`.
+
+- Miniaturas 16:9 en `public/projects/cards/`, indicadas en el campo `thumbnail` de cada proyecto. FSG Ultimate muestra un recorte del gráfico de señales y Portfolio Optimizer el backtest de equity y drawdown; al ampliar se abre la imagen completa (`image`). Las imágenes cuadradas de ClickAlgo y Divvy se centran sobre su propio color de fondo.
+- Tarjeta de la portada reemplazada por FSG Ultimate como producto destacado (`components/FeaturedProductCard.tsx`); versión, fecha y páginas provienen de `lib/sgu.ts`.
+- Texto con espaciado normal, enlaces de navegación de 14 px y titulares algo menos comprimidos.
+- Se retiraron las numeraciones decorativas de habilidades, notebooks y secciones de los casos; se conservan las de la portada.
+- Notebook destacado a ancho completo cuando el total es impar; fechas de las fichas en formato corto (`18 oct 2026` / `18 Oct 2026`); subtítulo de la portada en español.
+- Validación: lint sin errores (persiste el aviso de `<img>` en `mdx-components.tsx`), comprobación de tipos y compilación de producción correctas; capturas con Playwright sobre Brave en ambos idiomas, temas claro y oscuro, 1440 y 375 px.

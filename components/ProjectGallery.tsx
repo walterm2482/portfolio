@@ -103,6 +103,7 @@ export function ProjectGallery({ projects, lang }: { projects: Project[]; lang: 
             <div className="project-media">
               <ProjectMedia
                 image={project.image}
+                thumbnail={project.thumbnail}
                 video={project.video}
                 poster={project.poster}
                 index={index}

@@ -6,7 +6,6 @@ export function getProfileData(lang: Lang) {
     capabilities: [
       {
         id: 'data',
-        number: '01',
         title: en ? 'Data that supports decisions' : 'Datos para tomar decisiones',
         description: en
           ? 'From raw data to useful information: ETL pipelines, quality checks, exploratory analysis and dashboards with a business perspective.'
@@ -15,7 +14,6 @@ export function getProfileData(lang: Lang) {
       },
       {
         id: 'ml',
-        number: '02',
         title: en ? 'Models you can evaluate' : 'Modelos que se pueden evaluar',
         description: en
           ? 'Predictive modeling, computer vision and explainability. Reproducible workflows, temporal validation and a clear account of model limitations.'
@@ -24,7 +22,6 @@ export function getProfileData(lang: Lang) {
       },
       {
         id: 'quant',
-        number: '03',
         title: en
           ? 'Quantitative research and development'
           : 'Investigación y desarrollo cuantitativo',

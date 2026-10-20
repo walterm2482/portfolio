@@ -18,6 +18,8 @@ export type Project = {
   description: string
   category?: 'quant' | 'data' | 'ml'
   image?: string
+  /** 16:9 crop shown on the gallery card; the dialog opens `image`. */
+  thumbnail?: string
   video?: string
   poster?: string
   link?: string
@@ -75,13 +77,14 @@ const PROJECTS_ES: Project[] = [
     name: 'FSG Ultimate v2.3',
     description:
       'Smart Grid Ultimate: cBot de reversión a la media con posiciones de igual tamaño, confirmación multitemporal opcional y gestión de riesgo por cesta. v2.3 simplifica la configuración y retira ADX.',
-    image: '/projects/fsg-ultimate.webp',
+    image: '/projects/cases/fsg-signal.webp',
+    thumbnail: '/projects/cards/fsg-ultimate.webp',
     role: 'Quantitative Developer',
     category: 'quant',
     stack: ['C#', '.NET 6', 'cTrader Automate', 'Mean Reversion', 'Risk Management'],
     metrics: [
       { label: 'Versión', value: '2.3' },
-      { label: 'Actualizado', value: '18 octubre 2026' },
+      { label: 'Actualizado', value: '18 oct 2026' },
     ],
     link: 'https://ctrader.com/products/438',
     userGuide: SGU_USER_GUIDES.es,
@@ -91,7 +94,8 @@ const PROJECTS_ES: Project[] = [
     name: 'Portfolio Optimizer',
     description:
       'Dashboard y CLI para comparar cuatro métodos de asignación de activos, con señales ML opcionales y backtesting visual.',
-    image: '/projects/portfolio-optimizer.png',
+    image: '/projects/cases/portfolio-equity.png',
+    thumbnail: '/projects/cards/portfolio-optimizer.webp',
     role: 'Quantitative Developer',
     category: 'quant',
     stack: [
@@ -137,6 +141,7 @@ const PROJECTS_ES: Project[] = [
     description:
       'Indicador de clustering K-Means para cTrader que utiliza machine learning para detectar patrones de mercado y visualizar señales de trading.',
     image: '/projects/k_means.webp',
+    thumbnail: '/projects/cards/k-means.webp',
     role: 'ML Engineer',
     stack: [
       'C#',
@@ -148,7 +153,7 @@ const PROJECTS_ES: Project[] = [
     ],
     metrics: [
       { label: 'Versión', value: '2.0.0' },
-      { label: 'Actualizado', value: '2025-10-08' },
+      { label: 'Actualizado', value: '8 oct 2025' },
     ],
     link: 'https://clickalgo.com/k-means',
     demo: 'https://clickalgo.com/k-means',
@@ -160,6 +165,7 @@ const PROJECTS_ES: Project[] = [
     description:
       'Clasificador probabilístico para cTrader que utiliza mezclas gaussianas para explorar patrones de mercado y visualizar señales.',
     image: '/projects/gaussian_mixture_model.webp',
+    thumbnail: '/projects/cards/gaussian-mixture.webp',
     role: 'ML Engineer',
     stack: [
       'C#',
@@ -171,7 +177,7 @@ const PROJECTS_ES: Project[] = [
     ],
     metrics: [
       { label: 'Versión', value: '1.0.0' },
-      { label: 'Actualizado', value: '2025-09-18' },
+      { label: 'Actualizado', value: '18 sept 2025' },
     ],
     link: 'https://clickalgo.com/gaussian-mixture',
     demo: 'https://clickalgo.com/gaussian-mixture',
@@ -182,11 +188,12 @@ const PROJECTS_ES: Project[] = [
     description:
       'Estrategia de portafolio de mínima correlación que automatiza el análisis de activos y optimiza el balance riesgo-retorno mediante análisis de correlación e integración con cAlgo.',
     image: '/projects/smart_portfolio.webp',
+    thumbnail: '/projects/cards/smart-portfolio.webp',
     role: 'Quantitative Developer',
     stack: ['cAlgo', 'Portfolio Optimization', 'Risk Management', 'REST API (Telegram)'],
     metrics: [
       { label: 'Versión', value: '1.0.0' },
-      { label: 'Actualizado', value: '2025-09-18' },
+      { label: 'Actualizado', value: '18 sept 2025' },
     ],
     link: 'https://clickalgo.com/smart-portfolio-architect',
     demo: 'https://clickalgo.com/smart-portfolio-architect',
@@ -197,11 +204,12 @@ const PROJECTS_ES: Project[] = [
     description:
       'Indicador de series temporales con filtro de Kalman, MEWMA y bandas ATR. Incluye alertas vía Telegram.',
     image: '/projects/moya_bands.webp',
+    thumbnail: '/projects/cards/moya-bands.webp',
     role: 'Quantitative Developer',
     stack: ['Kalman Filter', 'Time Series Analysis', 'cTrader', 'Telegram API'],
     metrics: [
       { label: 'Versión', value: '1.0.0' },
-      { label: 'Actualizado', value: '2025-09-09' },
+      { label: 'Actualizado', value: '9 sept 2025' },
     ],
     link: 'https://clickalgo.com/moya-bands',
     demo: 'https://clickalgo.com/moya-bands',
@@ -213,6 +221,7 @@ const PROJECTS_ES: Project[] = [
     description:
       'Análisis de segmentación y optimización operativa del sistema de bicicletas de Chicago para impulsar la conversión a membresías anuales.',
     image: '/projects/divvy_chicago.webp',
+    thumbnail: '/projects/cards/divvy-chicago.webp',
     role: 'Data Scientist',
     stack: [
       'Segmentation Analysis',
@@ -231,7 +240,7 @@ const PROJECTS_ES: Project[] = [
     },
     metrics: [
       { label: 'Versión', value: '1.0.0' },
-      { label: 'Actualizado', value: '2025-07-01' },
+      { label: 'Actualizado', value: '1 jul 2025' },
     ],
     demo: 'https://www.kaggle.com/code/waltertmoyaaraya/divvy-chicago-strategic-insights-jan-jun-2025',
   },
@@ -368,13 +377,14 @@ const PROJECTS_EN: Project[] = [
     name: 'FSG Ultimate v2.3',
     description:
       'Smart Grid Ultimate: a mean-reversion cBot with equal-size positions, optional multi-timeframe confirmation and basket risk management. v2.3 simplifies configuration and removes ADX.',
-    image: '/projects/fsg-ultimate.webp',
+    image: '/projects/cases/fsg-signal.webp',
+    thumbnail: '/projects/cards/fsg-ultimate.webp',
     role: 'Quantitative Developer',
     category: 'quant',
     stack: ['C#', '.NET 6', 'cTrader Automate', 'Mean Reversion', 'Risk Management'],
     metrics: [
       { label: 'Version', value: '2.3' },
-      { label: 'Updated', value: '18 October 2026' },
+      { label: 'Updated', value: '18 Oct 2026' },
     ],
     link: 'https://ctrader.com/products/438',
     userGuide: SGU_USER_GUIDES.en,
@@ -384,7 +394,8 @@ const PROJECTS_EN: Project[] = [
     name: 'Portfolio Optimizer',
     description:
       'Dashboard and CLI for comparing four asset allocation methods, with optional ML signals and visual backtesting.',
-    image: '/projects/portfolio-optimizer.png',
+    image: '/projects/cases/portfolio-equity.png',
+    thumbnail: '/projects/cards/portfolio-optimizer.webp',
     role: 'Quantitative Developer',
     category: 'quant',
     stack: [
@@ -428,6 +439,7 @@ const PROJECTS_EN: Project[] = [
     description:
       'K-Means clustering indicator for cTrader that uses machine learning to detect market patterns and visualize trading signals.',
     image: '/projects/k_means.webp',
+    thumbnail: '/projects/cards/k-means.webp',
     role: 'ML Engineer',
     stack: [
       'C#',
@@ -439,7 +451,7 @@ const PROJECTS_EN: Project[] = [
     ],
     metrics: [
       { label: 'Version', value: '2.0.0' },
-      { label: 'Updated', value: '2025-10-08' },
+      { label: 'Updated', value: '8 Oct 2025' },
     ],
     link: 'https://clickalgo.com/k-means',
     demo: 'https://clickalgo.com/k-means',
@@ -451,6 +463,7 @@ const PROJECTS_EN: Project[] = [
     description:
       'Probabilistic classifier for cTrader using Gaussian mixtures to explore market patterns and visualize signals.',
     image: '/projects/gaussian_mixture_model.webp',
+    thumbnail: '/projects/cards/gaussian-mixture.webp',
     role: 'ML Engineer',
     stack: [
       'C#',
@@ -462,7 +475,7 @@ const PROJECTS_EN: Project[] = [
     ],
     metrics: [
       { label: 'Version', value: '1.0.0' },
-      { label: 'Updated', value: '2025-09-18' },
+      { label: 'Updated', value: '18 Sep 2025' },
     ],
     link: 'https://clickalgo.com/gaussian-mixture',
     demo: 'https://clickalgo.com/gaussian-mixture',
@@ -473,11 +486,12 @@ const PROJECTS_EN: Project[] = [
     description:
       'Minimum-correlation portfolio strategy that automates asset analysis and optimizes the risk–return balance using correlation analysis and cAlgo integration.',
     image: '/projects/smart_portfolio.webp',
+    thumbnail: '/projects/cards/smart-portfolio.webp',
     role: 'Quantitative Developer',
     stack: ['cAlgo', 'Portfolio Optimization', 'Risk Management', 'REST API (Telegram)'],
     metrics: [
       { label: 'Version', value: '1.0.0' },
-      { label: 'Updated', value: '2025-09-18' },
+      { label: 'Updated', value: '18 Sep 2025' },
     ],
     link: 'https://clickalgo.com/smart-portfolio-architect',
     demo: 'https://clickalgo.com/smart-portfolio-architect',
@@ -488,11 +502,12 @@ const PROJECTS_EN: Project[] = [
     description:
       'Time-series indicator with a Kalman filter, MEWMA and ATR bands. Includes Telegram alerts.',
     image: '/projects/moya_bands.webp',
+    thumbnail: '/projects/cards/moya-bands.webp',
     role: 'Quantitative Developer',
     stack: ['Kalman Filter', 'Time Series Analysis', 'cTrader', 'Telegram API'],
     metrics: [
       { label: 'Version', value: '1.0.0' },
-      { label: 'Updated', value: '2025-09-09' },
+      { label: 'Updated', value: '9 Sep 2025' },
     ],
     link: 'https://clickalgo.com/moya-bands',
     demo: 'https://clickalgo.com/moya-bands',
@@ -504,6 +519,7 @@ const PROJECTS_EN: Project[] = [
     description:
       "Segmentation analysis and operational optimization of Chicago's bike system to drive conversion to annual memberships.",
     image: '/projects/divvy_chicago.webp',
+    thumbnail: '/projects/cards/divvy-chicago.webp',
     role: 'Data Scientist',
     stack: [
       'Segmentation Analysis',
@@ -522,7 +538,7 @@ const PROJECTS_EN: Project[] = [
     },
     metrics: [
       { label: 'Version', value: '1.0.0' },
-      { label: 'Updated', value: '2025-07-01' },
+      { label: 'Updated', value: '1 Jul 2025' },
     ],
     demo: 'https://www.kaggle.com/code/waltertmoyaaraya/divvy-chicago-strategic-insights-jan-jun-2025',
   },
