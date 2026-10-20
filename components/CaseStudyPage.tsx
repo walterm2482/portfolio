@@ -191,14 +191,14 @@ export function CaseStudyPage({ lang, slug }: { lang: Lang; slug: CaseSlug }) {
         <Screenshot index={0} />
         <div className="case-context">
           <section aria-labelledby="case-problem">
-            <p className="eyebrow">01 / {en ? 'Context' : 'Contexto'}</p>
+            <p className="eyebrow">{en ? 'Context' : 'Contexto'}</p>
             <h2 id="case-problem" className="case-heading">
               {en ? 'The problem' : 'El problema'}
             </h2>
             <p className="case-copy">{study.problem}</p>
           </section>
           <section aria-labelledby="case-contribution">
-            <p className="eyebrow">02 / {en ? 'My role' : 'Mi aporte'}</p>
+            <p className="eyebrow">{en ? 'My role' : 'Mi aporte'}</p>
             <h2 id="case-contribution" className="case-heading">
               {en ? 'What I built' : 'Qué construí'}
             </h2>
@@ -237,7 +237,7 @@ export function CaseStudyPage({ lang, slug }: { lang: Lang; slug: CaseSlug }) {
           ))}
         </ol>
         <section aria-labelledby="case-decisions" className="case-section">
-          <p className="eyebrow">03 / {en ? 'Engineering' : 'Ingeniería'}</p>
+          <p className="eyebrow">{en ? 'Engineering' : 'Ingeniería'}</p>
           <h2 id="case-decisions" className="case-heading">
             {en ? 'Technical decisions' : 'Decisiones técnicas'}
           </h2>
@@ -254,7 +254,7 @@ export function CaseStudyPage({ lang, slug }: { lang: Lang; slug: CaseSlug }) {
           <Screenshot key={screenshot.image} index={index + 1} />
         ))}
         <section aria-labelledby="case-results" className="case-section case-results">
-          <p className="eyebrow">04 / {en ? 'Evidence' : 'Evidencia'}</p>
+          <p className="eyebrow">{en ? 'Evidence' : 'Evidencia'}</p>
           <h2 id="case-results" className="case-heading">
             {en ? 'Verified deliverables' : 'Resultados verificables'}
           </h2>

@@ -114,7 +114,7 @@ html.dark {
 }
 .nav-link {
   position: relative;
-  font-size: 12px;
+  font-size: 14px;
   color: #71717a;
   transition: color 150ms;
 }
@@ -220,7 +220,7 @@ html.dark {
   font-size: clamp(2.6rem, 5.2vw, 4.2rem);
   font-weight: 600;
   line-height: 1.09;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.04em;
   text-wrap: balance;
 }
 .workflow-card {
@@ -311,7 +311,7 @@ html.dark {
   font-size: clamp(1.8rem, 3.3vw, 2.6rem);
   line-height: 1.15;
   font-weight: 600;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.035em;
   text-wrap: balance;
 }
 .capability-card {
@@ -387,6 +387,9 @@ html.dark {
 }
 .dark .project-media {
   background: linear-gradient(150deg, #1c2924, #111d18);
+}
+.project-media .media-frame {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent);
 }
 .project-body {
   display: flex;
@@ -582,7 +585,7 @@ html.dark {
   max-width: 850px;
   font-size: clamp(2.4rem, 5.6vw, 4.3rem);
   font-weight: 600;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.04em;
   line-height: 1.08;
   text-wrap: balance;
 }

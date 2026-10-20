@@ -48,7 +48,7 @@ export function SiteLayout({
         />
       </head>
       <body
-        className={`${geist.variable} ${geistMono.variable} tracking-tight text-zinc-900 antialiased dark:text-zinc-100`}
+        className={`${geist.variable} ${geistMono.variable} text-zinc-900 antialiased dark:text-zinc-100`}
       >
         <ThemeProvider
           attribute="class"

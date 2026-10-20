@@ -89,17 +89,12 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
             const Icon = icons[area.id as keyof typeof icons]
             return (
               <div key={area.id} className="capability-card">
-                <div className="mb-7 flex items-center justify-between">
-                  <Icon
-                    size={23}
-                    strokeWidth={1.5}
-                    className="text-teal-700 dark:text-teal-300"
-                    aria-hidden="true"
-                  />
-                  <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">
-                    /{area.number}
-                  </span>
-                </div>
+                <Icon
+                  size={23}
+                  strokeWidth={1.5}
+                  className="mb-7 text-teal-700 dark:text-teal-300"
+                  aria-hidden="true"
+                />
                 <h3 className="max-w-xs text-lg leading-snug font-semibold">
                   {area.title}
                 </h3>
@@ -276,11 +271,13 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
                 href={post.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="notebook-card group"
+                className={`notebook-card group ${
+                  index === 0 && BLOG_POSTS.length % 2 === 1 ? 'sm:col-span-2' : ''
+                }`}
               >
                 <div className="mb-6 flex items-center justify-between">
                   <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">
-                    NOTEBOOK / {String(index + 1).padStart(2, '0')}
+                    Kaggle notebook
                   </span>
                   <ArrowUpRight
                     size={18}

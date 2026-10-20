@@ -15,6 +15,8 @@ import {
 
 type Props = {
   image?: string
+  /** 16:9 image that fills the trigger; the dialog still opens `image`. */
+  thumbnail?: string
   video?: string
   poster?: string
   index?: number
@@ -25,6 +27,7 @@ type Props = {
 
 export function ProjectMedia({
   image,
+  thumbnail,
   video,
   poster,
   index = 0,
@@ -67,15 +70,15 @@ export function ProjectMedia({
             />
           ) : (
             <div
-              className="relative w-full rounded-xl"
+              className="media-frame relative w-full overflow-hidden rounded-xl"
               style={{ aspectRatio: imageAspectRatio }}
             >
               <Image
-                src={src}
+                src={thumbnail ?? src}
                 alt={altText}
                 fill
                 sizes="(min-width: 1040px) 480px, (min-width: 640px) 50vw, 100vw"
-                className="rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.025]"
+                className={`${thumbnail ? 'object-cover' : 'object-contain'} transition-transform duration-300 group-hover:scale-[1.025]`}
                 priority={priority}
               />
             </div>
